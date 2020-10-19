@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="&#35299;&#27861;&#19968; &#28145;&#24230;&#20248;&#20808;&#25628;&#32034; &#26412;&#39064;&#19982;uva1602&#26377;&#28857;&#31867;&#20284;&#12290; &#24605;&#36335;&#65306;&#29992;dfs&#27714;&#20986;&#36830;&#36890;&#20998;&#37327;&#12290;&#27599;&#20010;&#36830;&#36890;&#20998;&#37327;&#23601;&#26159;&#19968;&#24231;&#23707;&#23679;&#12290;&#32479;&#35745;&#23707;&#23679;&#20010;&#25968;&#21363;&#21487;&#12290; &#20851;&#38190;&#28857;&#22312;&#20110;&#22914;&#20309;&#21028;&#26029;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290; &#20998;&#25104;&#19977;&#27493;&#23436;&#25104;&#65306; 1&#65292;&#34920;&#31034;&#23707;&#23679;&#12290; 2&#65292;&#27599;&#20010;&#23707;&#23679;&#26377;&#20845;&#31181;&#24418;&#24577;&#65306;&#21407;&#22987;&#65292; &#39034;&#26102;&#38024;&#26059;&#36716; 90&deg;&#65292;180&deg;&#65292;270&deg; , &#24038;&#21491;&#32763;&#36716;&#65292;&#19978;&#19979;&#32763;&#36716;"><meta name="keywords" content="&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/#webpage","url":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/","inLanguage":"en-US","name":"leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/#breadcrumblist"},"datePublished":"2019-12-30T09:03:13+08:00","dateModified":"2019-12-30T09:03:20+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/#article","isPartOf":{"@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II","datePublished":"2019-12-30T09:03:13+08:00","dateModified":"2019-12-30T09:03:20+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Leetcode Algorithms, &#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/","url":"http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/","name":"leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/"><meta property="og:type" content="activity"><meta property="og:title" content="leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II | Wonderful Tech"><meta property="og:description" content="&#35299;&#27861;&#19968; &#28145;&#24230;&#20248;&#20808;&#25628;&#32034; &#26412;&#39064;&#19982;uva1602&#26377;&#28857;&#31867;&#20284;&#12290; &#24605;&#36335;&#65306;&#29992;dfs&#27714;&#20986;&#36830;&#36890;&#20998;&#37327;&#12290;&#27599;&#20010;&#36830;&#36890;&#20998;&#37327;&#23601;&#26159;&#19968;&#24231;&#23707;&#23679;&#12290;&#32479;&#35745;&#23707;&#23679;&#20010;&#25968;&#21363;&#21487;&#12290; &#20851;&#38190;&#28857;&#22312;&#20110;&#22914;&#20309;&#21028;&#26029;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290; &#20998;&#25104;&#19977;&#27493;&#23436;&#25104;&#65306; 1&#65292;&#34920;&#31034;&#23707;&#23679;&#12290; 2&#65292;&#27599;&#20010;&#23707;&#23679;&#26377;&#20845;&#31181;&#24418;&#24577;&#65306;&#21407;&#22987;&#65292; &#39034;&#26102;&#38024;&#26059;&#36716; 90&deg;&#65292;180&deg;&#65292;270&deg; , &#24038;&#21491;&#32763;&#36716;&#65292;&#19978;&#19979;&#32763;&#36716; &#12290;&#24179;&#31227;&#65292;&#26059;&#36716;&#65292;&#21453;&#36716;&#25805;&#20316;&#24590;&#20040;&#23436;&#25104;&#12290; 3&#65292;&#27604;&#36739;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290;&#21482;&#35201;&#27599;&#20010;&#23707;&#23679;&#20845;&#20010;&#29366;&#24577;&#20013;&#65292;&#26377;&#19968;&#23545;&#30456;&#21516;&#65292;&#37027;&#20040;&#20004;&#20010;&#23707;"><meta property="og:url" content="http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II | Wonderful Tech"><meta name="twitter:description" content="&#35299;&#27861;&#19968; &#28145;&#24230;&#20248;&#20808;&#25628;&#32034; &#26412;&#39064;&#19982;uva1602&#26377;&#28857;&#31867;&#20284;&#12290; &#24605;&#36335;&#65306;&#29992;dfs&#27714;&#20986;&#36830;&#36890;&#20998;&#37327;&#12290;&#27599;&#20010;&#36830;&#36890;&#20998;&#37327;&#23601;&#26159;&#19968;&#24231;&#23707;&#23679;&#12290;&#32479;&#35745;&#23707;&#23679;&#20010;&#25968;&#21363;&#21487;&#12290; &#20851;&#38190;&#28857;&#22312;&#20110;&#22914;&#20309;&#21028;&#26029;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290; &#20998;&#25104;&#19977;&#27493;&#23436;&#25104;&#65306; 1&#65292;&#34920;&#31034;&#23707;&#23679;&#12290; 2&#65292;&#27599;&#20010;&#23707;&#23679;&#26377;&#20845;&#31181;&#24418;&#24577;&#65306;&#21407;&#22987;&#65292; &#39034;&#26102;&#38024;&#26059;&#36716; 90&deg;&#65292;180&deg;&#65292;270&deg; , &#24038;&#21491;&#32763;&#36716;&#65292;&#19978;&#19979;&#32763;&#36716; &#12290;&#24179;&#31227;&#65292;&#26059;&#36716;&#65292;&#21453;&#36716;&#25805;&#20316;&#24590;&#20040;&#23436;&#25104;&#12290; 3&#65292;&#27604;&#36739;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290;&#21482;&#35201;&#27599;&#20010;&#23707;&#23679;&#20845;&#20010;&#29366;&#24577;&#20013;&#65292;&#26377;&#19968;&#23545;&#30456;&#21516;&#65292;&#37027;&#20040;&#20004;&#20010;&#23707;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II Comments Feed" href="http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/13855"><link rel="prev" title="leetcode1183 &#30697;&#38453;&#20013; 1 &#30340;&#26368;&#22823;&#25968;&#37327; Maximum Number of Ones" href="http://www.showsql.com/2019/12/29/leetcode1183-maximum-number-of-ones/"><link rel="next" title="leetcode834 &#26641;&#20013;&#36317;&#31163;&#20043;&#21644; Sum of Distances in Tree" href="http://www.showsql.com/2019/12/31/leetcode834-sum-of-distances-in-tree/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F12%2F30%2Fleetcode711-number-of-distinct-islands-ii%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F12%2F30%2Fleetcode711-number-of-distinct-islands-ii%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-13855 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/leetcode-algorithms/" rel="category tag">Leetcode Algorithms</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-13855" class="post-13855 post type-post status-publish format-standard hentry category-leetcode-algorithms tag-28"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/" rel="bookmark"><time class="entry-date published" datetime="2019-12-30T17:03:13+08:00">2019&#24180;12&#26376;30&#26085;</time><time class="updated" datetime="2019-12-30T17:03:20+08:00">2019&#24180;12&#26376;30&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/12/30/leetcode711-number-of-distinct-islands-ii/" title="leetcode711 &#19981;&#21516;&#23707;&#23679;&#30340;&#25968;&#37327; II Number of Distinct Islands II"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><div id="ez-toc-container" class="ez-toc-v2_0_11 counter-hierarchy counter-decimal ez-toc-grey"><div class="ez-toc-title-container"><p class="ez-toc-title">Table of Contents</p> <span class="ez-toc-title-toggle"></span></div><nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#%E8%A7%A3%E6%B3%95%E4%B8%80_%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" title="&#35299;&#27861;&#19968; &#28145;&#24230;&#20248;&#20808;&#25628;&#32034;">&#35299;&#27861;&#19968; &#28145;&#24230;&#20248;&#20808;&#25628;&#32034;</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-2" href="#%E5%B2%9B%E5%B1%BF%E8%A1%A8%E7%A4%BA" title="&#23707;&#23679;&#34920;&#31034;">&#23707;&#23679;&#34920;&#31034;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-3" href="#%E6%97%8B%E8%BD%AC,%E7%BF%BB%E8%BD%AC,%E5%B9%B3%E7%A7%BB,%E6%8E%92%E5%BA%8F" title="&#26059;&#36716;,&#32763;&#36716;,&#24179;&#31227;,&#25490;&#24207;">&#26059;&#36716;,&#32763;&#36716;,&#24179;&#31227;,&#25490;&#24207;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-4" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0" title="&#21704;&#24076;&#20989;&#25968;">&#21704;&#24076;&#20989;&#25968;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-5" href="#%E5%88%A4%E6%96%AD%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89" title="&#21028;&#26029;&#36830;&#36890;&#20998;&#37327;&#26159;&#21542;&#30456;&#31561;">&#21028;&#26029;&#36830;&#36890;&#20998;&#37327;&#26159;&#21542;&#30456;&#31561;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-6" href="#dfs%E6%B1%82%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F" title="dfs&#27714;&#36830;&#36890;&#20998;&#37327;">dfs&#27714;&#36830;&#36890;&#20998;&#37327;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-7" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81" title="&#23436;&#25972;&#20195;&#30721;">&#23436;&#25972;&#20195;&#30721;</a></li></ul></li></ul></nav></div><h2><span class="ez-toc-section" id="%E8%A7%A3%E6%B3%95%E4%B8%80_%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"></span>&#35299;&#27861;&#19968; &#28145;&#24230;&#20248;&#20808;&#25628;&#32034;<span class="ez-toc-section-end"></span></h2><p>&#26412;&#39064;&#19982;<a href="https://vjudge.net/problem/UVA-1602">uva1602</a>&#26377;&#28857;&#31867;&#20284;&#12290;</p><p>&#24605;&#36335;&#65306;&#29992;dfs&#27714;&#20986;&#36830;&#36890;&#20998;&#37327;&#12290;&#27599;&#20010;&#36830;&#36890;&#20998;&#37327;&#23601;&#26159;&#19968;&#24231;&#23707;&#23679;&#12290;&#32479;&#35745;&#23707;&#23679;&#20010;&#25968;&#21363;&#21487;&#12290;</p><p>&#20851;&#38190;&#28857;&#22312;&#20110;&#22914;&#20309;&#21028;&#26029;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290;</p><p>&#20998;&#25104;&#19977;&#27493;&#23436;&#25104;&#65306;</p><p>1&#65292;&#34920;&#31034;&#23707;&#23679;&#12290;</p><p>2&#65292;&#27599;&#20010;&#23707;&#23679;&#26377;&#20845;&#31181;&#24418;&#24577;&#65306;&#21407;&#22987;&#65292; &#39034;&#26102;&#38024;&#26059;&#36716; 90&deg;&#65292;180&deg;&#65292;270&deg; , &#24038;&#21491;&#32763;&#36716;&#65292;&#19978;&#19979;&#32763;&#36716; &#12290;&#24179;&#31227;&#65292;&#26059;&#36716;&#65292;&#21453;&#36716;&#25805;&#20316;&#24590;&#20040;&#23436;&#25104;&#12290;</p><p>3&#65292;&#27604;&#36739;&#20004;&#20010;&#23707;&#23679;&#26159;&#21542;&#30456;&#21516;&#12290;&#21482;&#35201;&#27599;&#20010;&#23707;&#23679;&#20845;&#20010;&#29366;&#24577;&#20013;&#65292;&#26377;&#19968;&#23545;&#30456;&#21516;&#65292;&#37027;&#20040;&#20004;&#20010;&#23707;&#23679;&#23601;&#30456;&#21516;&#12290;</p><h3><span class="ez-toc-section" id="%E5%B2%9B%E5%B1%BF%E8%A1%A8%E7%A4%BA"></span>&#23707;&#23679;&#34920;&#31034;<span class="ez-toc-section-end"></span></h3><p>&#23707;&#23679;&#23601;&#26159;&#36830;&#36890;&#20998;&#37327;&#12290;&#29992;&#22352;&#26631;&#24207;&#21015;&#34920;&#31034;&#23707;&#23679;&#27604;&#36739;&#26041;&#20415;&#65292;&#20063;&#20415;&#20110;&#26059;&#36716;&#65292;&#32763;&#36716;&#29366;&#24577;&#30340;&#35745;&#31639;&#12290;&#20026;&#34920;&#31034; &#23707;&#23679; &#30340;&#20845;&#31181;&#29366;&#24577;&#65292;&#29992;&#20845;&#20010;&#22352;&#26631;&#24207;&#21015;&#34920;&#31034;&#23707;&#23679;&#12290;</p><p>&#29992;&#31532;&#19968;&#20010;&#22352;&#26631;&#24207;&#21015;&#34920;&#31034;&#20803;&#32032;&#29366;&#24577;&#12290;</p><pre class="wp-block-code"><code>node{
+    //data[0]&#34920;&#31034;&#31532;&#19968;&#20010;&#22352;&#26631;&#24207;&#21015;
+    data[6]=[[],[],[],[],[],[]];
+    add(x,y){
+        (x,y)&#20837;data[0];
+    }
+}</code></pre><h3><span class="ez-toc-section" id="%E6%97%8B%E8%BD%AC,%E7%BF%BB%E8%BD%AC,%E5%B9%B3%E7%A7%BB,%E6%8E%92%E5%BA%8F"></span>&#26059;&#36716;,&#32763;&#36716;,&#24179;&#31227;,&#25490;&#24207;<span class="ez-toc-section-end"></span></h3><p>&#36830;&#36890;&#20998;&#37327;&#29992;&#22352;&#26631;&#24207;&#21015;&#34920;&#31034;&#12290;</p><p>&#23558;&#22352;&#26631;(x,y)&#30475;&#20316;&#21521;&#37327;&#12290;&#21033;&#29992;&#35299;&#26512;&#20960;&#20309;&#30340;&#30693;&#35782;&#12290;&#35745;&#31639;&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#24179;&#31227;&#12290;</p><p>&#21521;&#37327;(x,y)&#26059;&#36716;90&#24230;&#21644;270&#24230;: &#26500;&#25104;&#27491;&#20132;&#21521;&#37327;&#12290;&#21521;&#37327;&#20869;&#31215;&#20026;0&#12290;</p><p>&#22240;&#27492;&#65292;&#26059;&#36716;90&#24230;&#30340;&#21521;&#37327;&#20026;(y,-x)&#12290;270&#24230;&#30340;&#21521;&#37327;&#26159;(-y,x).</p><p>&#21521;&#37327;(x,y)&#26059;&#36716;180&#24230; : &#21462;&#21453;&#21521;&#37327;(-x,-y)&#21363;&#21487;&#12290;</p><p>&#21521;&#37327;(x,y)&#32469;y&#36724;&#32763;&#36716;: x&#21462;&#21453;&#21363;&#21487;&#12290;(-x,y)&#12290;</p><p>&#21521;&#37327;(x,y)&#32469;x&#36724;&#32763;&#36716;: y&#21462;&#21453;&#21363;&#21487;&#12290;(x,-y)&#12290;</p><p>&#36830;&#36890;&#20998;&#37327;&#30340;&#26059;&#36716;&#21644;&#32763;&#36716;&#65292;&#36890;&#36807;&#23545;&#20854;&#20013;&#27599;&#20010;&#28857;&#65292;&#36827;&#34892;&#26059;&#36716;&#21644;&#32763;&#36716;&#26469;&#23436;&#25104;&#12290;</p><p>&#36830;&#36890;&#20998;&#37327;&#30340;&#24179;&#31227;&#65292;&#26159;&#20026;&#20102;&#35753;&#25152;&#26377;&#30340;&#36830;&#36890;&#20998;&#37327;&#37117;&#38598;&#20013;&#22312;&#22352;&#26631;&#21407;&#28857;&#38468;&#36817;&#12290;&#36825;&#26679;&#65292;&#30456;&#21516;&#30340;&#36830;&#36890;&#20998;&#37327;&#65292;&#20877;&#36890;&#36807;&#21512;&#36866;&#30340;&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#23601;&#19968;&#23450;&#20250;&#37325;&#21512;&#12290;&#20877;&#21028;&#26029;&#22352;&#26631;&#24207;&#21015;&#26159;&#21542;&#30456;&#31561;&#21363;&#21487;&#20102;&#12290;</p><pre class="wp-block-code"><code>&#23558;&#21407;&#22987;&#29366;&#24577;data[0],&#26059;&#36716;&#65292;&#32763;&#36716;
+to_90(v){
+    for((x,y) in data[0]){
+        (y,-x)&#20837;v;
+    }
+}
+to_270(v){
+    for((x,y) in data[0]){
+        (-y,x)&#20837;v;
+    }
+}
+to_180(v){
+    for((x,y) in data[0]){
+        (-x,-y)&#20837;v;
+    }
+}
+X_flip(v){
+    for((x,y) in data[0]){
+        (x,-y)&#20837;v;
+    }
+}
+Y_flip(v){
+    for((x,y) in data[0]){
+        (-x,y)&#20837;v;
+    }
+}</code></pre><p>&#36830;&#36890;&#20998;&#37327;&#30340;&#24179;&#31227;&#65292;&#38656;&#35201;&#19968;&#20010;&#24179;&#31227;&#21521;&#37327;&#12290;</p><p>&#23558;&#36830;&#36890;&#20998;&#37327;&#20013;&#65292;x&#22352;&#26631;&#30340;&#26368;&#23567;&#20540;xmin&#65292;&#21644;y&#22352;&#26631;&#30340;&#26368;&#23567;&#20540;ymin&#65292;&#26500;&#25104;&#30340;&#21521;&#37327;(xmin,ymin)&#24403;&#20316;&#24179;&#31227;&#21521;&#37327;&#12290;&#35201;&#27880;&#24847; (xmin,ymin) &#19981;&#19968;&#23450;&#22312;&#36830;&#36890;&#20998;&#37327;&#20013;&#12290;</p><p>&#23558;&#36830;&#36890;&#20998;&#37327;&#20013;&#65292;&#25152;&#26377;&#30340;&#28857;(x,y)&#20943;&#21435;&#21521;&#37327; (xmin,ymin) , &#23436;&#25104;&#36830;&#36890;&#20998;&#37327;&#21521;&#22352;&#26631;&#21407;&#28857;&#30340;&#24179;&#31227;&#12290;</p><p>&#20808;&#23558;&#36830;&#36890;&#20998;&#37327;&#24179;&#31227;&#21040;&#22352;&#26631;&#21407;&#28857;&#65292;&#20877;&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#36824;&#26159;&#20808;&#23558;&#36830;&#36890;&#20998;&#37327;&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#20877;&#24179;&#31227;&#21040;&#22352;&#26631;&#21407;&#28857;&#65311;</p><p>&#22312;&#26412;&#39064;&#20013;&#65292;&#32763;&#36716;&#65292;&#26059;&#36716;&#37117;&#26159;&#21018;&#20307;&#21464;&#25442;&#65292;&#35841;&#20808;&#35841;&#21518;&#26412;&#36136;&#19978;&#27809;&#26377;&#20160;&#20040;&#21306;&#21035;&#12290;</p><p>&#20026;&#20102;&#19981;&#29992;&#37325;&#22797;&#35745;&#31639;&#24179;&#31227;&#65292;&#36873;&#25321;&#65292;&#23558;&#36830;&#36890;&#20998;&#37327;&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#20877;&#24179;&#31227;&#21040;&#22352;&#26631;&#21407;&#28857;&#12290;</p><p>&#24403;&#20570;&#23436;&#65292;&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#24179;&#31227;&#21518;&#65292;&#23545;&#22352;&#26631;&#25490;&#24207;&#65292;&#20415;&#20110;&#22352;&#26631;&#24207;&#21015;&#30340;&#27604;&#36739;&#12290;</p><p>&#27604;&#36739;&#20934;&#21017;&#65292;x&#22352;&#26631;&#23567;&#30340;&#25490;&#21069;&#38754;&#65292;x&#22352;&#26631;&#30456;&#31561;&#30340;&#65292;y&#22352;&#26631;&#23567;&#30340;&#25490;&#21069;&#38754;&#12290;</p><pre class="wp-block-code"><code>align(v){
+    xmin=INT_MAX;
+    ymin=INT_MAX;
+    for((x,y) in v){
+        xmin=min(xmin,x);
+        ymin=min(ymin,y);
+    }
+    for((x,y) in v){
+        (x,y) = (x-xmin,y-ymin);
+    }
+    sort(v);//&#23545;&#22352;&#26631;&#25490;&#24207;
+}
+align(){
+    to_90(data[1]);
+    to_270(data[2]);
+    to_180(data[3]);
+    X_flip(data[4]);
+    Y_flip(data[5]);
+    for(i &lt; 6){
+        align(data[i]);
+    }
+}</code></pre><h3><span class="ez-toc-section" id="%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"></span>&#21704;&#24076;&#20989;&#25968;<span class="ez-toc-section-end"></span></h3><p>&#26412;&#39064;&#20013;&#29992;&#21704;&#24076;&#34920;&#24555;&#36895;&#21028;&#26029;&#36830;&#36890;&#20998;&#37327;&#26159;&#21542;&#30456;&#31561;&#12290;</p><p>&#20026;&#36830;&#36890;&#20998;&#37327;&#35774;&#35745;&#21704;&#24076;&#20989;&#25968;&#65292;&#20351;&#30456;&#21516;&#30340;&#36830;&#36890;&#20998;&#37327;&#65292;&#29983;&#25104;&#30456;&#21516;&#30340;&#21704;&#24076;&#20540;&#12290;&#20294;&#65292;&#30456;&#21516;&#30340;&#21704;&#24076;&#20540;&#19981;&#35265;&#24471;&#26159;&#30001;&#30456;&#21516;&#30340;&#36830;&#36890;&#20998;&#37327;&#29983;&#25104;&#12290;</p><p>&#21462;&#36830;&#36890;&#20998;&#37327;&#20013;&#25152;&#26377;&#22352;&#26631;&#30340;x&#21644;y&#30340;&#24322;&#25110;&#20540;&#65292;&#20026;&#21704;&#24076;&#20540;&#12290;</p><pre class="wp-block-code"><code>hash_code(){
+    r=0;
+    for(i &lt; 6){
+        for((x,y) in data[i]){
+            r = r ^ x ^ y;
+        }
+    }
+    &#36820;&#22238;r;
+}</code></pre><h3><span class="ez-toc-section" id="%E5%88%A4%E6%96%AD%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"></span>&#21028;&#26029;&#36830;&#36890;&#20998;&#37327;&#26159;&#21542;&#30456;&#31561;<span class="ez-toc-section-end"></span></h3><p>&#26377;&#20102;&#21704;&#24076;&#20989;&#25968;&#65292;&#21487;&#20197;&#24555;&#36895;&#21306;&#20998;&#19981;&#21516;&#30340;&#36830;&#36890;&#20998;&#37327;&#12290;&#20294;&#26159;&#65292;&#24403;&#21704;&#24076;&#20540;&#30456;&#31561;&#26102;&#65292;&#21482;&#33021;&#27604;&#36739;&#22352;&#26631;&#24207;&#21015;&#26159;&#21542;&#30456;&#31561;&#12290;</p><p>&#27604;&#36739;&#20934;&#21017;&#65306;</p><p>1&#65292;&#21407;&#22987;&#22352;&#26631;&#24207;&#21015;&#38271;&#24230;&#19981;&#31561;&#65292;&#19968;&#23450;&#19981;&#30456;&#31561;&#65307;</p><p>2&#65292;&#20004;&#32452;&#22352;&#26631;&#24207;&#21015;&#20013;&#65292;&#21482;&#35201;&#26377;&#19968;&#23545;&#30456;&#31561;&#65292;&#20004;&#20010;&#36830;&#36890;&#20998;&#37327;&#23601;&#30456;&#31561;;</p><pre class="wp-block-code"><code>operator==(other){
+    if(data[0].length != other.data[0].length) &#36820;&#22238;false;
+    for(i &lt; 6){
+        for(j &lt; 6){
+            if(data[i] == other.data[j]) &#36820;&#22238;true;
+        }
+    }
+    &#36820;&#22238;false;
+}</code></pre><h3><span class="ez-toc-section" id="dfs%E6%B1%82%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"></span>dfs&#27714;&#36830;&#36890;&#20998;&#37327;<span class="ez-toc-section-end"></span></h3><p>&#29992;&#19978;&#38754;&#30340;&#21704;&#24076;&#20989;&#25968;&#21644;&#27604;&#36739;&#20989;&#25968;&#65292;&#26500;&#36896;&#21704;&#24076;&#34920;hash&#12290;</p><p>&#20174;&#19968;&#20010;&#20540;&#20026;1&#30340;&#36215;&#28857;&#24320;&#22987;&#65292;&#29992;dfs&#23558;&#20854;&#19978;&#19979;&#24038;&#21491;&#65292;&#20961;&#26159;1&#30340;&#28857;&#37117;&#32435;&#20837;&#21040;&#21516;&#19968;&#20010;&#36830;&#36890;&#20998;&#37327;&#12290;&#30452;&#21040;&#65292;&#27599;&#20010;&#28857;&#30340;&#21608;&#22260;&#37117;&#27809;&#26377;1&#20026;&#27490;&#12290;</p><p>&#27599;&#25214;&#21040;&#19968;&#20010;&#36830;&#36890;&#20998;&#37327;&#65292;&#23558;&#20854;&#25554;&#20837;&#21704;&#24076;&#34920;hash&#21435;&#37325;&#12290;</p><p>&#26368;&#21518;&#65292;hash&#20013;&#36830;&#36890;&#20998;&#37327;&#25968;&#23601;&#26159;&#32467;&#26524;&#12290;</p><pre class="wp-block-code"><code>hash=[];
+R,C;&#34892;&#25968;&#21015;&#25968;
+vis[x][y]=0;&#33410;&#28857;&#26159;&#21542;&#35775;&#38382;&#36807;
+grid[x][y];&#22270;
+cnt=0;&#36830;&#36890;&#21464;&#37327;&#32534;&#21495;
+for(x &lt; R){
+    for(y &lt; C){
+        if(grid[x][y]==1 &#19988; vis[x][y]==0){
+            ++cnt;
+            data=[];
+            dfs(grid,vis,x,y,cnt,data);
+            node new_node(data);
+            new_node.align();//&#26059;&#36716;&#65292;&#32763;&#36716;&#65292;&#24179;&#31227;&#65292;&#25490;&#24207;
+            new_node&#20837;hash;
+        }
+    }
+}
+
+hash&#20013;&#30340;&#36830;&#36890;&#20998;&#37327;&#25968;&#26159;&#32467;&#26524;&#65307;
+
+dfs(grid,vis,x,y,c,data){
+    vis[x][y]=c;
+    (x,y)&#20837;data;
+    for((nx,ny) in (x,y)&#30340;&#19978;&#19979;&#24038;&#21491;){
+        if((nx,ny)&#22312;&#22270;&#20013; &#19988; grid[nx][ny]==1 &#19988;  vis[nx][ny]==0){
+            dfs(grid,vis,nx,ny,c,data);
+        }
+    }
+}</code></pre><h3><span class="ez-toc-section" id="%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"></span>&#23436;&#25972;&#20195;&#30721;<span class="ez-toc-section-end"></span></h3><pre class="wp-block-code"><code>    typedef pair&lt;int,int&gt; Pair;
+    struct node{
+        vector&lt;vector&lt;Pair&gt;&gt; data;
+        node():data(vector&lt;vector&lt;Pair&gt;&gt;(6,vector&lt;Pair&gt;())){}
+        
+        void add(int x,int y){
+            data[0].push_back(make_pair(x,y));
+        }
+        
+        void align(vector&lt;Pair&gt;&amp; v)const{
+            Pair a={INT_MAX,INT_MAX};
+            for(int i=0;i&lt;v.size();++i){
+                a.first = min(a.first,v[i].first);
+                a.second = min(a.second,v[i].second);
+            }
+            for(int i=0;i&lt;v.size();++i){
+                v[i].first -= a.first;
+                v[i].second -= a.second;
+            }
+            sort(v.begin(),v.end());
+        }
+        
+        void to_90(vector&lt;Pair&gt; &amp; v)const{
+            v.clear();
+            for(int i=0;i&lt;data[0].size();++i){
+                v.push_back(make_pair(data[0][i].second,-data[0][i].first));
+            }
+        }
+        
+        void to_180(vector&lt;Pair&gt;&amp; v)const{
+            v.clear();
+            for(int i=0;i&lt;data[0].size();++i){
+                v.push_back(make_pair(-data[0][i].first,-data[0][i].second));
+            }
+        }
+        
+        void X_flip(vector&lt;Pair&gt;&amp; v)const{
+            v.clear();
+            for(int i=0;i&lt;data[0].size();++i){
+                v.push_back(make_pair(data[0][i].first,-data[0][i].second));
+            }
+        }
+        
+        void Y_flip(vector&lt;Pair&gt;&amp; v)const{
+            v.clear();
+            for(int i=0;i&lt;data[0].size();++i){
+                v.push_back(make_pair(-data[0][i].first,data[0][i].second));
+            }
+        }
+        
+        void to_270(vector&lt;Pair&gt;&amp; v)const{
+            v.clear();
+            for(int i=0;i&lt;data[0].size();++i){
+                v.push_back(make_pair(-data[0][i].second,data[0][i].first));
+            }
+        }
+        
+        void align(){
+            to_90(data[1]);
+            to_180(data[2]);
+            to_270(data[3]);
+            X_flip(data[4]);
+            Y_flip(data[5]);
+            for(int i=0;i&lt;6;++i){
+                align(data[i]);
+            }
+            
+        }
+        
+        bool operator==(const node&amp; o)const{
+            if(data[0].size() != o.data[0].size()) return false;
+            for(int i=0;i&lt;6;++i){
+                for(int j=0;j&lt;6;++j){
+                    if(data[i] == o.data[j]) return true;
+                }    
+            }
+            return false;
+        }
+        
+        size_t hash_code()const{
+            size_t r=0;
+            for(int j=0;j&lt;6;++j){
+                for(int i=0;i&lt;data[j].size();++i){
+                    r ^= data[j][i].first ^ data[j][i].second;
+                }    
+            }       
+            return r;            
+        }
+        
+        string to_str()const{
+            stringstream ss;
+            for(int j=0;j&lt;6;++j){
+                for(int i=0;i&lt;data[j].size();++i){
+                    ss &lt;&lt; " [" &lt;&lt; data[j][i].first &lt;&lt;" " &lt;&lt; data[j][i].second &lt;&lt; " ] " ;
+                }
+                ss &lt;&lt; "\n";    
+            }
+            return ss.str();
+        }
+    };
+    struct node_hash{
+        size_t operator()(const node&amp; o)const{
+            return o.hash_code();
+        }
+    };
+    struct node_pred{
+        bool operator()(const node&amp; a,const node&amp; b)const{
+            return a==b;
+        }
+    };
+    int R,C;
+    int numDistinctIslands2(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {
+        if(!(R=grid.size()) || !(C=grid[0].size())) return 0;
+        vector&lt;vector&lt;int&gt;&gt; vis(R,vector&lt;int&gt;(C,0));
+        int cnt=0;
+        unordered_set&lt;node,node_hash,node_pred&gt; S;
+        for(int i=0;i&lt;R;++i){
+            for(int j=0;j&lt;C;++j){
+                if(grid[i][j]==1 &amp;&amp; vis[i][j] == 0){
+                    node nd;
+                    ++cnt;
+                    dfs(grid,vis,i,j,cnt,nd.data[0]);
+                    nd.align();
+                    S.insert(nd);
+                }
+            }
+        }
+        return S.size();
+    }
+    
+    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; grid,
+             vector&lt;vector&lt;int&gt;&gt;&amp; vis,int x,int y,int c,vector&lt;Pair&gt;&amp; v){
+        vis[x][y]=c;
+        v.push_back({x,y});
+        const static int dx[4]={1,-1,0,0};
+        const static int dy[4]={0,0,1,-1};
+        for(int i=0;i&lt;4;++i){
+            const int nx=x+dx[i];
+            const int ny=y+dy[i];
+            if(in_grid(nx,ny) &amp;&amp; grid[nx][ny]==1 &amp;&amp; vis[nx][ny]==0){
+                dfs(grid,vis,nx,ny,c,v);
+            }
+        }
+    }
+    bool in_grid(int x,int y){
+        return x&gt;=0 &amp;&amp; x&lt;R &amp;&amp; y&gt;=0 &amp;&amp; y&lt;C;
+    }</code></pre><p>Hits: 35</p></div><div class="entry-footer"> <div class="tagcloud"> <a href="http://www.showsql.com/tag/%e7%ae%97%e6%b3%95%e4%b8%8e%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84/">&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;</a></div> </div></div></div></article><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/12/29/leetcode1183-maximum-number-of-ones/" rel="prev"><i class="fa fa-chevron-left"></i> leetcode1183 &#30697;&#38453;&#20013; 1 &#30340;&#26368;&#22823;&#25968;&#37327; Maximum Number of Ones</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/12/31/leetcode834-sum-of-distances-in-tree/" rel="next">leetcode834 &#26641;&#20013;&#36317;&#31163;&#20043;&#21644; Sum of Distances in Tree <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js" id="jquery-smooth-scroll-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js" id="js-cookie-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js" id="jquery-sticky-kit-js"></script> <script type="text/javascript" id="ez-toc-js-js-extra">/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js" id="ez-toc-js-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'13855',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '13855' ]);</script> </body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Redis hashtable | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="hashtable&#38190;&#12290;&#21704;&#24076;&#34920;&#30340;&#20869;&#37096;&#32534;&#30721;&#12290;&#25903;&#25345;&#30340;&#20989;&#25968;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#23454;&#29616;&#12290;"><meta name="keywords" content="redis&#21704;&#24076;&#34920;,redis hashtable,redis"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#webpage","url":"http://www.showsql.com/2019/07/21/redis-hashtable/","inLanguage":"en-US","name":"Redis hashtable &#21704;&#24076;&#34920;","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#breadcrumblist"},"description":"hashtable&#38190;&#12290;&#21704;&#24076;&#34920;&#30340;&#20869;&#37096;&#32534;&#30721;&#12290;&#25903;&#25345;&#30340;&#20989;&#25968;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#23454;&#29616;&#12290;","datePublished":"2019-07-21T09:50:45+08:00","dateModified":"2019-08-30T03:34:42+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#article","isPartOf":{"@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"Redis hashtable &#21704;&#24076;&#34920;","datePublished":"2019-07-21T09:50:45+08:00","dateModified":"2019-08-30T03:34:42+08:00","commentCount":1,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Redis Data Structure, Redis","image":{"@type":"ImageObject","@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#primaryimage","url":"http://showsql.com/wp-content/uploads/2019/07/hashtable-command.png"}},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/07/21/redis-hashtable/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/07/21/redis-hashtable/","url":"http://www.showsql.com/2019/07/21/redis-hashtable/","name":"Redis hashtable &#21704;&#24076;&#34920;"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/07/21/redis-hashtable/"><meta property="og:type" content="object"><meta property="og:title" content="Redis hashtable | Wonderful Tech"><meta property="og:description" content="hashtable&#38190;&#12290;&#21704;&#24076;&#34920;&#30340;&#20869;&#37096;&#32534;&#30721;&#12290;&#25903;&#25345;&#30340;&#20989;&#25968;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#23454;&#29616;&#12290;"><meta property="og:url" content="http://www.showsql.com/2019/07/21/redis-hashtable/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Redis hashtable | Wonderful Tech"><meta name="twitter:description" content="hashtable&#38190;&#12290;&#21704;&#24076;&#34920;&#30340;&#20869;&#37096;&#32534;&#30721;&#12290;&#25903;&#25345;&#30340;&#20989;&#25968;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#23454;&#29616;&#12290;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Redis hashtable &#21704;&#24076;&#34920; Comments Feed" href="http://www.showsql.com/2019/07/21/redis-hashtable/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/866"><link rel="prev" title="Redis list &#21015;&#34920;" href="http://www.showsql.com/2019/07/21/redis-list-2/"><link rel="next" title="Redis set &#38598;&#21512;" href="http://www.showsql.com/2019/07/21/redis-set/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F21%2Fredis-hashtable%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F21%2Fredis-hashtable%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-866 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/redis-data-structure/" rel="category tag">Redis Data Structure</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-866" class="post-866 post type-post status-publish format-standard hentry category-redis-data-structure tag-redis"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">Redis hashtable &#21704;&#24076;&#34920;</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/07/21/redis-hashtable/" rel="bookmark"><time class="entry-date published" datetime="2019-07-21T17:50:45+08:00">2019&#24180;7&#26376;21&#26085;</time><time class="updated" datetime="2019-08-30T11:34:42+08:00">2019&#24180;8&#26376;30&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/07/21/redis-hashtable/" title="Redis hashtable &#21704;&#24076;&#34920;"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><p>ziplist&#32534;&#30721;&#65306;</p><figure class="wp-block-image"><img width="1007" height="182" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/hashtable-ziplist.png" alt="Hashtable Ziplist" class="wp-image-868 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist.png 1007w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-600x108.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-300x54.png 300w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-768x139.png 768w" sizes="(max-width: 1007px) 100vw, 1007px"><noscript><img data-attachment-id="868" data-permalink="http://www.showsql.com/2019/07/21/redis-hashtable/hashtable-ziplist/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist.png" data-orig-size="1007,182" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="hashtable-ziplist" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-300x54.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist.png" width="1007" height="182" src="http://showsql.com/wp-content/uploads/2019/07/hashtable-ziplist.png" alt="Hashtable Ziplist" class="wp-image-868 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist.png 1007w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-600x108.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-300x54.png 300w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-ziplist-768x139.png 768w" sizes="(max-width: 1007px) 100vw, 1007px"></noscript><figcaption>Hashtable Ziplist</figcaption></figure><p>&#25955;&#21015;&#34920;&#32534;&#30721;&#65306;</p><figure class="wp-block-image"><img width="672" height="492" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/hashtable-dict.png" alt="Hashtable Dict" class="wp-image-870 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict.png 672w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict-600x439.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict-300x220.png 300w" sizes="(max-width: 672px) 100vw, 672px"><noscript><img data-attachment-id="870" data-permalink="http://www.showsql.com/2019/07/21/redis-hashtable/hashtable-dict/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict.png" data-orig-size="672,492" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="hashtable-dict" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict-300x220.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict.png" width="672" height="492" src="http://showsql.com/wp-content/uploads/2019/07/hashtable-dict.png" alt="Hashtable Dict" class="wp-image-870 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict.png 672w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict-600x439.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-dict-300x220.png 300w" sizes="(max-width: 672px) 100vw, 672px"></noscript><figcaption>Hashtable Dict</figcaption></figure><p>&#25903;&#25345;&#30340;&#20989;&#25968;&#65306;</p><pre class="wp-block-code"><code>hashTypeTryConversion&#65306;&#30475;&#26159;&#21542;&#35201;&#23558;&#23545;&#35937;&#30340;&#32534;&#30721;&#30001;ziplist&#36716;&#25442;&#25104;&#21704;&#24076;&#34920;&#65307;
+	&#23545;[start,end]&#20013;&#30340;&#27599;&#20010;&#23545;&#35937;&#65306;
+		&#22914;&#26524;&#23427;&#20204;&#30340;&#23383;&#31526;&#20018;&#20540;&#30340;&#38271;&#24230;&#36229;&#36807;&#38408;&#20540;&#65292;&#23558;&#23545;&#35937;&#36716;&#25104;&#21704;&#24076;&#34920;&#65307;
+hashTypeTryObjectEncoding&#65288;subject&#65292;o1&#65292;o2&#65289;&#65306;&#22914;&#26524;subject&#26102;&#21704;&#24076;&#34920;&#26102;&#65292;&#23581;&#35797;&#23545;&#23545;&#35937;o1&#21644;o2&#36827;&#34892;&#32534;&#30721;&#12290;
+hashTypeGetFromZiplist&#65288;o&#65292;field&#65289;&#65306;&#20174;ziplist&#32534;&#30721;&#30340;hash&#20013;&#21462;&#20986;field&#30340;&#20540;&#12290;
+	ziplistFind&#20174;ziplis&#20013;&#26597;&#25214;field&#30340;&#33410;&#28857;&#65292;&#25214;&#21040;ziplistGet&#21462;&#20986;&#23545;&#24212;&#30340;&#20540;&#65307;
+hashTypeGetFromHashTable&#65288;o&#65292;field&#65289;&#65306;&#22312;dict&#20013;&#26597;&#25214;field&#65292;&#21462;&#20986;&#20540;&#65307;
+	dictFind&#26597;&#25214;field&#65292;&#25214;&#21040;dictGetVal&#21462;&#20986;&#20854;&#20540;&#65307;
+hashTypeGetObject&#65288;o&#65292;field&#65289;&#65306;&#20174;&#21704;&#24076;&#38190;&#20013;&#21462;&#20986;field&#30340;&#20540;&#23545;&#35937;&#12290;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;hashTypeGetFromZiplist&#21462;&#20986;field&#30340;&#20540;&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;hashTypeGetFromHashTable&#21462;&#20986;field&#30340;&#20540;&#65307;
+hashTypeExists&#65288;o&#65292;field&#65289;&#65306;filed&#26159;&#21542;&#22312;&#21704;&#24076;&#38190;&#20013;&#23384;&#22312;&#65292;&#23384;&#22312;&#36820;&#22238;1&#65292;&#21542;&#21017;&#36820;&#22238;0.
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;hashTypeGetFromZiplist&#25214;&#21040;field&#65292;&#36820;&#22238;1&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;hashTypeGetFromHashTable&#25214;&#21040;field&#65292;&#36820;&#22238;1&#65307;
+hashTypeSet&#65288;o&#65292;field&#65292;value&#65289;&#65306;field-value&#28155;&#21152;&#21040;hash&#20013;&#65292;&#22914;&#26524;field&#24050;&#32463;&#23384;&#22312;&#65292;&#21024;&#38500;&#26087;&#20540;&#65292;&#20851;&#32852;&#26032;&#20540;&#12290;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;ziplistFind&#25214;&#21040;field&#65292;
+		&#25214;&#21040;&#65292;&#20808;ziplistDelete&#21024;&#38500;&#26087;&#20540;&#65292;&#20877;ziplistInsert&#25554;&#20837;&#26032;&#20540;&#65307;
+		&#25214;&#19981;&#21040;&#65292;ziplistPush&#28155;&#21152;&#26032;&#20540;&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;dictReplace&#26367;&#25442;&#26087;&#20540;&#65307;
+hashTypeDelete&#65288;o&#65292;field&#65289;&#65306;&#20174;&#21704;&#24076;&#34920;&#20013;&#21024;&#38500;field-value&#12290;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;ziplistFind&#25214;&#21040;field&#65292;&#24182;&#21024;&#38500;&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;dictDelete&#21024;&#38500;&#65307;
+hashTypeLength&#65288;o&#65289;&#65306;&#38190;&#20540;&#23545;&#20010;&#25968;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;&#36820;&#22238;ziplistLen&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;&#36820;&#22238;dictSize&#65307;
+hashTypeInitIterator&#65288;subject&#65289;&#65306;&#21704;&#24076;&#34920;&#30340;&#36845;&#20195;&#22120;&#12290;
+hashTypeReleaseIterator&#65306;&#37322;&#25918;&#36845;&#20195;&#22120;&#12290;
+hashTypeNext&#65306;&#36845;&#20195;&#22120;&#25512;&#36827;&#12290;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;ziplistNext&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;dictNext&#65307;
+hashTypeCurrentFromZiplist&#65288;it&#65289;&#65306;&#20174;ziplist&#36845;&#20195;&#22120;&#20013;&#21462;&#20986;&#24403;&#21069;&#33410;&#28857;&#30340;&#38190;-&#20540;&#12290;
+	ziplistGet&#21462;&#20986;&#38190;-&#20540;&#65307;
+hashTypeCurrentFromHashTable&#65288;it&#65289;&#65306;&#20174;&#23383;&#20856;&#36845;&#20195;&#22120;&#20013;&#21462;&#20986;&#24403;&#21069;&#33410;&#28857;&#30340;&#38190;-&#20540;&#12290;
+	dictGet&#21462;&#20986;&#38190;-&#20540;&#65307;
+hashTypeCurrentObject&#65288;it&#65289;&#65306;&#20174;&#21704;&#24076;&#34920;&#21462;&#20540;&#30340;&#39640;&#23618;&#20989;&#25968;&#12290;
+	&#23553;&#35013;hashTypeCurrentFromZiplist&#65288;it&#65289;&#65307;
+	&#25110;hashTypeCurrentFromHashTable&#65288;it&#65289;&#65307;
+hashTypeLookupWriteOrCreate&#65288;client&#65292;key&#65289;&#65306;&#20174;&#25968;&#25454;&#24211;&#20013;&#26597;&#25214;key&#65292;&#24182;&#36820;&#22238;&#21704;&#24076;&#34920;&#23545;&#35937;&#65307;&#25214;&#19981;&#21040;&#65292;&#23601;&#21019;&#24314;&#19968;&#20010;&#26032;&#30340;&#21704;&#24076;&#27604;&#34920;&#23545;&#35937;&#12290;
+	&#21462;&#20986;key&#30340;&#23545;&#35937;&#65307;
+	&#23545;&#35937;&#19981;&#23384;&#22312;&#65306;
+		&#21019;&#24314;&#21704;&#24076;&#34920;&#23545;&#35937;&#24182;&#21152;&#20837;&#25968;&#25454;&#24211;&#65307;
+	&#23545;&#35937;&#23384;&#22312;&#65292;&#31572;&#22797;&#65307;
+hashTypeConvertZiplist(o&#65289;&#65306;&#23558;ziplist&#32534;&#30721;&#30340;&#21704;&#24076;&#34920;&#36716;&#25442;&#20026;&#23383;&#20856;&#21704;&#24076;&#34920;&#12290;
+	dictCreate&#21019;&#24314;&#23383;&#20856;dict&#23545;&#35937;&#65307;
+	&#23545;ziplist&#20013;&#30340;&#27599;&#20010;&#33410;&#28857;&#65306;
+		&#20174;ziplist&#20013;&#21462;&#20986;field-value&#65307;
+		dictAdd&#28155;&#21152;&#21040;dict&#23545;&#35937;&#20013;&#65307;
+	&#21024;&#38500;ziplist&#65307;
+hashTypeConvert&#65288;o&#65289;&#65306;&#23558;&#21704;&#24076;&#34920;&#20174;ziplist&#36716;&#21040;&#23383;&#20856;&#32534;&#30721;&#12290;
+	hashTypeConvertZiplist&#23553;&#35013;&#65307;
+hsetCommand&#65306;HSET key field value&#12290;&#23558;field&#35774;&#32622;&#20026;value&#12290;
+	hashTypeLookupWriteOrCreate&#21462;&#20986;&#25110;&#21019;&#24314;key&#30340;&#21704;&#24076;&#34920;&#23545;&#35937;o&#65307;
+	hashTypeTryConversion&#36716;&#25442;&#21704;&#24076;&#34920;&#23545;&#35937;o&#30340;&#32534;&#30721;&#65307;
+	hashTypeTryObjectEncoding&#32534;&#30721;field&#21644;value&#65307;
+	hashTYpeSet&#28155;&#21152;field-value&#21040;&#25968;&#25454;&#24211;&#65307;
+hsetnxCommand&#65306;HSETNX key field value&#12290;field&#19981;&#23384;&#22312;&#26102;&#65292;&#23558;field&#35774;&#32622;&#20026;value&#12290;
+	hashTypeLookupWriteOrCreate&#21462;&#20986;&#25110;&#21019;&#24314;key&#30340;&#21704;&#24076;&#34920;&#23545;&#35937;o&#65307;
+	hashTypeTryConversion&#36716;&#25442;&#21704;&#24076;&#34920;&#23545;&#35937;o&#30340;&#32534;&#30721;&#65307;
+	hashTypeExists&#23384;&#22312;field&#65292;&#36820;&#22238;&#65307;
+	&#19981;&#23384;&#22312;field&#65306;
+		hashTypeTryObjectEncoding&#32534;&#30721;field&#21644;value&#65307;
+		hashTYpeSet&#28155;&#21152;field-value&#21040;&#25968;&#25454;&#24211;&#65307;
+hmsetCommand&#65306;HMSET key field value [field value ...]&#12290;&#25209;&#37327;&#35774;&#32622;field-value&#12290;
+	hashTypeLookupWriteOrCreate&#21462;&#20986;&#25110;&#21019;&#24314;key&#30340;&#21704;&#24076;&#34920;&#23545;&#35937;o&#65307;
+	hashTypeTryConversion&#36716;&#25442;&#21704;&#24076;&#34920;&#23545;&#35937;o&#30340;&#32534;&#30721;&#65307;
+	&#23545;&#27599;&#20010;field-value:
+		hashTypeTryObjectEncoding&#32534;&#30721;field&#21644;value&#65307;
+		hashTYpeSet&#28155;&#21152;field-value&#21040;&#25968;&#25454;&#24211;&#65307;
+hincrbyCommand&#65306;HINCRBY key field increment&#12290;&#32473;field&#20851;&#32852;&#30340;&#20540;&#22686;&#21152;increment&#12290;
+	hashTypeLookupWriteOrCreate&#21462;&#20986;&#25110;&#21019;&#24314;key&#30340;&#21704;&#24076;&#34920;&#23545;&#35937;o&#65307;
+	&#21462;&#20986;field&#30340;&#24403;&#21069;&#20540;current&#65292;&#22914;&#26524;current&#19981;&#26159;&#25972;&#25968;&#23601;&#36820;&#22238;&#38169;&#35823;&#65307;
+	&#22914;&#26524;&#24403;&#21069;&#20540;&#19981;&#23384;&#22312;&#65292;&#21021;&#20540;value&#20026;0&#65307;
+	value+=increment&#65307;
+	hashTypeTryObjectEncoding&#32534;&#30721;field&#21644;value&#65307;
+	hashTYpeSet&#28155;&#21152;field-value&#21040;&#25968;&#25454;&#24211;&#65307;
+hincrbyfloatCommand:HINCRBYFLOAT key field increment&#12290;&#32473;field&#20851;&#32852;&#30340;&#20540;&#65288;&#35299;&#37322;&#20026;float&#65289;&#22686;&#21152;increment&#12290;
+	hashTypeLookupWriteOrCreate&#21462;&#20986;&#25110;&#21019;&#24314;key&#30340;&#21704;&#24076;&#34920;&#23545;&#35937;o&#65307;
+	&#21462;&#20986;field&#30340;&#24403;&#21069;&#20540;current&#65292;&#22914;&#26524;current&#19981;&#26159;&#28014;&#28857;&#25968;&#23601;&#36820;&#22238;&#38169;&#35823;&#65307;
+	&#22914;&#26524;&#24403;&#21069;&#20540;&#19981;&#23384;&#22312;&#65292;&#21021;&#20540;value&#20026;0&#65307;
+	value+=increment&#65307;
+	hashTypeTryObjectEncoding&#32534;&#30721;field&#21644;value&#65307;
+	hashTYpeSet&#28155;&#21152;field-value&#21040;&#25968;&#25454;&#24211;&#65307;
+addHashFieldToReply&#65288;client&#65292;o&#65292;field&#65289;&#65306;&#23558;&#21704;&#24076;&#34920;&#20013;field&#30340;&#20540;&#31572;&#22797;client&#12290;
+	&#23545;&#35937;o&#19981;&#23384;&#22312;&#65292;&#31572;&#22797;null&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;hashTypeGetFromZiplist&#21462;&#20986;field&#30340;&#20540;&#65292;&#24182;&#31572;&#22797;client&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;hashTypeGetFromHashtable&#21462;&#20986;field&#30340;&#20540;&#65292;&#24182;&#31572;&#22797;client&#65307;
+	
+hgetCommand:HGET key field&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;field&#30340;&#20540;&#12290;
+	lookupKeyReadOrReply&#26597;&#25214;key&#65292;&#19981;&#23384;&#22312;&#36820;&#22238;&#65307;
+	addHashFieldToReplay&#23553;&#35013;&#65307;
+hmgetCommand&#65306;HMGET key field [field ...]&#12290;&#20174;&#21704;&#24076;&#34920;&#20013;&#25209;&#37327;&#21462;&#20986;field&#20540;&#12290;
+	lookupKeyRead&#21462;&#20986;key&#30340;&#21704;&#24076;&#23545;&#35937;&#65307;
+	&#23545;&#27599;&#20010;field&#65306;
+		addHashFieldToReplay&#23553;&#35013;&#65307;
+hdelCommand&#65306;HDEL key field [field ...]&#12290;&#20174;&#21704;&#24076;&#34920;&#20013;&#25209;&#37327;&#21024;&#38500;field&#12290;
+	lookupKeyWriteOrReply&#21462;&#20986;key&#30340;&#23545;&#35937;o&#65292;&#22914;&#26524;o&#19981;&#23384;&#22312;&#36820;&#22238;&#65307;
+	&#23545;&#27599;&#20010;field&#65306;
+		hashTypeDelete&#21024;&#38500;field&#65307;
+hlenCommand&#65306;HLEN key&#12290;&#36820;&#22238;&#25351;&#23450;key&#21704;&#24076;&#34920;&#20013;&#30340;&#38190;&#20010;&#25968;&#12290;
+	lookupKeyReadOrReply&#26597;&#25214;key&#65292;&#19981;&#23384;&#22312;&#36820;&#22238;&#65307;
+	hashTypeLength&#36820;&#22238;&#38271;&#24230;&#65307;
+addHashIteratorCursorToReply&#65306;&#20174;&#36845;&#20195;&#22120;&#20013;&#21462;&#20986;&#33410;&#28857;&#30340;field&#25110;value&#12290;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;ziplist&#65292;hashTypeCurrentFromZiplist&#21462;&#20986;field&#25110;value&#30340;&#20540;&#65292;&#24182;&#31572;&#22797;client&#65307;
+	&#22914;&#26524;o&#30340;&#32534;&#30721;&#26159;hashtable&#65292;hashTypeCurrentFromHashtable&#21462;&#20986;field&#25110;value&#30340;&#20540;&#65292;&#24182;&#31572;&#22797;client&#65307;
+genericHgetallCommand:getall&#24213;&#23618;&#20989;&#25968;&#12290;
+	lookupKeyReadOrReply&#26597;&#25214;key&#65292;&#19981;&#23384;&#22312;&#36820;&#22238;&#65307;
+	hashTypeInitIterator&#21019;&#24314;&#36845;&#20195;&#22120;&#65307;
+	&#23545;&#27599;&#20010;&#33410;&#28857;&#65306;
+		addHashIteratorCursorToReply&#23553;&#35013;&#65307;
+	&#37322;&#25918;&#36845;&#20195;&#22120;&#65307;
+hkeysCommand:HKEYS key&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;&#20840;&#37096;&#23383;&#27573;&#12290;
+	genericHgetallCommand&#23553;&#35013;&#65307;
+hvalsCommand:HVALS key&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;&#20840;&#37096;&#20540;&#12290;
+	genericHgetallCommand&#23553;&#35013;&#65307;
+hgetallcommand&#65306;HGETALL key&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;&#20840;&#37096;field-value&#23545;&#12290;
+	genericHgetallCommand&#23553;&#35013;&#65307;
+hexistsCommand&#65306;HEXISTS key field&#12290;&#26816;&#26597;&#21704;&#24076;&#34920;&#20013;&#26159;&#21542;&#23384;&#22312;field&#12290;
+	lookupKeyReadOrReply&#26597;&#25214;key&#65292;&#19981;&#23384;&#22312;&#36820;&#22238;&#65307;
+	hashTypeExists&#26816;&#27979;field&#65307;
+hscanCommand&#65306;HSCAN key cursor [MATCH pattern] [COUNT count]&#12290;&#28216;&#26631;&#25195;&#25551;&#21704;&#24076;&#34920;&#12290;
+	cursor&#28216;&#26631;&#36845;&#20195;&#22120;&#12290;pattern&#26159;key&#30340;&#21305;&#37197;&#27169;&#24335;&#12290;count&#27599;&#27425;&#36820;&#22238;&#30340;&#26368;&#22823;&#25968;&#25454;&#37327;&#12290;
+	lookupKeyReadOrReply&#26597;&#25214;key&#65292;&#19981;&#23384;&#22312;&#36820;&#22238;&#65307;
+scanGenericCommand&#23553;&#35013;&#65307;&#65288;&#35762;SCAN&#21629;&#20196;&#26102;&#20877;&#23398;&#65289;</code></pre><p>&#25903;&#25345;&#30340;&#21629;&#20196;&#65306;</p><pre class="wp-block-code"><code>set&#20989;&#25968;&#65306;
+	hsetCommand&#65306;HSET key field value&#12290;&#23558;field&#35774;&#32622;&#20026;value&#12290;
+	hsetnxCommand&#65306;HSETNX key field value&#12290;field&#19981;&#23384;&#22312;&#26102;&#65292;&#23558;field&#35774;&#32622;&#20026;value&#12290;
+	hmsetCommand&#65306;HMSET key field value [field value ..
+
+get&#20989;&#25968;&#65306;
+	hgetCommand:HGET key field&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;field&#30340;&#20540;&#12290;
+	hmgetCommand&#65306;HMGET key field [field ...]&#12290;&#20174;&#21704;&#24076;&#34920;&#20013;&#25209;&#37327;&#21462;&#20986;field&#20540;&#12290;
+	hkeysCommand:HKEYS key&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;&#20840;&#37096;&#23383;&#27573;&#12290;
+	hvalsCommand:HVALS key&#12290;&#21462;&#20986;&#21704;&#24076;&#34920;&#20013;&#20840;&#37096;&#20540;&#12290;
+	hscanCommand&#65306;HSCAN key cursor [MATCH pattern] [COUNT count]&#12290;&#28216;&#26631;&#25195;&#25551;&#21704;&#24076;&#34920;&#12290;
+	
+&#22686;&#21152;&#20989;&#25968;&#65306;
+	hincrbyCommand&#65306;HINCRBY key field increment&#12290;&#32473;field&#20851;&#32852;&#30340;&#20540;&#22686;&#21152;increment&#12290;
+	hincrbyfloatCommand:HINCRBYFLOAT key field increment&#12290;&#32473;field&#20851;&#32852;&#30340;&#20540;&#65288;&#35299;&#37322;&#20026;float&#65289;&#22686;&#21152;increment&#12290;
+
+&#21024;&#38500;&#20989;&#25968;&#65306;
+	hdelCommand&#65306;HDEL key field [field ...]&#12290;&#20174;&#21704;&#24076;&#34920;&#20013;&#25209;&#37327;&#21024;&#38500;field&#12290;
+
+&#26434;&#39033;&#20989;&#25968;&#65306;
+hlenCommand&#65306;HLEN key&#12290;&#36820;&#22238;&#25351;&#23450;key&#21704;&#24076;&#34920;&#20013;&#30340;&#38190;&#20010;&#25968;&#12290;</code></pre><p>&#21629;&#20196;&#30340;&#35299;&#37322;&#65306;</p><figure class="wp-block-image"><img width="996" height="705" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/hashtable-command.png" alt="Hashtable Command" class="wp-image-897 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command.png 996w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-600x425.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-300x212.png 300w, http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-768x544.png 768w" sizes="(max-width: 996px) 100vw, 996px"><noscript><img data-attachment-id="897" data-permalink="http://www.showsql.com/2019/07/21/redis-hashtable/hashtable-command/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command.png" data-orig-size="996,705" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="hashtable-command" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-300x212.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command.png" width="996" height="705" src="http://showsql.com/wp-content/uploads/2019/07/hashtable-command.png" alt="Hashtable Command" class="wp-image-897 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command.png 996w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-600x425.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-300x212.png 300w,http://www.showsql.com/wp-content/uploads/2019/07/hashtable-command-768x544.png 768w" sizes="(max-width: 996px) 100vw, 996px"></noscript><figcaption>Hashtable Command</figcaption></figure><p>Hits: 19</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/07/21/redis-hashtable/#comments">Comment (1)</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/redis/">Redis</a></div> </div></div></div></article><div id="comments" class="comments-area"><h2 class="comments-title"> One Reply to &ldquo;Redis hashtable &#21704;&#24076;&#34920;&rdquo;</h2><ol class="comment-list"><li class="pingback even thread-even depth-1" id="comment-4"><div id="div-comment-4" class="comment-body"><div class="comment-author vcard asdasd"> <cite class="fn"><a href="http://showsql.com/2019/07/21/redis-object/" rel="external nofollow ugc" class="url">Redis object | jasonpeng</a></cite> <span class="says">says:</span> <a rel="nofollow" class="comment-reply-login" href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F21%2Fredis-hashtable%2F">Log in to Reply</a><div class="comment-meta commentmetadata"><a href="http://www.showsql.com/2019/07/21/redis-hashtable/#comment-4"> 2019&#24180;7&#26376;21&#26085; at pm5:51</a></div></div><p>[&hellip;] &#21704;&#24076;&#34920;&#23545;&#35937; [&hellip;]</p><div class="jetpack-comment-likes-widget-wrapper jetpack-likes-widget-unloaded" id="like-comment-wrapper-168814421-4-5f8cebfeac33f" data-src="https://widgets.wp.com/likes/#blog_id=168814421&amp;comment_id=4&amp;origin=www.showsql.com&amp;obj_id=168814421-4-5f8cebfeac33f" data-name="like-comment-frame-168814421-4-5f8cebfeac33f"><div class="likes-widget-placeholder comment-likes-widget-placeholder comment-likes"><span class="loading">Loading...</span></div><div class="comment-likes-widget jetpack-likes-widget comment-likes"><span class="comment-like-feedback"></span><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div></div></li></ol><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/07/21/redis-hashtable/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F21%2Fredis-hashtable%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/07/21/redis-list-2/" rel="prev"><i class="fa fa-chevron-left"></i> Redis list &#21015;&#34920;</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/07/21/redis-set/" rel="next">Redis set &#38598;&#21512; <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" id="jetpack-carousel-js-extra">/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/www.showsql.com\/wp-admin\/admin-ajax.php","nonce":"99ca01de6c","display_exif":"1","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"1","require_name_email":"1","login_url":"http:\/\/www.showsql.com\/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F21%2Fredis-hashtable%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<p id=\"jp-carousel-commenting-as\">You must be <a href=\"#\" class=\"jp-carousel-comment-login\">logged in<\/a> to post a comment.<\/p>"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js" id="jetpack-carousel-js"></script> <iframe src="https://widgets.wp.com/likes/master.html?ver=202043#ver=202043" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe><div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'866',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '866' ]);</script> </body></html>

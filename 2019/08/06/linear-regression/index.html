@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>linear regression &#32447;&#24615;&#22238;&#24402; | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="&#20808;&#35299;&#20915;&#21333;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#20877;&#35299;&#20915;&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#25512;&#23548;&#32447;&#24615;&#22238;&#24402;&#35299;&#30340;&#20844;&#24335;&#12290;&#20877;&#32534;&#20889;mapreduce&#35299;&#20915;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;"><meta name="keywords" content="streaming"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/08/06/linear-regression/#webpage","url":"http://www.showsql.com/2019/08/06/linear-regression/","inLanguage":"en-US","name":"linear regression &#32447;&#24615;&#22238;&#24402;","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/08/06/linear-regression/#breadcrumblist"},"description":"&#20808;&#35299;&#20915;&#21333;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#20877;&#35299;&#20915;&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#25512;&#23548;&#32447;&#24615;&#22238;&#24402;&#35299;&#30340;&#20844;&#24335;&#12290;&#20877;&#32534;&#20889;mapreduce&#35299;&#20915;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;","datePublished":"2019-08-06T02:45:38+08:00","dateModified":"2019-08-30T03:34:01+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/08/06/linear-regression/#article","isPartOf":{"@id":"http://www.showsql.com/2019/08/06/linear-regression/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"linear regression &#32447;&#24615;&#22238;&#24402;","datePublished":"2019-08-06T02:45:38+08:00","dateModified":"2019-08-30T03:34:01+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/08/06/linear-regression/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Mapreduce, streaming"},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/08/06/linear-regression/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/08/06/linear-regression/","url":"http://www.showsql.com/2019/08/06/linear-regression/","name":"linear regression &#32447;&#24615;&#22238;&#24402;"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/08/06/linear-regression/"><meta property="og:type" content="object"><meta property="og:title" content="linear regression &#32447;&#24615;&#22238;&#24402; | Wonderful Tech"><meta property="og:description" content="&#20808;&#35299;&#20915;&#21333;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#20877;&#35299;&#20915;&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#25512;&#23548;&#32447;&#24615;&#22238;&#24402;&#35299;&#30340;&#20844;&#24335;&#12290;&#20877;&#32534;&#20889;mapreduce&#35299;&#20915;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;"><meta property="og:url" content="http://www.showsql.com/2019/08/06/linear-regression/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="linear regression &#32447;&#24615;&#22238;&#24402; | Wonderful Tech"><meta name="twitter:description" content="&#20808;&#35299;&#20915;&#21333;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#20877;&#35299;&#20915;&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;&#25512;&#23548;&#32447;&#24615;&#22238;&#24402;&#35299;&#30340;&#20844;&#24335;&#12290;&#20877;&#32534;&#20889;mapreduce&#35299;&#20915;&#32447;&#24615;&#22238;&#24402;&#38382;&#39064;&#12290;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; linear regression &#32447;&#24615;&#22238;&#24402; Comments Feed" href="http://www.showsql.com/2019/08/06/linear-regression/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/1252"><link rel="prev" title="find all triangles in the graph &#21457;&#29616;&#22270;&#20013;&#25152;&#26377;&#30340;&#19977;&#35282;&#24418;" href="http://www.showsql.com/2019/08/03/find-all-triangles-in-the-graph/"><link rel="next" title="leetcode176 &#31532;&#20108;&#39640;&#30340;&#34218;&#27700; Second Highest Salary" href="http://www.showsql.com/2019/08/09/leetcode176-second-highest-salary-2/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F06%2Flinear-regression%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F06%2Flinear-regression%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-1252 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/mapreduce/" rel="category tag">Mapreduce</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-1252" class="post-1252 post type-post status-publish format-standard hentry category-mapreduce tag-streaming"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">linear regression &#32447;&#24615;&#22238;&#24402;</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/08/06/linear-regression/" rel="bookmark"><time class="entry-date published" datetime="2019-08-06T10:45:38+08:00">2019&#24180;8&#26376;6&#26085;</time><time class="updated" datetime="2019-08-30T11:34:01+08:00">2019&#24180;8&#26376;30&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/08/06/linear-regression/" title="linear regression &#32447;&#24615;&#22238;&#24402;"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><p>&#22312;&#24050;&#30693;&#33258;&#21464;&#37327;&#21644;&#22240;&#21464;&#37327;&#30340;&#35266;&#23519;&#25968;&#25454;&#30340;&#24773;&#20917;&#19979;&#65292;&#29992;&#32447;&#24615;&#22238;&#24402;&#27714;&#35299;&#33258;&#21464;&#37327;&#21644;&#22240;&#21464;&#37327;&#20043;&#38388;&#30340;&#32447;&#24615;&#26041;&#31243;&#12290;</p><p>&#32447;&#24615;&#22238;&#24402;&#26131;&#20110;&#29702;&#35299;&#21644;&#32534;&#31243;&#12290;&#38750;&#24120;&#36866;&#21512;&#29992;&#26469;&#32451;&#25163;&#12290;</p><div id="ez-toc-container" class="ez-toc-v2_0_11 counter-hierarchy counter-decimal ez-toc-grey"><div class="ez-toc-title-container"><p class="ez-toc-title">Table of Contents</p> <span class="ez-toc-title-toggle"></span></div><nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#%E5%8D%95%E8%87%AA%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92" title="&#21333;&#33258;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;">&#21333;&#33258;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-2" href="#%E4%B8%BA%E5%8D%95%E8%87%AA%E5%8F%98%E9%87%8F%E8%AE%BE%E8%AE%A1mapreduce%E4%BB%BB%E5%8A%A1" title="&#20026;&#21333;&#33258;&#21464;&#37327;&#35774;&#35745;mapreduce&#20219;&#21153;">&#20026;&#21333;&#33258;&#21464;&#37327;&#35774;&#35745;mapreduce&#20219;&#21153;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-3" href="#%E5%A4%9A%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92" title="&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;">&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-4" href="#%E6%B1%82%E8%A7%A3%5C(X%5ETX%5C)%E5%92%8C%5C(X%5ETY%5C)" title="&#27714;&#35299;\(X^TX\)&#21644;\(X^TY\) ">&#27714;&#35299;\(X^TX\)&#21644;\(X^TY\) </a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-5" href="#%E4%B8%BA%E5%A4%9A%E5%8F%98%E9%87%8F%E8%AE%BE%E8%AE%A1mapreduce%E4%BB%BB%E5%8A%A1" title="&#20026;&#22810;&#21464;&#37327;&#35774;&#35745;mapreduce&#20219;&#21153;">&#20026;&#22810;&#21464;&#37327;&#35774;&#35745;mapreduce&#20219;&#21153;</a></li></ul></nav></div><h2><span class="ez-toc-section" id="%E5%8D%95%E8%87%AA%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"></span>&#21333;&#33258;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;<span class="ez-toc-section-end"></span></h2><p>&#24050;&#30693;&#33258;&#21464;&#37327;\(x\)&#21644;&#22240;&#21464;&#37327;\(y\)&#30340;&#35266;&#23519;&#25968;&#25454;&#65306;</p><p> 41  90<br> 42  93<br> 43  98<br> 20  64<br> 25  78<br> 40  71<br> 58  88<br> 60  86</p><p>&#20551;&#35774;&#20004;&#32773;&#20043;&#38388;&#28385;&#36275;&#20844;&#24335;:</p><p>$$ y = ax + b $$</p><p>&#30001;&#20110;&#27599;&#23545;&#35266;&#27979;&#25968;&#25454;&#37117;&#28385;&#36275;&#19978;&#38754;&#30340;&#20844;&#24335;&#12290;</p><p>&#20849;&#26377;\(N\)&#32452;&#25968;&#25454;&#65292;&#21487;&#24471;&#20986;:</p><p> \begin{align}
+y_1 &amp; = ax_1 + b \\
+y_2 &amp; = ax_2 + b \\
+&amp; \dots \\
+y_N &amp; = ax_N + b
+\end{align}</p><p>&#38500;&#27492;&#20043;&#22806;&#65292;&#25439;&#22833;&#20989;&#25968;&#65288;\(y\)&#30340;&#39044;&#27979;&#20540;&#19982; \(y\) &#30340;&#35266;&#27979;&#20540;&#20043;&#38388;&#30340;&#35823;&#24046;&#65289;&#24179;&#26041;&#21644;&#26368;&#23567;&#12290;</p><p>$$  \epsilon  = \sum_{i=1}^N \left( ax_i + b - y_i \right) ^ 2 $$</p><p>&#37027;&#20040;&#65292;\(\epsilon\)&#21487;&#20197;&#35748;&#20026;&#26159;&#20851;&#20110;&#33258;&#21464;&#37327;\(a\)&#21644; \(b\) &#30340;&#20989;&#25968;&#12290;&#35201;&#27714; \(\epsilon\) &#26368;&#23567;&#65292;&#31561;&#20215;&#20110;&#26368;&#20248;&#21270;&#38382;&#39064;&#65306;</p><p>$$ min \space  \epsilon  = \sum_{i=1}^N \left( ax_i + b - y_i \right) ^ 2  \label{epsilon_def_ref} $$</p><p>&#29992;&#21021;&#31561;&#25968;&#23398;&#23545;&#20844;&#24335;\eqref{epsilon_def_ref}&#23637;&#24320;&#24471;&#65306;</p><p>\begin{align}  \epsilon  &amp; = \sum_{i=1}^N \left( ax_i + b - y_i \right) ^ 2    \\  &amp; = a^2 \sum_{i=1}^N x_i^2 + nb^2 + \sum_{i=1}^N y_i^2 + 2ab \sum_{i=1}^N x_i - 2a \sum_{i=1}^N x_i y_i -2b \sum_{i=1}^N y_i
+\end{align}</p><p>&#23545;&#20110;&#26080;&#32422;&#26463;&#26368;&#20248;&#21270;&#38382;&#39064; \eqref{epsilon_def_ref} &#65292;&#23547;&#25214;&#20854;&#26368;&#23567;&#20540;&#28857;&#12290;&#27714;&#20854;&#26497;&#20540;&#28857;&#12290;&#27714;&#20854;&#20851;&#20110;\(a\)&#21644; \(b\)&#30340;&#20559;&#23548;&#65292;&#24182;&#20196;&#20854;&#31561;&#20110;0&#12290;</p><p> \begin{align} \frac {\partial \epsilon} {\partial a} &amp; = 2a \sum_{i=1}^Nx_i^2 + 2b \sum_{i=1}^N x_i -2 \sum_{i=1}^Nx_i y_i = 0 \\ \frac {\partial \epsilon}  {\partial b} &amp; = 2nb + 2a \sum_{i=1}^N x_i -2 \sum_{i=1}^N y_i = 0 \end{align}</p><p>&#20004;&#36793;&#25972;&#29702;&#24471;&#65306;</p><p> \begin{align}
+a \left( \sum_{i=1}^N x_i^2 \right) + b \left( \sum_{i=1}^N x_i \right) &amp;= \sum_{i=1}^N x_i y_i \\
+a \left( \sum_{i=1}^N x_i \right) + bn &amp; = \sum_{i=1}^N y_i
+\end{align}</p><p>&#21482;&#35201;&#28385;&#36275;<strong>&#31995;&#25968;&#34892;&#21015;&#24335;&#19981;&#20026;0</strong>&#65292;<a href="https://en.wikipedia.org/wiki/Cramer%27s_rule">&#20811;&#33713;&#40664;&#27861;&#21017;</a>&#25104;&#31435;&#65292;&#23601;&#21487;&#24555;&#36895;&#27714;&#20986; \(a\)&#21644; \(b\) &#12290;</p><p>&#31995;&#25968;&#34892;&#21015;&#24335;&#20026;&#65306;</p><p> \begin{align}
+\begin{vmatrix}
+\left( \sum_{i=1}^N x_i^2 \right) &amp; \left( \sum_{i=1}^N x_i \right) \\
+&amp; &amp; \\
+\left( \sum_{i=1}^N x_i \right) &amp; n
+\end{vmatrix} &amp; = n\left( \sum_{i=1}^N x_i^2 \right) - \left( \sum_{i=1}^N x_i \right)^2
+\end{align}</p><p>&#30001;&#20811;&#33713;&#40664;&#27861;&#21017;&#65292;&#24471;&#20986;&#32467;&#26524;&#20026;:</p><p> \begin{align}
+a &amp; = \frac {n\left( \sum_{i=1}^N x_i y_i \right)  - \left( \sum_{i=1}^N y_i \right)\left( \sum_{i=1}^N x_i \right) } {n\left( \sum_{i=1}^N x_i^2 \right) - \left( \sum_{i=1}^N x_i \right)^2} \\
+b &amp; = \frac {\left( \sum_{i=1}^N x_i y_i \right)\left( \sum_{i=1}^N x_i \right) - \left( \sum_{i=1}^N y_i \right)\left( \sum_{i=1}^N x_i^2 \right) } {\left( \sum_{i=1}^N x_i \right)^2 - n\left( \sum_{i=1}^N x_i^2 \right) }
+\end{align}</p><p>&#20174;&#19978;&#38754;&#30340;&#20844;&#24335;&#20013;&#21487;&#20197;&#30475;&#20986;&#12290;&#20851;&#38190;&#26159;&#27714;&#20986;&#19968;&#31995;&#21015;&#30340;&#21644;&#12290;</p><p>$$  \sum_{i=1}^N x_i ,  \sum_{i=1}^N y_i, \sum_{i=1}^N x_i^2, \sum_{i=1}^N x_i y_i   $$</p><h2><span class="ez-toc-section" id="%E4%B8%BA%E5%8D%95%E8%87%AA%E5%8F%98%E9%87%8F%E8%AE%BE%E8%AE%A1mapreduce%E4%BB%BB%E5%8A%A1"></span>&#20026;&#21333;&#33258;&#21464;&#37327;&#35774;&#35745;mapreduce&#20219;&#21153;<span class="ez-toc-section-end"></span></h2><p><strong>map.py</strong></p><p>&#21457;&#23556;x,y,xy&#21644;x^2&#21363;&#21487;&#12290;</p><pre class="wp-block-code"><code>#!/usr/bin/python
+#coding=utf-8
+import sys
+
+for line in sys.stdin:
+    line = line.strip()
+    segs = line.split()
+    x = long(segs[0])
+    y = long(segs[1])
+    xy = x*y
+    xx = x*x
+    print('%d\t%d\t%d\t%d'%(x,y,xy,xx))</code></pre><p><strong>reduce.py</strong></p><p>&#32047;&#21152;x,y,xy&#21644;x^2&#30340;&#20540;&#12290;</p><pre class="wp-block-code"><code>#!/usr/bin/python
+#coding=utf-8
+import sys
+
+x_sum = 0
+y_sum = 0
+xy_sum = 0
+xx_sum = 0
+N = 0
+
+for line in sys.stdin:
+    line = line.strip()
+    #print(line)
+    segs = line.split()
+    x = long(segs[0])
+    y = long(segs[1])
+    xy = long(segs[2])
+    xx = long(segs[3])
+    x_sum += x
+    y_sum += y
+    xy_sum += xy
+    xx_sum += xx
+    N += 1
+
+def gen_final_results():
+    '''
+    '''
+    T = N * xx_sum - x_sum * x_sum
+    if T == 0:
+        print('&#26080;&#21807;&#19968;&#35299;')
+        return
+    A = N * xy_sum - x_sum * y_sum
+    B = y_sum * xx_sum - x_sum * xy_sum
+    a = A / float(T)
+    b = B / float(T)
+    print('%s\t%s' % (a,b))
+
+gen_final_results()
+</code></pre><p>&#25552;&#20132;&#33050;&#26412;&#65306;</p><pre class="wp-block-code"><code>#!/bin/bash
+#hadoop 2.7.6
+JAR=${HADOOP_HOME}/share/hadoop/tools/lib/hadoop-streaming-2.7.6.jar
+INPUT=/chap27/input/input.txt
+OUTPUT=output
+MAPPER=map.py
+REDUCER=reduce.py
+hadoop fs -rm -r  $OUTPUT
+hadoop jar $JAR \
+-D stream.map.input.ignoreKey=true \
+-input $INPUT \
+-output $OUTPUT \
+-mapper $MAPPER \
+-reducer $REDUCER \
+-file $MAPPER \
+-file $REDUCER \
+-partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner </code></pre><p>&#25191;&#34892;&#32467;&#26524;&#65306;</p><p>\(a\)=0.497089531553    \(b\)=63.0571930149</p><h2><span class="ez-toc-section" id="%E5%A4%9A%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"></span>&#22810;&#21464;&#37327;&#32447;&#24615;&#22238;&#24402;<span class="ez-toc-section-end"></span></h2><p>&#23547;&#25214;&#22810;&#20010;&#33258;&#21464;&#37327;\(x_1,x_2,\dots,x_n\)&#21644;&#21333;&#20010;&#22240;&#21464;&#37327;\(y\)&#20043;&#38388;&#30340;&#32447;&#24615;&#20851;&#31995;&#12290;&#20854;&#20013;\(N\)&#20026;&#33258;&#21464;&#37327;&#20010;&#25968;&#12290;</p><p>&#24050;&#26377;&#35266;&#23519;&#25968;&#25454;&#65306;&#27599;&#34892;11&#21015;&#65292;&#21069;10&#20026;&#20010;&#33258;&#21464;&#37327;&#65292;&#26368;&#21518;&#19968;&#20010;&#20026;&#22240;&#21464;&#37327;&#12290;</p><p>3.807590643342410180e-02 5.068011873981870252e-02 6.169620651868849837e-02 2.187235499495579841e-02 -4.422349842444640161e-02 -3.482076283769860309e-02 -4.340084565202689815e-02 -2.592261998182820038e-03 1.990842087631829876e-02 -1.764612515980519894e-02 1.510000000000000000e+02<br> -1.882016527791040067e-03 -4.464163650698899782e-02 -5.147406123880610140e-02 -2.632783471735180084e-02 -8.448724111216979540e-03 -1.916333974822199970e-02 7.441156407875940126e-02 -3.949338287409189657e-02 -6.832974362442149896e-02 -9.220404962683000083e-02 7.500000000000000000e+01<br> ......</p><p>&#20551;&#35774;&#33258;&#21464;&#37327;\(x_1,x_2,\dots,x_n\)&#21644;&#21333;&#20010;&#22240;&#21464;&#37327;\(y\)&#20043;&#38388;&#30340;&#32447;&#24615;&#20851;&#31995;&#65306;</p><p>$$ y =  a_1x_1 + a_2x_2+\dots+a_nx_n + b $$</p><p>&#20551;&#35774;&#26377;\(m\)&#34892;&#25968;&#25454;&#12290;&#21017;&#26377;&#26041;&#31243;&#32452;&#65306;</p><p> \begin{align} y_1 &amp; = a_1x_{11} + a_2x_{12}+\dots+a_nx_{1n} + b \\ y_2 &amp; = a_1x_{21} + a_2x_{22}+\dots+a_nx_{2n} + b \\ &amp; \dots \\ y_i &amp; = a_1x_{i1} + a_2x_{i2}+\dots+a_nx_{in} + b \\ &amp; \dots \\ y_m &amp; = a_1x_{m1} + a_2x_{m2}+\dots+a_nx_{mn} + b  \end{align}</p><p>&#20026;&#26041;&#20415;&#65292;&#21487;&#20197;&#35760;:</p><p>\( X_i = \left( x_{i1},x_{i2},\dots,x_{in},1 \right) \)</p><p> $$
+X =
+\begin{bmatrix}
+X_1 \\
+X_2 \\
+\dots \\
+X_m
+\end{bmatrix}
+$$</p><p>\( A = \left( a_1,a_2,\dots,a_n,b \right)^T \)</p><p>\( Y = \left( y_1,y_2,\dots,y_m \right)^T \)</p><p>&#20511;&#21161;\( X_i \)&#21644;\( A \)&#65292;&#19978;&#36848;&#26041;&#31243;&#32452;&#21644;&#31616;&#21270;&#20026;&#65306;</p><p> $$ 
+Y = XA
+$$</p><p>&#25439;&#22833;&#20989;&#25968;&#65288;\(Y\)&#30340;&#39044;&#27979;&#20540;&#19982; \(Y\) &#30340;&#35266;&#27979;&#20540;&#20043;&#38388;&#30340;&#35823;&#24046;&#65289;&#24179;&#26041;&#21644;&#26368;&#23567;&#12290;</p><p>&#21363;&#27714;&#26368;&#20248;&#21270;&#38382;&#39064;:</p><p>$$ min \space \epsilon  = \sum_{i=1}^m \left( X_i A -y_i \right)^2  $$</p><p>&#23545;&#20844;&#24335;&#36827;&#34892;&#21270;&#31616;&#24471;&#20986;&#65306;</p><p> \begin{align}
+\epsilon &amp; = \sum_{i=1}^m \left( X_i A -y_i \right)^2 \\
+&amp; = \left( X_1A-y_1,X_2A-y_2,\dots,X_mA-y_m \right) 
+\begin{bmatrix}
+X_1A-y_1 \\
+X_2A-y_2 \\
+\dots \\
+X_mA-y_m
+\end{bmatrix} \\
+&amp; = (XA-Y)^T(XA-Y) \\
+&amp; = (A^TX^T-Y^T)(XA-Y) \\
+&amp; = A^TX^TXA - A^TX^TY-Y^TXA-Y^TY
+\end{align}</p><p>&#27714;&#35823;&#24046;&#20851;&#20110;\(A\)&#30340;&#20559;&#23548;&#65292;&#24182;&#20196;&#20559;&#23548;&#31561;&#20110;0&#12290;</p><p> \begin{align} \frac {\partial \epsilon }{\partial A} &amp;=2X^TXA-2X^TY  \label{pa_ref}   \\ &amp; = 0 \end{align}</p><p>&#22240;&#27492;&#21482;&#35201;\(X^TX)\)&#21487;&#36870;&#23601;&#33021;&#27714;&#20986;\(A\)&#30340;&#21807;&#19968;&#35299;&#12290;</p><p>&#20174;&#20844;&#24335;\eqref{pa_ref}&#30693;&#65292;&#38656;&#35201;&#27714;&#20986;\(X^TX\)&#21644;\(X^TY\)&#12290;</p><h2><span class="ez-toc-section" id="%E6%B1%82%E8%A7%A3%5C(X%5ETX%5C)%E5%92%8C%5C(X%5ETY%5C)"></span>&#27714;&#35299;\(X^TX\)&#21644;\(X^TY\) <span class="ez-toc-section-end"></span></h2><p> \begin{align}
+X^TX &amp;= \left(X_1^T,X_2^T,\dots,X_m^T \right) \begin{bmatrix}
+X_1 \\
+X_2 \\
+\dots \\
+X_m
+\end{bmatrix} \\
+&amp; = X_1^TX_1 + X_2^TX_2+\dots+X_m^TX_m \\
+&amp; = \sum_{i=1}^mX_i^TX_i
+\end{align}</p><p>&#20854;&#20013;\( X_i^TX_i \)&#38750;&#24120;&#20851;&#38190;&#65306;</p><p> \begin{align}
+X_i^TX_i &amp; = 
+\begin{bmatrix} 
+X_{i1} \\
+X_{i2} \\
+\dots \\
+X_{in} \\
+1
+\end{bmatrix} \left( X_{i1},X_{i2},\dots,X_{in},1 \right) \\
+&amp; = 
+\begin{bmatrix}
+X_{i1}X_{i1} \space X_{i1}X_{i2} \space \dots \space X_{i1}X_{in} \space 
+X_{i1} \\
+X_{i2}X_{i1} \space X_{i2}X_{i2} \space \dots \space X_{i2}X_{in} \space X_{i2} \\
+\vdots \\
+X_{in}X_{i1} \space X_{in}X_{i2} \space \dots \space X_{in}X_{in} \space X_{in} \\
+X_{i1} \space \space X_{i2} \space\space \dots \space X_{in} \space \space 1 \label{xixi_ref}
+\end{bmatrix}
+\end{align}</p><p>&#20174;&#20844;&#24335;\eqref{xixi_ref}&#20013;&#21487;&#30475;&#20986;&#65292;&#27599;&#35835;&#20837;&#19968;&#34892;&#25968;&#25454;&#12290;&#25353;&#29031;&#31532;i&#20010;&#33258;&#21464;&#37327;&#20056;&#20197;&#35813;&#32452;&#33258;&#21464;&#37327;&#23601;&#21487;&#24471;&#20986;&#30697;&#38453;&#30340;&#31532;i&#34892;&#12290;</p><p>\(X^TY\)&#30340;&#35745;&#31639;&#32467;&#26524;&#22914;&#19979;&#65306;</p><p> \begin{align}
+X^TY &amp;=\left( X_1^T,X_2^T,\dots,X_m^T \right)
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_m
+\end{bmatrix}
+\end{align}</p><p>&#22240;&#27492;&#65292;&#27599;&#35835;&#20837;&#19968;&#34892;&#25968;&#25454;&#12290;&#23558;&#22240;&#21464;&#37327;&#20056;&#20197;&#27599;&#34892;&#30340;&#33258;&#21464;&#37327;&#21363;&#21487;&#12290;</p><h2><span class="ez-toc-section" id="%E4%B8%BA%E5%A4%9A%E5%8F%98%E9%87%8F%E8%AE%BE%E8%AE%A1mapreduce%E4%BB%BB%E5%8A%A1"></span>&#20026;&#22810;&#21464;&#37327;&#35774;&#35745;mapreduce&#20219;&#21153;<span class="ez-toc-section-end"></span></h2><p><strong>map2.py</strong></p><p>&#27599;&#35835;&#20837;&#19968;&#34892;&#25968;&#25454;&#65292;&#21457;&#23556;\( X_i^TX_i \)&#21644;\( y_iX_i^T \)</p><pre class="wp-block-code"><code>#!/usr/bin/python
+#coding=utf-8
+import sys
+
+for line in sys.stdin:
+    line = line.strip()
+    segs = line.split()
+    #X&#30697;&#38453;&#30340;&#27599;&#19968;&#34892;
+    Xi = [float(d) for d in segs[:-1]]
+    Xi.append(1)
+    Y = float(segs[-1])
+    #&#35745;&#31639;Xi'Xi&#65292;
+    res_XiXi = ''
+    for x in Xi:
+        y = [str(x*d) for d in Xi]
+        res_XiXi += ' '.join(y) + ' ; '
+    print(res_XiXi)
+    #&#35745;&#31639;Y'Xi
+    res_YXi = ''
+    for x in Xi:
+        y = [str(Y*d) for d in Xi]
+        res_YXi += ' '.join(y) + ' , '
+    print(res_YXi)</code></pre><p><strong>reduce2.py</strong></p><p>&#32047;&#21152; \( X_i^TX_i \)&#21644;\( y_iX_i^T \) &#20197;&#24471;&#20986;\(X^TX\)&#21644;\(X^TY\)&#12290;</p><p>&#20043;&#21518;&#21028;&#26029;\(X^TX\)&#26159;&#21542;&#21487;&#36870;&#65292;&#22914;&#26524;&#21487;&#36870;&#65292;&#23601;&#26377;&#21807;&#19968;&#35299;&#65292;&#29992;numpy&#27714;&#35299;&#12290;</p><p>$$ A = \left( X^TX \right)^{-1} \left( X^TY \right) $$</p><p>&#22914;&#26524;&#19981;&#21487;&#36870;&#65292;&#23601;&#26080;&#21807;&#19968;&#35299;&#12290;&#38656;&#35201;&#36890;&#36807;&#20854;&#23427;&#26041;&#27861;&#27714;&#35299;&#65292;&#26412;&#25991;&#19981;&#25903;&#25345;&#12290;</p><pre class="wp-block-code"><code>#!/usr/bin/python
+#coding=utf-8
+import sys
+
+#&#21152;&#20837;numpy&#30340;&#25628;&#32034;&#36335;&#24452;
+sys.path.append("~/anaconda2/lib/python2.7/site-packages")
+
+import numpy as np
+
+X_plus_X = []
+X_plus_Y = []
+
+def add_on_XX(line,XX):
+    '''
+    &#28155;&#21152;&#21040;X'X&#30697;&#38453;&#19978;
+    '''
+    segs = line.split(';')
+    for i,row in enumerate(segs):
+        if row == '':
+            continue
+        col = row.split()
+        if i == len(XX):
+            XX.append([0 for j in range(len(col))])
+        for j,c in enumerate(col):
+            XX[i][j] += float(c)
+
+def add_on_YX(line,XY):
+    '''
+    &#28155;&#21152;&#21040;X'Y&#30697;&#38453;&#19978;&#12290;mapper&#20256;&#36807;&#26469;&#30340;&#26159;&#36716;&#32622;&#20540;&#12290;
+    '''
+    segs = line.split(',')
+    for i,row in enumerate(segs):
+        if row == '':
+            continue
+        col = row.split()
+        if len(XY) == 0:
+            XY.append([0 for j in range(len(col))])
+        for j,c in enumerate(col):
+            XY[0][j] += float(c)
+             
+
+for line in sys.stdin:
+    line = line.strip()
+    #print(line)
+    if ';' in line:
+        #&#20540;&#26159;Xi'Xi
+        add_on_XX(line,X_plus_X)
+    elif ',' in line:
+        #&#20540;&#26159;Y'Xi
+        add_on_YX(line,X_plus_Y)
+    else:
+        continue
+
+def result():
+    '''
+    '''
+    #print(X_plus_X)
+    #print(X_plus_Y)
+
+    #&#36716;&#25104;numpy&#25968;&#32452;&#65292;&#26041;&#20415;&#27714;&#36870;
+    XX = np.array(X_plus_X)
+    XY = np.array(X_plus_Y)
+
+    #&#20808;&#21028;&#26029;X'X&#30697;&#38453;&#26159;&#21542;&#21487;&#36870;
+    if np.linalg.det(XX) == 0:
+        print('&#19981;&#21487;&#36870;&#65292;&#27809;&#26377;&#21807;&#19968;&#35299;')
+    else:
+        XX_inv = np.linalg.inv(XX)
+        XY_plus = XY.transpose()
+        A = np.dot(XX_inv,XY_plus)
+        print(A)
+
+result()</code></pre><p>&#25552;&#20132;&#33050;&#26412;&#65306;</p><pre class="wp-block-code"><code>#!/bin/bash
+#hadoop 2.7.6
+JAR=${HADOOP_HOME}/share/hadoop/tools/lib/hadoop-streaming-2.7.6.jar
+INPUT=/chap27/input2/input2.txt
+OUTPUT=output
+MAPPER=map2.py
+REDUCER=reduce2.py
+hadoop fs -rm -r  $OUTPUT
+hadoop jar $JAR \
+-D stream.map.input.ignoreKey=true \
+-input $INPUT \
+-output $OUTPUT \
+-mapper $MAPPER \
+-reducer $REDUCER \
+-file $MAPPER \
+-file $REDUCER \
+-numReduceTasks 1 \
+-partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner </code></pre><p>&#36755;&#20986;&#32467;&#26524;&#65306;</p><p>[[ -110.134176  ] <br> [-2638.00998301] <br> [ 5718.2376547 ] <br> [ 3568.29470458] <br> [-8714.02577751] <br> [ 5244.20421573] <br> [ 1111.49027337] <br> [ 1947.70593852] <br> [ 8264.07253181] <br> [  743.87925031] <br> [ 1673.46832579]]</p><p>Hits: 19</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/08/06/linear-regression/#respond">No comments yet</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/streaming/">streaming</a></div> </div></div></div></article><div id="comments" class="comments-area"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/08/06/linear-regression/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F06%2Flinear-regression%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/08/03/find-all-triangles-in-the-graph/" rel="prev"><i class="fa fa-chevron-left"></i> find all triangles in the graph &#21457;&#29616;&#22270;&#20013;&#25152;&#26377;&#30340;&#19977;&#35282;&#24418;</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/08/09/leetcode176-second-highest-salary-2/" rel="next">leetcode176 &#31532;&#20108;&#39640;&#30340;&#34218;&#27700; Second Highest Salary <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js" id="jquery-smooth-scroll-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js" id="js-cookie-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js" id="jquery-sticky-kit-js"></script> <script type="text/javascript" id="ez-toc-js-js-extra">/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js" id="ez-toc-js-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'1252',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '1252' ]);</script> </body></html>

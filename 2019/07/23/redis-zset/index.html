@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Redis zset | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="zset&#26377;&#24207;&#38598;&#21512;&#12290;&#20869;&#37096;&#25968;&#25454;&#32467;&#26500;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#21644;&#20989;&#25968;&#12290;"><meta name="keywords" content="redis"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/07/23/redis-zset/#webpage","url":"http://www.showsql.com/2019/07/23/redis-zset/","inLanguage":"en-US","name":"Redis zset &#26377;&#24207;&#38598;&#21512;","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/07/23/redis-zset/#breadcrumblist"},"description":"zset&#26377;&#24207;&#38598;&#21512;&#12290;&#20869;&#37096;&#25968;&#25454;&#32467;&#26500;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#21644;&#20989;&#25968;&#12290;","datePublished":"2019-07-23T00:50:35+08:00","dateModified":"2019-07-23T10:42:27+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/07/23/redis-zset/#article","isPartOf":{"@id":"http://www.showsql.com/2019/07/23/redis-zset/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"Redis zset &#26377;&#24207;&#38598;&#21512;","datePublished":"2019-07-23T00:50:35+08:00","dateModified":"2019-07-23T10:42:27+08:00","commentCount":1,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/07/23/redis-zset/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Redis Data Structure, Redis","image":{"@type":"ImageObject","@id":"http://www.showsql.com/2019/07/23/redis-zset/#primaryimage","url":"http://showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png"}},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/07/23/redis-zset/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/07/23/redis-zset/","url":"http://www.showsql.com/2019/07/23/redis-zset/","name":"Redis zset &#26377;&#24207;&#38598;&#21512;"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/07/23/redis-zset/"><meta property="og:type" content="activity"><meta property="og:title" content="Redis zset | Wonderful Tech"><meta property="og:description" content="zset&#26377;&#24207;&#38598;&#21512;&#12290;&#20869;&#37096;&#25968;&#25454;&#32467;&#26500;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#21644;&#20989;&#25968;&#12290;"><meta property="og:url" content="http://www.showsql.com/2019/07/23/redis-zset/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Redis zset | Wonderful Tech"><meta name="twitter:description" content="zset&#26377;&#24207;&#38598;&#21512;&#12290;&#20869;&#37096;&#25968;&#25454;&#32467;&#26500;&#12290;&#25903;&#25345;&#30340;&#21629;&#20196;&#21644;&#20989;&#25968;&#12290;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Redis zset &#26377;&#24207;&#38598;&#21512; Comments Feed" href="http://www.showsql.com/2019/07/23/redis-zset/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/884"><link rel="prev" title="Redis set &#38598;&#21512;" href="http://www.showsql.com/2019/07/21/redis-set/"><link rel="next" title="hadoop streaming &#20108;&#27425;&#25490;&#24207;" href="http://www.showsql.com/2019/07/23/hadoop-streaming-secondary-sort/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F23%2Fredis-zset%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F23%2Fredis-zset%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-884 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/redis-data-structure/" rel="category tag">Redis Data Structure</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-884" class="post-884 post type-post status-publish format-standard hentry category-redis-data-structure tag-redis"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">Redis zset &#26377;&#24207;&#38598;&#21512;</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/07/23/redis-zset/" rel="bookmark"><time class="entry-date published" datetime="2019-07-23T08:50:35+08:00">2019&#24180;7&#26376;23&#26085;</time><time class="updated" datetime="2019-07-23T18:42:27+08:00">2019&#24180;7&#26376;23&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/07/23/redis-zset/" title="Redis zset &#26377;&#24207;&#38598;&#21512;"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><p>ziplist&#32534;&#30721;&#65306;&#25104;&#21592;&#21644;&#20998;&#20540;&#25490;&#22312;&#19968;&#36215;&#12290;&#25353;&#20998;&#20540;&#20174;&#23567;&#21040;&#22823;&#25490;&#24207;&#12290;</p><figure class="wp-block-image"><img width="958" height="201" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/zset-ziplist.png" alt="Zset ziplist" class="wp-image-886 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist.png 958w, http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-600x126.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-300x63.png 300w, http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-768x161.png 768w" sizes="(max-width: 958px) 100vw, 958px"><noscript><img data-attachment-id="886" data-permalink="http://www.showsql.com/2019/07/23/redis-zset/zset-ziplist/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist.png" data-orig-size="958,201" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="zset-ziplist" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-300x63.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist.png" width="958" height="201" src="http://showsql.com/wp-content/uploads/2019/07/zset-ziplist.png" alt="Zset ziplist" class="wp-image-886 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist.png 958w,http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-600x126.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-300x63.png 300w,http://www.showsql.com/wp-content/uploads/2019/07/zset-ziplist-768x161.png 768w" sizes="(max-width: 958px) 100vw, 958px"></noscript><figcaption>Zset ziplist</figcaption></figure><p>skiplist&#32534;&#30721;&#65306;&#21253;&#21547;&#19968;&#20010;&#23383;&#20856;&#21644;&#19968;&#20010;skiplist&#12290;</p><p>&#23383;&#20856;&#65306;&#20026;&#26377;&#24207;&#38598;&#21512;&#21019;&#24314;<strong>&#25104;&#21592;-&gt;&#20998;&#20540;</strong>&#26144;&#23556;&#12290;</p><p>skiplist&#65306;score&#20445;&#23384;&#20998;&#20540;&#65292;object&#20445;&#23384;&#25104;&#21592;&#12290;&#25353;&#20998;&#20540;&#26377;&#24207;&#25490;&#21015;&#33410;&#28857;&#12290;</p><figure class="wp-block-image"><img width="1012" height="658" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/zset-skiplist.png" alt="Zset skiplist" class="wp-image-888 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist.png 1012w, http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-600x390.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-300x195.png 300w, http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-768x499.png 768w" sizes="(max-width: 1012px) 100vw, 1012px"><noscript><img data-attachment-id="888" data-permalink="http://www.showsql.com/2019/07/23/redis-zset/zset-skiplist/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist.png" data-orig-size="1012,658" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="zset-skiplist" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-300x195.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist.png" width="1012" height="658" src="http://showsql.com/wp-content/uploads/2019/07/zset-skiplist.png" alt="Zset skiplist" class="wp-image-888 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist.png 1012w,http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-600x390.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-300x195.png 300w,http://www.showsql.com/wp-content/uploads/2019/07/zset-skiplist-768x499.png 768w" sizes="(max-width: 1012px) 100vw, 1012px"></noscript><figcaption>Zset skiplist</figcaption></figure><p>&#25104;&#21592;&#37117;&#26159;&#23383;&#31526;&#20018;&#23545;&#35937;&#65292;&#20998;&#20540;&#37117;&#26159;double&#31867;&#22411;&#12290;</p><p>&#25903;&#25345;&#30340;&#20989;&#25968;&#65306;</p><pre class="wp-block-code"><code>zzlCompareElements&#65288;eptr&#65292;cstr&#65289;&#12290;&#23558;&#26377;&#24207;&#38598;&#20013;&#30340;&#23383;&#31526;&#20018;eptr&#19982;&#23383;&#31526;&#20018;cstr&#27604;&#36739;&#12290;
+	ziplistGet&#21462;&#20986;eptr&#30340;&#23383;&#31526;&#20018;&#20540;&#65307;
+	memcmp&#65292;&#36820;&#22238;&#65307;
+zzlength&#65306;&#36820;&#22238;&#26377;&#24207;&#38598;&#21512;&#20013;&#30340;&#20803;&#32032;&#20010;&#25968;&#12290;
+	ziplistLen/2&#65292;&#36820;&#22238;&#65307;
+zzlNext&#65288;eptr&#65292;sptr&#65289;&#65306;&#26681;&#25454;eptr&#21644;sptr&#65292;&#31227;&#21160;&#21040;&#19979;&#19968;&#20010;entry&#12290;
+	ziplistNext&#65307;
+	ziplistNext&#65307;
+zzlPrev&#65288;eptr&#65292;sptr&#65289;&#65306;&#26681;&#25454;eptr&#21644;sptr&#65292;&#31227;&#21160;&#21040;&#21069;&#19968;&#20010;entry&#12290;
+	ziplistPrev&#65307;
+	ziplistPrev&#65307;
+zzlIsInRange&#65288;zl&#65292;range&#65289;&#65306;zl&#20013;&#26159;&#21542;&#26377;range&#33539;&#22260;&#20869;&#30340;&#33410;&#28857;&#12290;
+	ziplistIndex&#65307;
+	zzlGetScore&#65307;
+	zslValueGteMin&#65307;
+	ziplistIndex&#65307;
+	zzlGetScore&#65307;
+	zslValueLteMax&#65307;
+zzlFirstInRange&#65288;zl&#65292;range&#65289;&#65306;&#36820;&#22238;zl&#20013;&#31532;&#19968;&#20010;&#22312;range&#33539;&#22260;&#20869;&#30340;&#33410;&#28857;&#12290;
+	zzlIsInrange&#21028;&#26029;&#26159;&#21542;&#22312;range&#20869;&#65292;&#19981;&#22312;&#36820;&#22238;&#65307;
+	&#23545;ziplist&#20013;&#30340;&#27599;&#20010;&#33410;&#28857;&#65306;
+		zzlGetScore&#21462;&#20854;&#20998;&#20540;score&#65307;
+		&#22914;&#26524;score&#28385;&#36275;zslValueGteMin&#19988;zslValueLteMax&#65292;&#21017;&#36820;&#22238;&#20854;&#33410;&#28857;&#65307;
+zzlLastInRange&#65288;zl&#65292;range&#65289;&#65306;&#36820;&#22238;zl&#20013;&#26368;&#21518;&#19968;&#20010;&#22312;range&#33539;&#22260;&#20869;&#30340;&#33410;&#28857;&#12290;
+	&#26041;&#27861;&#19982;zzlFirstInRange&#31867;&#20284;&#65307;
+zzlLexValueGteMin&#65288;p&#65292;spec&#65289;&#65306;
+zzlLexValueLteMax&#65288;p&#65292;spec&#65289;&#65306;
+zzlIsInLexRange&#65288;zl&#65292;range&#65289;&#65306;
+zzlFirstInLexRange&#65288;zl&#65292;range&#65289;&#65306;
+zzlLastInLexRange&#65288;zl&#65292;range&#65289;&#65306;
+zzlFind&#65288;zl&#65292;ele&#65292;score&#65289;&#65306;&#20174;ziplist&#20013;&#26597;&#25214;ele&#65292;&#36820;&#22238;&#20998;&#25968;score&#12290;
+	&#23545;ziplist&#20013;&#30340;&#27599;&#20010;&#20803;&#32032;&#65306;
+		ziplistNext&#25351;&#21521;&#20998;&#25968;&#65307;
+		ziplistCompare&#23545;&#27604;&#33410;&#28857;&#19982;ele&#65292;&#22914;&#26524;&#25214;&#21040;ele&#65292;zzlGetScore&#36820;&#22238;&#20998;&#20540;&#65307;
+zzlDelete&#65288;zl&#65292;eptr&#65289;&#65306;&#20174;ziplist&#20013;&#21024;&#38500;eptr&#25351;&#21521;&#30340;field-score&#12290;
+	ziplistDelete&#21024;&#38500;field&#33410;&#28857;&#65307;
+	ziplistDelete&#21024;&#38500;score&#33410;&#28857;&#65307;
+zzlInsertAt&#65288;zl&#65292;eptr&#65292;ele&#65292;score&#65289;&#65306;&#23558;ele-score&#28155;&#21152;&#21040;eptr&#25152;&#25351;&#21521;&#30340;&#33410;&#28857;&#20043;&#21069;&#12290;
+	&#38598;&#21512;&#20013;&#25104;&#21592;&#25490;&#21015;&#65306;| member-1 | score-1 | member-2 | score-2 | ... | member-N | score-N |
+	&#22914;&#26524;eptr&#20026;&#31354;&#65292;
+		ziplistPush&#28155;&#21152;ele&#65307;
+		ziplistPush&#28155;&#21152;score&#65307;
+	&#21542;&#21017;&#65292;&#22312;eptr&#21069;
+		ziplistInsert&#25554;&#20837;ele&#65307;
+		ziplistInsert&#25554;&#20837;socre&#65307;
+zzlInsert&#65288;zl&#65292;ele&#65292;score&#65289;&#65306;&#23558;ele-score&#25554;&#20837;ziplist&#12290;
+	&#23545;ziplist&#20013;&#30340;&#27599;&#20010;member-score&#65306;
+		zzlGetScore&#21462;&#20986;&#20998;&#20540;s&#65307;
+		&#22914;&#26524;s&gt;score&#65292;&#22312;&#27492;&#26159;&#31532;&#19968;&#20010;&#22823;&#20110;score&#30340;member&#65307;
+			zzlInsertAt&#25554;&#20837;ele-score&#65292;&#36820;&#22238;&#65307;
+		&#22914;&#26524;s==score&#65292;&#20877;&#27604;&#36739;member&#19982;ele&#30340;&#20540;&#65292;&#21028;&#26029;&#25554;&#20837;&#20301;&#32622;&#65307;
+zzlDeleteRangeByScore&#65288;zl&#65292;range&#65289;&#65306;&#21024;&#38500;ziplist&#20013;&#22312;&#33539;&#22260;range&#20013;&#30340;&#20803;&#32032;&#12290;
+	zzlFirstInRange&#25214;&#31532;&#19968;&#20010;&#31526;&#21512;&#33539;&#22260;&#30340;&#33410;&#28857;&#65292;&#25214;&#19981;&#21040;&#36820;&#22238;&#65307;
+	&#19968;&#30452;&#21024;&#38500;&#33410;&#28857;&#65292;&#25214;&#21040;&#19981;&#22312;range&#33539;&#22260;&#20869;&#65307;
+zzlDeleteRangeByLex&#65288;zl&#65292;range&#65289;&#65306;
+zzlDeleteRangeByRank&#65288;zl&#65292;start&#65292;end&#65289;&#65306;&#21024;&#38500;[start,end]&#32034;&#24341;&#33539;&#22260;&#20869;&#30340;&#20803;&#32032;&#12290;
+	ziplistDeleteRange&#23553;&#35013;&#65307;
+zsetLength&#65306;zset&#30340;&#38271;&#24230;&#12290;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65292;&#36820;&#22238;zzllength&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65292;&#36820;&#22238;zsl&#30340;&#38271;&#24230;&#65307;
+zsetConvert&#65306;zset&#30340;ziplist&#32534;&#30721;&#19982;skiplist&#32534;&#30721;&#30456;&#20114;&#36716;&#25442;&#12290;
+	&#20174;ziplist&#36716;&#25442;&#25104;skiplist&#65306;
+		&#21019;&#24314;&#26377;&#24207;&#38598;&#21512;zset&#65307;
+		&#21019;&#24314;&#23383;&#20856;dict&#65292;&#36339;&#36291;&#34920;zsl&#65307;
+		ziplist&#38598;&#21512;&#20013;&#25104;&#21592;&#25490;&#21015;&#65306;| member-1 | score-1 | member-2 | score-2 | ... | member-N | score-N |
+		&#23545;ziplist&#20013;&#30340;&#27599;&#20010;&#25104;&#21592;&#65306;
+			ziplistGetScore&#21462;&#20986;score&#65307;
+			ziplistGet&#21462;&#20986;member&#65307;
+			zslInert&#23558;score-member&#25554;&#20837;skiplist&#65307;
+			dictAdd&#23558;member-score&#28155;&#21152;&#21040;&#23383;&#20856;dict&#20013;&#65307;
+		&#37322;&#25918;&#21407;&#20808;&#30340;ziplist&#65307;
+	&#20174;skiplist&#36716;&#25442;&#25104;ziplist&#65306;
+		&#21019;&#24314;&#26032;&#30340;ziplist&#65307;
+		&#37322;&#25918;&#23383;&#20856;dict&#65292;&#19981;&#38656;&#35201;&#65307;
+		&#23545;skiplist&#20013;&#30340;&#27599;&#20010;&#33410;&#28857;&#65306;
+			zzlInsertAt&#23558;member-score&#28155;&#21152;&#21040;ziplist&#65307;
+			&#37322;&#25918;&#33410;&#28857;&#65307;
+		&#37322;&#25918;skiplist&#65307;
+zaddGenericCommand&#65288;client&#65292;incr&#65289;&#65306;
+	lookupKeyWrite&#21462;&#20986;zset&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#23545;&#35937;&#19981;&#23384;&#22312;&#65292;&#20026;key&#21019;&#24314;&#19968;&#20010;&#26032;&#30340;&#65307;
+	&#23545;&#36755;&#20837;&#30340;&#27599;&#23545;member-score&#65306;
+		&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+			zzlFind&#26597;&#25214;&#25104;&#21592;&#65307;
+			&#22914;&#26524;&#25104;&#21592;&#23384;&#22312;&#65306;
+				&#22686;&#21152;&#20998;&#20540;&#25110;&#26356;&#26032;&#20998;&#20540;&#65307;
+			&#19981;&#23384;&#22312;&#65306;
+				zzlInsert&#28155;&#21152;&#25104;&#21592;-&#20998;&#20540;&#65307;
+				&#24182;&#26816;&#26597;&#26159;&#21542;&#38656;&#35201;&#23558;&#32534;&#30721;&#36716;&#25104;skiplist&#65307;
+		&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+			dictFind&#26597;&#25214;&#25104;&#21592;&#65307;
+			&#22914;&#26524;&#25104;&#21592;&#23384;&#22312;&#65306;
+				&#21462;&#20986;&#25104;&#21592;dictGetKey&#65307;
+				&#21462;&#20986;&#20998;&#20540;dictGetVal&#65307;
+				&#22686;&#21152;&#20998;&#20540;&#25110;&#26356;&#26032;&#20998;&#20540;&#65307;
+			&#19981;&#23384;&#22312;&#65306;
+				zslInsert&#23558;&#20998;&#20540;-&#25104;&#21592;&#28155;&#21152;&#36827;skiplist&#65307;
+				dictAdd&#23558;&#25104;&#21592;-&#20998;&#20540;&#28155;&#21152;&#36827;&#23383;&#20856;dict&#65307;
+zaddCommand&#65306;ZADD key [NX|XX] [CH] [INCR] score member [score member ...]&#12290;&#28155;&#21152;&#20998;&#20540;-&#25104;&#21592;&#21040;&#26377;&#24207;&#38598;&#21512;&#12290;
+	zaddGenericCommand&#23553;&#35013;&#65307;
+zincrbyCommand:ZINCRBY key increment member&#12290;&#25104;&#21592;&#30340;&#20998;&#20540;&#22686;&#21152;incr&#12290;
+	zaddGenericCommand&#23553;&#35013;&#65307;
+zremCommand&#65306;ZREM key member [member ...]&#12290;&#21024;&#38500;&#25104;&#21592;&#12290;
+	lookupKeyWriteOrReply&#21462;&#20986;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		&#23545;&#27599;&#20010;&#36755;&#20837;&#30340;&#25104;&#21592;&#65306;
+			zzlFind&#26597;&#25214;&#25104;&#21592;&#65292;&#25214;&#21040;zzlDelete&#21024;&#38500;&#25104;&#21592;&#12290;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		&#23545;&#27599;&#20010;&#36755;&#20837;&#30340;&#25104;&#21592;&#65306;
+			dictFind&#26597;&#25214;&#25104;&#21592;&#65307;
+			&#25214;&#21040;&#65306;
+				&#23558;&#20998;&#20540;&#29992;zslDelete&#20174;skiplist&#20013;&#21024;&#38500;&#65307;
+				dictDelete&#20174;&#23383;&#20856;&#20013;&#21024;&#38500;&#25104;&#21592;&#65307;
+zemrangeGenericCommand&#65306;
+	&#30830;&#23450;&#33539;&#22260;&#65307;
+	lookupKeyWriteOrReply&#21462;&#20986;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		&#21024;&#38500;&#33539;&#22260;&#20869;&#30340;&#20540;&#65306;
+			zzlDeleteRangeByRank
+			zzlDeleteRangeByScore
+			zzlDeleteRangeByLex
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		&#21024;&#38500;&#33539;&#22260;&#20869;&#30340;&#20540;&#65306;
+			zslDeleteRangeByRank
+			zslDeleteRangeByScore
+			zslDeleteRangeByLex
+zremrangebyrankCommand&#65306;ZREMRANGEBYRANK key start stop&#12290;&#21024;&#38500;&#25351;&#23450;&#25490;&#21517;&#33539;&#22260;&#20869;&#30340;&#25104;&#21592;&#12290;
+zremrangebyscoreCommand&#65306;ZREMRANGEBYSCORE key min max&#12290;&#21024;&#38500;&#25351;&#23450;&#20998;&#20540;&#33539;&#22260;&#20869;&#30340;&#25104;&#21592;&#12290;
+zremrangebylexCommand&#65306;ZREMRANGEBYLEX key min max&#12290;&#21024;&#38500;&#25351;&#23450;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#30340;&#25104;&#21592;&#12290;
+	zremrangeGenericCommand&#23553;&#35013;&#65307;
+zuiInitIterator&#65306;&#21021;&#22987;&#21270;&#38598;&#21512;&#25110;&#26377;&#24207;&#38598;&#21512;&#30340;&#36845;&#20195;&#22120;&#12290;
+zuiClearIterator&#65306;&#28165;&#38500;&#36845;&#20195;&#22120;&#12290;
+zuiLength&#65306;&#34987;&#36845;&#20195;&#23545;&#35937;&#30340;&#20803;&#32032;&#20010;&#25968;&#12290;
+zuiNext&#65306;&#21462;&#20986;&#24403;&#21069;&#36845;&#20195;&#22120;&#30340;&#20540;&#65292;&#24182;&#36845;&#20195;&#22120;&#25351;&#21521;&#19979;&#19968;&#20010;&#20803;&#32032;&#12290;
+zuiLongLongFromValue&#65306;&#20174;val&#20013;&#21462;&#20986;long long&#20540;&#12290;
+zuiObjectFromValue&#65306;&#20174;val&#20013;&#21019;&#24314;&#23545;&#35937;&#12290;
+zuiBufferFromValue&#65306;&#20174;val&#20013;&#21462;&#20986;&#23383;&#31526;&#20018;&#12290;
+zuiFind&#65306;&#20174;&#36845;&#20195;&#22120;&#25152;&#22312;&#30340;&#23545;&#35937;&#20013;&#26597;&#25214;&#25351;&#23450;&#20540;&#12290;
+zuiCompareByCardinality&#65306;&#27604;&#36739;&#20004;&#20010;&#36845;&#20195;&#22120;&#25152;&#22312;&#23545;&#35937;&#30340;&#22522;&#25968;&#12290;
+zunionInterAggregate(*target, val, aggregate)&#65306;&#32858;&#38598;&#20989;&#25968;MAX&#65292;MIN&#65292;SUM&#12290;
+zunionInterGenericCommand&#65306;
+	&#20026;&#27599;&#20010;&#36755;&#20837;&#30340;key&#65306;
+		lookupKeyWrite&#21462;&#20986;&#23545;&#35937;&#65307;
+		&#20026;&#23545;&#35937;&#21019;&#24314;&#36845;&#20195;&#22120;&#65307;
+	&#21462;&#20986;&#36873;&#39033;&#21442;&#25968;&#65306;&#26435;&#37325;&#65292;&#32858;&#38598;&#31867;&#22411;&#65307;
+	&#23545;&#25152;&#26377;&#26377;&#24207;&#38598;&#21512;&#65292;&#25353;&#38598;&#21512;&#22522;&#25968;&#30001;&#23567;&#21040;&#22823;&#25490;&#24207;&#65307;
+	&#21019;&#24314;&#32467;&#26524;&#38598;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ZINTERSTORE&#21629;&#20196;&#65306;
+		zuiInitIterator&#20026;&#22522;&#25968;&#26368;&#23567;&#30340;&#21019;&#24314;&#36845;&#20195;&#22120;&#65307;
+		&#23545;&#36845;&#20195;&#22120;&#20013;&#30340;&#27599;&#20010;&#33410;&#28857;ele&#65306;
+			&#22914;&#26524;ele&#22312;&#25152;&#26377;&#20854;&#23427;&#38598;&#21512;&#20013;&#65292;&#37027;&#20040;zunionInterAggregate&#35745;&#31639;&#21152;&#26435;&#32858;&#38598;&#65307;
+			&#32467;&#26524;&#23384;&#20648;&#21040;&#32467;&#26524;&#38598;&#20013;&#65307;
+	&#22914;&#26524;&#26159;ZUNIONSTORE&#21629;&#20196;&#65306;
+		&#23545;&#27599;&#20010;&#36755;&#20837;&#30340;&#38598;&#21512;&#65306;
+			&#23545;&#38598;&#21512;&#20013;&#30340;&#27599;&#20010;&#20803;&#32032;ele&#65306;
+				&#22914;&#26524;ele&#24050;&#32463;&#22312;&#32467;&#26524;&#38598;&#20013;&#65292;&#36339;&#36807;&#65307;
+				&#23558;ele&#22312;&#21097;&#20313;&#30340;&#38598;&#21512;&#20013;&#65292;zunionInterAggregate&#35745;&#31639;&#21152;&#26435;&#32858;&#38598;&#65307;
+				&#32467;&#26524;&#23384;&#20648;&#21040;&#32467;&#26524;&#38598;&#20013;&#65307;
+zunionstoreCommand&#65306;ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight] [SUM|MIN|MAX]&#12290;&#24182;&#38598;&#12290;
+zinterstoreCommand&#65306;ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight] [SUM|MIN|MAX]&#12290;&#20132;&#38598;&#12290;
+	zunionInterGenericCommand&#23553;&#35013;&#65307;
+zrangeGenericCommand&#65306;
+	&#21462;&#20986;&#33539;&#22260;&#21442;&#25968;&#65307;
+	lookupKeyReadOrReply&#21462;&#20986;&#38598;&#21512;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		ziplistIndex&#23450;&#20301;&#24320;&#22987;&#20803;&#32032;&#65307;
+		ziplistGet&#36830;&#32493;&#21462;&#20986;&#20803;&#32032;&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		zslGetElementByRank&#23450;&#20301;&#24320;&#22987;&#20803;&#32032;&#65307;
+		skiplist&#25351;&#38024;&#36941;&#21382;&#65307;
+zrangeCommand&#65306;ZRANGE key start stop [WITHSCORES]&#12290;&#36820;&#22238;&#33539;&#22260;&#20869;&#30340;&#20540;&#12290;
+zrevrangeCommand&#65306;ZREVRANGE key start stop [WITHSCORES]&#12290;&#36820;&#22238;&#33539;&#22260;&#20869;&#65288;&#20174;&#22823;&#21040;&#23567;&#65289;&#30340;&#20540;&#12290;
+	zrangeGenericCommand&#23553;&#35013;&#65307;
+genericZrangebyscoreCommand&#65306;
+	&#21462;&#20986;&#33539;&#22260;&#21442;&#25968;&#65307;
+	lookupKeyReadOrReply&#21462;&#20986;&#38598;&#21512;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		zzlFirstInRange&#25110;zzlLastInRange&#23450;&#20301;&#24320;&#22987;&#33410;&#28857;&#65307;
+		&#36820;&#22238;&#33539;&#22260;&#20869;&#30340;&#20803;&#32032;zslValueGteMin&#25110;zslValueLteMin&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		zslFirstInRange&#25110;zslLastInRange&#23450;&#20301;&#24320;&#22987;&#33410;&#28857;&#65307;
+		&#36820;&#22238;&#33539;&#22260;&#20869;&#30340;&#20803;&#32032;zslValueGteMin&#25110;zslValueLteMin&#65307;
+zrangebyscoreCommand:ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]&#12290;&#36820;&#22238;&#20998;&#25968;&#33539;&#22260;&#20869;&#30340;&#20540;&#12290;
+zrevrangebyscoreCommand&#65306;ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]&#12290;&#36820;&#22238;&#20998;&#25968;&#33539;&#22260;&#20869;&#65288;&#36870;&#21521;&#65289;&#30340;&#20540;&#12290;
+	genericZrangebyscoreCommand&#23553;&#35013;&#65307;
+zcountCommand&#65306;ZCOUNT key min max&#12290;&#20998;&#20540;&#33539;&#22260;&#20869;&#20803;&#32032;&#30340;&#20010;&#25968;&#12290;
+	&#21462;&#20986;&#33539;&#22260;&#21442;&#25968;&#65307;
+	lookupKeyReadOrReply&#21462;&#20986;&#38598;&#21512;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		zzlFirstInRange&#23450;&#20301;&#24320;&#22987;&#33410;&#28857;&#65307;
+		zzlGetScore&#21462;&#20998;&#20540;&#65307;
+		&#35760;&#24405;&#20998;&#20540;&#22312;&#33539;&#22260;&#20869;&#30340;&#20010;&#25968;&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		zslFirstInRange&#23450;&#20301;&#24320;&#22987;&#33410;&#28857;&#65307;
+		zslGetRank&#21462;&#20998;&#20540;&#30340;&#25490;&#21517;&#35745;&#31639;&#20010;&#25968;&#65307;
+zlexcountCommand&#65306;ZLEXCOUNT key min max&#12290;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#30340;&#20010;&#25968;&#12290;
+	&#21462;&#20986;&#33539;&#22260;&#21442;&#25968;&#65307;
+	lookupKeyReadOrReply&#21462;&#20986;&#38598;&#21512;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		zzlFirstInLexRange&#23450;&#20301;&#24320;&#22987;&#33410;&#28857;&#65307;
+		&#35760;&#24405;&#25104;&#21592;&#22312;&#33539;&#22260;&#20869;&#30340;&#20010;&#25968;&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		zslFirstInLexRange&#23450;&#20301;&#24320;&#22987;&#33410;&#28857;&#65307;
+		&#35760;&#24405;&#25104;&#21592;&#22312;&#33539;&#22260;&#20869;&#30340;&#20010;&#25968;&#65307;
+genericZrangebylexCommand&#65306;&#23383;&#20856;&#24207;&#33539;&#22260;&#30340;&#36941;&#21382;&#12290;&#19982;genericZrangebyscoreCommand&#65306;&#31867;&#20284;&#19981;&#20877;&#36184;&#36848;&#12290;
+zrangebylexCommand&#65306;ZRANGEBYLEX key min max [LIMIT offset count]&#12290;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#30340;&#20803;&#32032;&#12290;
+zrevrangebylexCommand&#65306;ZREVRANGEBYLEX key min max [LIMIT offset count]&#12290;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#65288;&#36870;&#24207;&#65289;&#30340;&#20803;&#32032;&#12290;
+	genericZrangebylexCommand&#23553;&#35013;&#65307;
+zcardCommand&#65306;ZCARD key&#12290;&#36820;&#22238;&#38598;&#21512;&#22522;&#25968;&#12290;
+	zsetLength&#65307;
+zscoreCommand&#65306;ZSCORE key member&#12290;&#36820;&#22238;&#25104;&#21592;&#30340;&#20998;&#20540;&#12290;
+	lookupKeyReadOrReply&#21462;&#20986;&#38598;&#21512;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		zzlFind&#25214;&#21040;&#25104;&#21592;&#65292;&#36820;&#22238;&#20998;&#20540;&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		dictFind&#25214;&#21040;&#25104;&#21592;&#65292;&#36820;&#22238;&#20998;&#20540;&#65307;
+zrankGenericCommand&#65306;
+	lookupKeyReadOrReply&#21462;&#20986;&#38598;&#21512;&#23545;&#35937;&#65307;
+	&#22914;&#26524;&#26159;ziplist&#32534;&#30721;&#65306;
+		&#36941;&#21382;&#20803;&#32032;ele&#65292;&#29992;ziplistCompare&#21644;zzlNext&#35745;&#31639;&#25490;&#21517;&#65307;
+	&#22914;&#26524;&#26159;skiplist&#32534;&#30721;&#65306;
+		dictFind&#25214;&#21040;&#25104;&#21592;&#65307;
+		&#21462;&#20986;&#20854;&#20998;&#20540;&#65307;
+		&#20174;skiplist&#20013;&#29992;zslGetRank&#21462;&#20986;&#25490;&#21517;&#65307;
+zrankCommand&#65306;ZRANK key member&#12290;&#36820;&#22238;&#25104;&#21592;&#30340;&#20998;&#20540;&#25490;&#21517;&#65307;
+zrevrankCommand&#65306;ZREVRANK key member&#12290;&#36820;&#22238;&#25104;&#21592;&#30340;&#20998;&#20540;&#25490;&#21517;&#65288;&#36870;&#21521;&#65289;&#65307;
+    zrankGenericCommand&#65307;
+zscanCommand:&#20197;&#21518;&#20877;&#23398;&#12290;</code></pre><p>&#25903;&#25345;&#30340;&#21629;&#20196;&#20989;&#25968;&#65306;</p><pre class="wp-block-code"><code>set&#20989;&#25968;&#65306;
+	zaddCommand&#65306;ZADD key [NX|XX] [CH] [INCR] score
+	
+get&#20989;&#25968;&#65306;
+	zscoreCommand&#65306;ZSCORE key member&#12290;&#36820;&#22238;&#25104;&#21592;&#30340;&#20998;&#20540;&#12290;
+	zrankCommand&#65306;ZRANK key member&#12290;&#36820;&#22238;&#25104;&#21592;&#30340;&#20998;&#20540;&#25490;&#21517;&#65307;
+	zrevrankCommand&#65306;ZREVRANK key member&#12290;&#36820;&#22238;&#25104;&#21592;&#30340;&#20998;&#20540;&#25490;&#21517;&#65288;&#36870;&#21521;&#65289;&#65307;
+	
+&#22686;&#21152;&#20989;&#25968;&#65306;
+	zincrbyCommand:ZINCRBY key increment member&#12290;&#25104;&#21592;&#30340;&#20998;&#20540;&#22686;&#21152;incr&#12290;
+	
+&#21024;&#38500;&#20989;&#25968;&#65306;
+	zremCommand&#65306;ZREM key member [member ...]&#12290;&#21024;&#38500;&#25104;&#21592;&#12290;
+	zremrangebyrankCommand&#65306;ZREMRANGEBYRANK key start stop&#12290;&#21024;&#38500;&#25351;&#23450;&#25490;&#21517;&#33539;&#22260;&#20869;&#30340;&#25104;&#21592;&#12290;
+	zremrangebyscoreCommand&#65306;ZREMRANGEBYSCORE key min max&#12290;&#21024;&#38500;&#25351;&#23450;&#20998;&#20540;&#33539;&#22260;&#20869;&#30340;&#25104;&#21592;&#12290;
+	zremrangebylexCommand&#65306;ZREMRANGEBYLEX key min max&#12290;&#21024;&#38500;&#25351;&#23450;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#30340;&#25104;&#21592;&#12290;
+	
+&#20132;&#38598;&#20989;&#25968;&#65306;
+	zinterstoreCommand&#65306;ZINTERSTORE destination numkeys key [key ...
+	
+&#24182;&#38598;&#20989;&#25968;&#65306;
+	zunionstoreCommand&#65306;ZUNIONSTORE destination numkeys key [key ...
+	
+&#33539;&#22260;&#20989;&#25968;&#65306;
+	zrangeCommand&#65306;ZRANGE key start stop [WITHSCORES]&#12290;&#36820;&#22238;&#20998;&#25968;&#33539;&#22260;&#20869;&#30340;&#20540;&#12290;
+	zrevrangeCommand&#65306;ZREVRANGE key start stop [WITHSCORES]&#12290;&#36820;&#22238;&#20998;&#25968;&#33539;&#22260;&#20869;&#65288;&#20174;&#22823;&#21040;&#23567;&#65289;&#30340;&#20540;&#12290;
+	zrangebyscoreCommand:ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset
+	zrevrangebyscoreCommand&#65306;ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count
+	zcountCommand&#65306;ZCOUNT key min max&#12290;&#20998;&#20540;&#33539;&#22260;&#20869;&#20803;&#32032;&#30340;&#20010;&#25968;&#12290;
+	zlexcountCommand&#65306;ZLEXCOUNT key min max&#12290;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#30340;&#20010;&#25968;&#12290;
+	zrangebylexCommand&#65306;ZRANGEBYLEX key min max [LIMIT offset count]&#12290;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#30340;&#20803;&#32032;&#12290;
+	zrevrangebylexCommand&#65306;ZREVRANGEBYLEX key min max [LIMIT offset count]&#12290;&#23383;&#20856;&#24207;&#33539;&#22260;&#20869;&#65288;&#36870;&#24207;&#65289;&#30340;&#20803;&#32032;&#12290;
+&#26434;&#39033;&#20989;&#25968;&#65306;
+zcardCommand&#65306;ZCARD key&#12290;&#36820;&#22238;&#38598;&#21512;&#22522;&#25968;&#12290;</code></pre><p>&#21629;&#20196;&#35299;&#37322;&#65306;</p><figure class="wp-block-image"><img width="1002" height="572" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/zset-cmd-1.png" alt="Zset Command One" class="wp-image-891 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1.png 1002w, http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-600x343.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-300x171.png 300w, http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-768x438.png 768w" sizes="(max-width: 1002px) 100vw, 1002px"><noscript><img data-attachment-id="891" data-permalink="http://www.showsql.com/2019/07/23/redis-zset/zset-cmd-1/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1.png" data-orig-size="1002,572" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="zset-cmd-1" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-300x171.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1.png" width="1002" height="572" src="http://showsql.com/wp-content/uploads/2019/07/zset-cmd-1.png" alt="Zset Command One" class="wp-image-891 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1.png 1002w,http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-600x343.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-300x171.png 300w,http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-1-768x438.png 768w" sizes="(max-width: 1002px) 100vw, 1002px"></noscript><figcaption>Zset Command One</figcaption></figure><figure class="wp-block-image"><img width="991" height="332" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png" alt="Zset Command Two" class="wp-image-892 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png 991w, http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-600x201.png 600w, http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-300x101.png 300w, http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-768x257.png 768w" sizes="(max-width: 991px) 100vw, 991px"><noscript><img data-attachment-id="892" data-permalink="http://www.showsql.com/2019/07/23/redis-zset/zset-cmd-2/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png" data-orig-size="991,332" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="zset-cmd-2" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-300x101.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png" width="991" height="332" src="http://showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png" alt="Zset Command Two" class="wp-image-892 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2.png 991w,http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-600x201.png 600w,http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-300x101.png 300w,http://www.showsql.com/wp-content/uploads/2019/07/zset-cmd-2-768x257.png 768w" sizes="(max-width: 991px) 100vw, 991px"></noscript><figcaption>Zset Command Two</figcaption></figure><p>Hits: 19</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/07/23/redis-zset/#comments">Comment (1)</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/redis/">Redis</a></div> </div></div></div></article><div id="comments" class="comments-area"><h2 class="comments-title"> One Reply to &ldquo;Redis zset &#26377;&#24207;&#38598;&#21512;&rdquo;</h2><ol class="comment-list"><li class="pingback even thread-even depth-1" id="comment-6"><div id="div-comment-6" class="comment-body"><div class="comment-author vcard asdasd"> <cite class="fn"><a href="http://showsql.com/2019/07/21/redis-object/" rel="external nofollow ugc" class="url">Redis object | jasonpeng</a></cite> <span class="says">says:</span> <a rel="nofollow" class="comment-reply-login" href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F23%2Fredis-zset%2F">Log in to Reply</a><div class="comment-meta commentmetadata"><a href="http://www.showsql.com/2019/07/23/redis-zset/#comment-6"> 2019&#24180;7&#26376;23&#26085; at am8:51</a></div></div><p>[&hellip;] &#26377;&#24207;&#38598;&#21512;&#23545;&#35937; [&hellip;]</p><div class="jetpack-comment-likes-widget-wrapper jetpack-likes-widget-unloaded" id="like-comment-wrapper-168814421-6-5f8cec29cb74c" data-src="https://widgets.wp.com/likes/#blog_id=168814421&amp;comment_id=6&amp;origin=www.showsql.com&amp;obj_id=168814421-6-5f8cec29cb74c" data-name="like-comment-frame-168814421-6-5f8cec29cb74c"><div class="likes-widget-placeholder comment-likes-widget-placeholder comment-likes"><span class="loading">Loading...</span></div><div class="comment-likes-widget jetpack-likes-widget comment-likes"><span class="comment-like-feedback"></span><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div></div></li></ol><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/07/23/redis-zset/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F23%2Fredis-zset%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/07/21/redis-set/" rel="prev"><i class="fa fa-chevron-left"></i> Redis set &#38598;&#21512;</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/07/23/hadoop-streaming-secondary-sort/" rel="next">hadoop streaming &#20108;&#27425;&#25490;&#24207; <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" id="jetpack-carousel-js-extra">/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/www.showsql.com\/wp-admin\/admin-ajax.php","nonce":"99ca01de6c","display_exif":"1","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"1","require_name_email":"1","login_url":"http:\/\/www.showsql.com\/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F23%2Fredis-zset%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<p id=\"jp-carousel-commenting-as\">You must be <a href=\"#\" class=\"jp-carousel-comment-login\">logged in<\/a> to post a comment.<\/p>"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js" id="jetpack-carousel-js"></script> <iframe src="https://widgets.wp.com/likes/master.html?ver=202043#ver=202043" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe><div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'884',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '884' ]);</script> </body></html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="&#21160;&#24577;&#35268;&#21010;&#32463;&#20856;&#39064;&#65292;&#25026;&#20102;&#25216;&#24039;&#65292;&#23601;&#24456;easy&#12290;&#19981;&#25026;&#25216;&#24039;&#65292;&#23601;&#24456;hard&#12290;"><meta name="keywords" content="&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#webpage","url":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/","inLanguage":"en-US","name":"leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#breadcrumblist"},"description":"&#21160;&#24577;&#35268;&#21010;&#32463;&#20856;&#39064;&#65292;&#25026;&#20102;&#25216;&#24039;&#65292;&#23601;&#24456;easy&#12290;&#19981;&#25026;&#25216;&#24039;&#65292;&#23601;&#24456;hard&#12290;","datePublished":"2019-09-30T09:20:57+08:00","dateModified":"2019-12-04T11:21:50+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#article","isPartOf":{"@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV","datePublished":"2019-09-30T09:20:57+08:00","dateModified":"2019-12-04T11:21:50+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Leetcode Algorithms, &#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;","image":{"@type":"ImageObject","@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#primaryimage","url":"http://showsql.com/wp-content/uploads/2019/10/&egrave;&#130;&iexcl;&ccedil;&yen;&uml;&ccedil;&#138;&para;&aelig;&#128;&#129;&egrave;&frac12;&not;&ccedil;&sect;&raquo;.png"}},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/","url":"http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/","name":"leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/"><meta property="og:type" content="object"><meta property="og:title" content="leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV | Wonderful Tech"><meta property="og:description" content="&#21160;&#24577;&#35268;&#21010;&#32463;&#20856;&#39064;&#65292;&#25026;&#20102;&#25216;&#24039;&#65292;&#23601;&#24456;easy&#12290;&#19981;&#25026;&#25216;&#24039;&#65292;&#23601;&#24456;hard&#12290;"><meta property="og:url" content="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV | Wonderful Tech"><meta name="twitter:description" content="&#21160;&#24577;&#35268;&#21010;&#32463;&#20856;&#39064;&#65292;&#25026;&#20102;&#25216;&#24039;&#65292;&#23601;&#24456;easy&#12290;&#19981;&#25026;&#25216;&#24039;&#65292;&#23601;&#24456;hard&#12290;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV Comments Feed" href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/5390"><link rel="prev" title="leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching" href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/"><link rel="next" title="leetcode41 &#32570;&#22833;&#30340;&#31532;&#19968;&#20010;&#27491;&#25968; First Missing Positive" href="http://www.showsql.com/2019/10/06/leetcode41-first-missing-positive/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F30%2Fleetcode188-iv-best-time-to-buy-and-sell-stock-iv%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F30%2Fleetcode188-iv-best-time-to-buy-and-sell-stock-iv%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-5390 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/leetcode-algorithms/" rel="category tag">Leetcode Algorithms</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-5390" class="post-5390 post type-post status-publish format-standard hentry category-leetcode-algorithms tag-28"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/" rel="bookmark"><time class="entry-date published" datetime="2019-09-30T17:20:57+08:00">2019&#24180;9&#26376;30&#26085;</time><time class="updated" datetime="2019-12-04T19:21:50+08:00">2019&#24180;12&#26376;4&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/" title="leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><p>&#36825;&#36947;&#39064;&#24456;&#38590;&#65292;&#31532;&#19968;&#27425;&#30475;&#21040;&#21518;&#65292;&#27627;&#26080;&#22836;&#32490;&#12290;</p><div id="ez-toc-container" class="ez-toc-v2_0_11 counter-hierarchy counter-decimal ez-toc-grey"><div class="ez-toc-title-container"><p class="ez-toc-title">Table of Contents</p> <span class="ez-toc-title-toggle"></span></div><nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#%E8%A7%A3%E6%B3%95%E4%B8%80_%E5%9B%9E%E6%BA%AF%E6%B3%95%EF%BC%88%E8%B6%85%E6%97%B6%EF%BC%89" title="&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;&#65288;&#36229;&#26102;&#65289;">&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;&#65288;&#36229;&#26102;&#65289;</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-2" href="#%E4%B8%A4%E7%A7%8D%E8%B6%85%E6%97%B6%E7%9A%84%E6%96%B9%E6%B3%95" title="&#20004;&#31181;&#36229;&#26102;&#30340;&#26041;&#27861;">&#20004;&#31181;&#36229;&#26102;&#30340;&#26041;&#27861;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-3" href="#%E7%9B%B4%E6%8E%A5%E4%BB%8E%E5%9B%9E%E6%BA%AF%E6%B3%95%E5%AF%BC%E5%87%BA%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%8C%E5%8F%AF%E8%A1%8C%E5%90%97" title="&#30452;&#25509;&#20174;&#22238;&#28335;&#27861;&#23548;&#20986;&#21160;&#24577;&#35268;&#21010;&#65292;&#21487;&#34892;&#21527;">&#30452;&#25509;&#20174;&#22238;&#28335;&#27861;&#23548;&#20986;&#21160;&#24577;&#35268;&#21010;&#65292;&#21487;&#34892;&#21527;</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-4" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" title="&#35299;&#27861;&#20108; &#21160;&#24577;&#35268;&#21010;">&#35299;&#27861;&#20108; &#21160;&#24577;&#35268;&#21010;</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-5" href="#%E6%98%8E%E7%A1%AE%E7%8A%B6%E6%80%81" title="&#26126;&#30830;&#29366;&#24577;">&#26126;&#30830;&#29366;&#24577;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-6" href="#%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6" title="&#36793;&#30028;&#26465;&#20214;">&#36793;&#30028;&#26465;&#20214;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-7" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA_III%E7%9A%84%E8%A7%A3%E6%B3%95(k=2)" title="&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; III&#30340;&#35299;&#27861;(k=2)">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; III&#30340;&#35299;&#27861;(k=2)</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-8" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E7%9A%84%E8%A7%A3%E6%B3%95(k=1)" title=" &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#30340;&#35299;&#27861;(k=1)"> &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#30340;&#35299;&#27861;(k=1)</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-9" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA_II%E7%9A%84%E8%A7%A3%E6%B3%95(k=%E6%97%A0%E7%A9%B7%E5%A4%A7%EF%BC%89" title="&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; II&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;&#65289;">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; II&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;&#65289;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-10" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E5%90%AB%E6%89%8B%E7%BB%AD%E8%B4%B9%E7%9A%84%E8%A7%A3%E6%B3%95(k=%E6%97%A0%E7%A9%B7%E5%A4%A7+%E6%89%8B%E7%BB%AD%E8%B4%B9)" title="&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#21547;&#25163;&#32493;&#36153;&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;+&#25163;&#32493;&#36153;)">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#21547;&#25163;&#32493;&#36153;&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;+&#25163;&#32493;&#36153;)</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-11" href="#%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F%E7%9A%84%E8%A7%A3%E6%B3%95(k=%E6%97%A0%E7%A9%B7%E5%A4%A7+1%E5%A4%A9%E5%86%B7%E5%86%BB%E6%9C%9F)" title="&#26368;&#20339;&#20080;&#21334;&#32929;&#31080;&#26102;&#26426;&#21547;&#20919;&#20923;&#26399;&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;+1&#22825;&#20919;&#20923;&#26399;)">&#26368;&#20339;&#20080;&#21334;&#32929;&#31080;&#26102;&#26426;&#21547;&#20919;&#20923;&#26399;&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;+1&#22825;&#20919;&#20923;&#26399;)</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-12" href="#%E6%80%BB%E7%BB%93" title="&#24635;&#32467;">&#24635;&#32467;</a></li></ul></li></ul></nav></div><h2><span class="ez-toc-section" id="%E8%A7%A3%E6%B3%95%E4%B8%80_%E5%9B%9E%E6%BA%AF%E6%B3%95%EF%BC%88%E8%B6%85%E6%97%B6%EF%BC%89"></span>&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;&#65288;&#36229;&#26102;&#65289;<span class="ez-toc-section-end"></span></h2><p>&#23613;&#31649;&#36229;&#26102;&#65292;&#20294;&#26159;&#22909;&#29702;&#35299;&#65292;&#22312;&#25968;&#25454;&#37327;&#23569;&#26102;&#65292;&#33021;work&#12290;</p><p>&#22238;&#28335;&#27861;&#30340;&#24605;&#36335;&#19981;&#38590;&#65292;&#22522;&#20110;&#36825;&#26679;&#30340;&#32771;&#34385;&#12290;</p><h3><span class="ez-toc-section" id="%E4%B8%A4%E7%A7%8D%E8%B6%85%E6%97%B6%E7%9A%84%E6%96%B9%E6%B3%95"></span>&#20004;&#31181;&#36229;&#26102;&#30340;&#26041;&#27861;<span class="ez-toc-section-end"></span></h3><p>&#21040;&#31532;i&#22825;&#26102;&#65292;&#35201;&#32771;&#34385;&#65306;</p><p>1.&#36824;&#21097;&#20313;&#22810;&#23569;&#27425;&#20132;&#26131;&#26426;&#20250;&#12290;</p><p>2.&#22312;&#31532;i&#22825;&#21069;&#30340;&#26576;&#19968;&#22825;&#26377;&#20080;&#20837;&#32929;&#31080;&#12290;</p><p>3.&#24050;&#26377;&#30340;&#21033;&#28070;&#26159;&#22810;&#23569;&#12290;</p><p>&#35774;&#65306;k&mdash;&mdash;&#36824;&#21097;&#20313;&#22810;&#23569;&#27425;&#20132;&#26131;&#26426;&#20250;&#12290;in&mdash;&mdash;&#22312;&#31532;in&#22825;&#20080;&#20837;&#20102;&#32929;&#31080;&#12290;in&lt;i&#12290;&#24403;&#27809;&#20080;&#20837;&#32929;&#31080;&#26102;&#65292;in=-1&#12290;v&mdash;&mdash;&#24050;&#26377;&#30340;&#21033;&#28070;&#12290;</p><p>&#37027;&#20040;&#22312;&#31532;i&#22825;&#30340;&#29366;&#24577;&#21487;&#20197;&#29992;(i,k,in,v)&#34920;&#31034;&#12290;</p><p>&#22312;&#31532;i&#22825;&#33021;&#20570;&#21738;&#20123;&#25805;&#20316;&#20102;&#65311;</p><p>&#31532;1&#31181;&#65292;&#19981;&#25805;&#20316;&#65292;&#19981;&#20080;&#32929;&#31080;&#65292;&#20063;&#19981;&#21334;&#32929;&#31080;&#12290;&#28982;&#21518;&#36807;&#24230;&#21040;&#31532;i+1&#22825;&#12290;</p><p>&#31532;2&#31181;&#65292;&#22914;&#26524;&#20043;&#21069;&#26377;&#20080;&#36807;&#32929;&#31080;&#65292;&#21487;&#21334;&#20986;&#32929;&#31080;&#12290;in&#21464;&#20026;-1&#65292;&#21033;&#28070;&#22686;&#21152;&#20102;A[i]-A[in]&#12290;</p><p>&#31532;3&#31181;&#65292;&#22914;&#26524;&#20043;&#21069;&#27809;&#20080;&#20837;&#32929;&#31080;&#65292;&#21487;&#20080;&#20837;&#32929;&#31080;&#12290;in&#21464;&#20026;i&#65292;k&#20943;&#23569;&#19968;&#27425;&#12290;</p><p>&#37027;&#20040;&#65292;&#25972;&#20307;&#24605;&#36335;&#65306;</p><pre class="wp-block-code"><code>ans : &#26368;&#22823;&#21033;&#28070;&#12290;
+A: A[i]&#31532;i&#22825;&#30340;&#32929;&#31080;&#20215;&#26684;&#12290;
+dfs(A,i,k,in,v){
+    if(i == A.length){
+        ans = max(ans,v);
+    }else{
+        //&#19981;&#25805;&#20316;
+        dfs(A,i+1,k,in,v);
+        if(in != -1){
+            //&#21334;&#20986;&#65292;&#26356;&#26032;&#21033;&#28070;
+            dfs(A,i+1,k,-1,v+(A[i] - A[in]));
+        }else if(k &gt; 0){//&#36824;&#33021;&#20080;&#20837;&#26102;&#65292;&#20080;&#20837;
+            dfs(A,i+1,k-1,i,v);
+        }
+    }
+}</code></pre><p>&#23436;&#25972;&#20195;&#30721;&#65292;&#36229;&#26102;&#21345;&#22312;&#31532;206&#20010;case&#19978;&#20102;&#12290;</p><pre class="wp-block-code"><code>    int maxProfit(int k, vector&lt;int&gt;&amp; prices) {
+        int ans=INT_MIN;
+        dfs(prices,0,k,-1,0,ans);
+        return ans;
+    }
+    
+    void dfs(const vector&lt;int&gt;&amp; A,int cur,int k,int in,int v,int&amp; ans){
+        if(cur == A.size()){
+            ans = max(ans,v);
+        }else{
+            //&#20160;&#20040;&#20063;&#19981;&#20570;
+            dfs(A,cur+1,k,in,v,ans);
+            if(in != -1){
+                //&#21334;&#20986;
+                dfs(A,cur+1,k,-1,v + (A[cur] - A[in]),ans);
+            }else{
+                if(k){
+                    dfs(A,cur+1,k-1,cur,v,ans);
+                }
+            }
+        }
+    }</code></pre><p>&#21021;&#27493;&#20998;&#26512;&#65292;&#20849;&#26377;N&#22825;&#65292;&#27599;&#22825;2&#31181;&#36873;&#25321;&#12290;&#26102;&#38388;&#22797;&#26434;&#24230;&#20026;O(2^N)&#12290;&#22240;&#27492;&#65292;&#21482;&#33021;&#29992;&#22312;&#25968;&#25454;&#37327;&#24456;&#23569;&#30340;&#24773;&#20917;&#12290;</p><p>&#23613;&#31649;&#22914;&#27492;&#65292;&#36824;&#26159;&#21487;&#20197;&#36827;&#34892;&#23569;&#37327;&#30340;&#20248;&#21270;&#65292;&#21152;&#36895;&#19979;&#12290; &#20294;&#26159;&#65292;&#22914;&#26524;&#19981;&#23558;&#22797;&#26434;&#24230;&#38477;&#21040;&#25351;&#25968;&#32423;&#21035;&#20197;&#19979;&#65292;&#24456;&#38590;&#36890;&#36807;&#12290;</p><p>&#31532;1&#20010;&#20248;&#21270;&#65292;&#24403;k==0 &#19988; in == -1&#26102;&#65292;&#27809;&#26377;&#24517;&#35201;&#20877;&#36882;&#24402;&#19979;&#21435;&#20102;&#12290;</p><p>&#31532;2&#20010;&#20248;&#21270;&#65292;&#21482;&#22312;&#20215;&#26684;&#27604;&#20080;&#20837;&#20215;&#26684;&#39640;&#26102;&#65292;&#25165;&#21334;&#20986;&#32929;&#31080;&#12290;</p><p>&#20462;&#25913;&#21518;&#30340;&#24605;&#36335;&#65306;</p><pre class="wp-block-code"><code>ans : &#26368;&#22823;&#21033;&#28070;&#12290;
+A: A[i]&#31532;i&#22825;&#30340;&#32929;&#31080;&#20215;&#26684;&#12290;
+dfs(A,i,k,in,v){
+    if(i == A.length &#25110; k==0 &#19988; in == -1){
+        ans = max(ans,v);
+    }else{
+        //&#19981;&#25805;&#20316;
+        dfs(A,i+1,k,in,v);
+        if(in != -1){
+            //&#21334;&#20986;&#65292;&#26356;&#26032;&#21033;&#28070;
+            if(A[i] &gt; A[in])
+                dfs(A,i+1,k,-1,v+(A[i] - A[in]));
+        }else if(k &gt; 0){//&#36824;&#33021;&#20080;&#20837;&#26102;&#65292;&#20080;&#20837;
+            dfs(A,i+1,k-1,i,v);
+        }
+    }
+}</code></pre><p>&#23436;&#25972;&#20195;&#30721;&#65292;&#20248;&#21270;&#21518;&#21345;&#22312;&#31532;208&#20010;case&#19978;&#20102;&#12290;</p><pre class="wp-block-code"><code>    int maxProfit(int k, vector&lt;int&gt;&amp; prices) {
+        int ans=INT_MIN;
+        dfs(prices,0,k,-1,0,ans);
+        return ans;
+    }
+    
+    void dfs(const vector&lt;int&gt;&amp; A,int cur,int k,int in,int v,int&amp; ans){
+        if(cur == A.size() || (k == 0 &amp;&amp; in == -1)){
+            ans = max(ans,v);
+        }else{
+            //&#20160;&#20040;&#20063;&#19981;&#20570;
+            dfs(A,cur+1,k,in,v,ans);
+            if(in != -1){
+                //&#21334;&#20986;
+                if(A[cur] &gt; A[in]) 
+                dfs(A,cur+1,k,-1,v + (A[cur] - A[in]),ans);
+            }else{
+                if(k){
+                    //&#20080;&#20837;
+                    dfs(A,cur+1,k-1,cur,v,ans);
+                }
+            }
+        }
+    }</code></pre><p>&#22240;&#20026;&#65292;&#36825;&#26679;&#30340;&#23567;&#20462;&#25913;&#65292;&#27809;&#26377;&#25913;&#21464;&#25351;&#25968;&#32423;&#21035;&#30340;&#22797;&#26434;&#24230;&#12290;</p><h3><span class="ez-toc-section" id="%E7%9B%B4%E6%8E%A5%E4%BB%8E%E5%9B%9E%E6%BA%AF%E6%B3%95%E5%AF%BC%E5%87%BA%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%8C%E5%8F%AF%E8%A1%8C%E5%90%97"></span>&#30452;&#25509;&#20174;&#22238;&#28335;&#27861;&#23548;&#20986;&#21160;&#24577;&#35268;&#21010;&#65292;&#21487;&#34892;&#21527;<span class="ez-toc-section-end"></span></h3><p>&#20998;&#26512;&#22238;&#28335;&#27861;&#21518;&#65292;&#21487;&#20197;&#21457;&#29616;&#12290;&#22312;&#31532;i&#22825;&#65292;k&#65292;in&#37117;&#30456;&#21516;&#26102;&#65292;&#24050;&#26377;&#30340;&#26368;&#22823;&#21033;&#28070;v&#65292;&#20063;&#26377;&#21487;&#33021;&#19981;&#21516;&#12290;&#36825;&#35828;&#26126;&#65292;&#22312;(i,k,in)&#30456;&#21516;&#26102;&#65292;v&#20063;&#19981;&#19968;&#23450;&#26159;&#26368;&#20248;&#20540;&#12290;</p><p>&#36825;&#26159;&#20026;&#20160;&#20040;&#65311;</p><p>&#22240;&#20026;&#65292;&#34429;&#28982;&#22312;&#31532;i&#22825;&#20043;&#21069;&#65292;&#20132;&#26131;&#30340;&#27425;&#25968;&#26159;&#30456;&#21516;&#30340;&#65292;&#20294;&#26159;&#20855;&#20307;&#22312;&#21738;&#19968;&#22825;&#20570;&#20102;&#20160;&#20040;&#25805;&#20316;&#65292;&#22312;&#31532;i&#22825;&#30475;&#26469;&#26159;&#19981;&#30830;&#23450;&#30340;&#12290;&#36825;&#23601;&#27809;&#27861;&#26126;&#30830;&#21069;&#19968;&#20010;&#29366;&#24577;&#21040;&#36798;&#26159;&#21861;&#12290;&#23601;&#27809;&#27861;&#29992;&#36882;&#25512;&#20102;&#12290;</p><p>&#22914;&#26524;&#65292;&#23558;&#27599;&#22825;&#30340;&#20004;&#31181;&#25805;&#20316;&#37117;&#35760;&#24405;&#36215;&#26469;&#65292;&#20316;&#20026;&#29366;&#24577;&#30340;&#19968;&#37096;&#20998;&#65292;&#33021;&#21542;&#21487;&#34892;&#20102;&#65311;</p><p>&#21487;&#26159;&#65292;&#20294;&#23601;&#36825;&#19968;&#28857;&#65292;&#22797;&#26434;&#24230;&#23601;&#26159;&#25351;&#25968;&#32423;&#30340;&#20102;&#65292;&#22312;&#25968;&#25454;&#37327;&#22823;&#30340;&#26102;&#20505;&#65292;&#19981;&#21487;&#34892;&#12290;</p><p>&#22240;&#27492;&#65292;&#30452;&#25509;&#20174;&#36825;&#31181;&#22238;&#28335;&#27861;&#23548;&#20986;&#21160;&#24577;&#35268;&#21010;&#65292;&#19981;&#21487;&#34892;&#12290;</p><h2><span class="ez-toc-section" id="%E8%A7%A3%E6%B3%95%E4%BA%8C_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"></span>&#35299;&#27861;&#20108; &#21160;&#24577;&#35268;&#21010;<span class="ez-toc-section-end"></span></h2><p>&#29992;&#21160;&#24577;&#35268;&#21010;&#26469;&#35299;&#65292;&#19981;&#23481;&#26131;&#24819;&#21040;&#36882;&#25512;&#26041;&#31243;&#12290;</p><p>&#19968;&#26086;&#24819;&#36890;&#36882;&#25512;&#26041;&#31243;&#65292;&#32929;&#31080;&#20080;&#21334;&#31995;&#21015;&#38382;&#39064;&#30340;&#23601;&#21487;&#20197;&#20840;&#37096;&#35299;&#20986;&#26469;&#20102;&#12290;</p><p>&#36825;&#19968;&#31995;&#21015;&#38382;&#39064;&#26377;&#65306;</p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;</a></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; II</a> <br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; III</a><br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV</a></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">&#26368;&#20339;&#20080;&#21334;&#32929;&#31080;&#26102;&#26426;&#21547;&#20919;&#20923;&#26399;</a></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#21547;&#25163;&#32493;&#36153;</a></p><h3><span class="ez-toc-section" id="%E6%98%8E%E7%A1%AE%E7%8A%B6%E6%80%81"></span>&#26126;&#30830;&#29366;&#24577;<span class="ez-toc-section-end"></span></h3><p>&#23450;&#20041;d[i][j][0 or 1]&#34920;&#31034;&#22312;&#31532;i&#22825;&#65292;&#36827;&#34892;&#20102;j&#27425;&#20132;&#26131;&#21518;&#65292;&#25345;&#26377;&#25110;&#19981;&#25345;&#26377;1&#21482;&#32929;&#31080;&#26102;&#30340;&#26368;&#22823;&#21033;&#28070;&#12290;</p><p>&#22312;&#27599;&#20010;&#29366;&#24577;&#19979;&#65292;&#26377;&#19977;&#31181;&#25805;&#20316;&#65306;&#19981;&#20080;&#20063;&#19981;&#21334;&#65307;&#22914;&#26524;&#25345;&#26377;&#32929;&#31080;&#26102;&#65292;&#21487;&#20197;&#21334;&#65307;&#22914;&#26524;&#19981;&#25345;&#26377;&#32929;&#31080;&#26102;&#65292;&#21487;&#20197;&#20080;&#12290;</p><p>&#36825;&#26679;&#65292;&#29366;&#24577;&#36716;&#31227;&#23601;&#24456;&#28165;&#26224;&#20102;&#12290;</p><figure class="wp-block-image"><img width="794" height="519" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;.png" alt="" class="wp-image-5488 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;.png 794w, http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;-600x392.png 600w, http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;-300x196.png 300w, http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;-768x502.png 768w" sizes="(max-width: 794px) 100vw, 794px"><noscript><img data-attachment-id="5488" data-permalink="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/%e8%82%a1%e7%a5%a8%e7%8a%b6%e6%80%81%e8%bd%ac%e7%a7%bb/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;.png" data-orig-size="794,519" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;-300x196.png" data-large-file="http://www.showsql.com/wp-content/uploads/2019/10/&#32929;&#31080;&#29366;&#24577;&#36716;&#31227;.png" width="794" height="519" src="http://showsql.com/wp-content/uploads/2019/10/%E8%82%A1%E7%A5%A8%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB.png" alt="" class="wp-image-5488 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/10/%E8%82%A1%E7%A5%A8%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB.png 794w,http://www.showsql.com/wp-content/uploads/2019/10/%E8%82%A1%E7%A5%A8%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB-600x392.png 600w,http://www.showsql.com/wp-content/uploads/2019/10/%E8%82%A1%E7%A5%A8%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB-300x196.png 300w,http://www.showsql.com/wp-content/uploads/2019/10/%E8%82%A1%E7%A5%A8%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB-768x502.png 768w" sizes="(max-width: 794px) 100vw, 794px"></noscript></figure><p>&#32771;&#34385;&#29366;&#24577;&#36716;&#31227;&#26041;&#31243;&#12290;</p><p><strong>&#27880;&#24847;&#65306;&#21334;&#20986;&#19981;&#31639;1&#27425;&#20132;&#26131;&#65292;&#20080;&#20837;&#31639;1&#27425;&#20132;&#26131;&#12290;</strong></p><p>d[i][j][0]&#21487;&#20197;&#20174;d[i-1][j][0]<strong>&#19981;&#20080;&#20063;&#19981;&#21334;</strong>&#36716;&#36807;&#26469;&#12290;&#20063;&#21487;&#20197;&#30001;d[i-1][j][1]<strong>&#21334;&#25481;&#19968;&#21482;&#32929;&#31080;</strong>&#36716;&#36807;&#26469;&#65292;&#24182;&#21152;&#19978;&#21334;&#20986;&#30340;&#20215;&#26684;&#12290;&#35201;&#21462;&#20004;&#31181;&#24773;&#20917;&#30340;&#26368;&#22823;&#20540;&#12290;</p><p>&#21487;&#24471;&#26041;&#31243;&#65306;</p><pre class="wp-block-code"><code>d[i][j][0]=max(d[i-1][j][0],d[i-1][j][1] + prices[i])</code></pre><p>d[i][j][1]&#21487;&#20197;&#20174;d[i-1][j][1]<strong>&#19981;&#20080;&#20063;&#19981;&#21334;</strong>&#36716;&#36807;&#26469;&#12290;&#20063;&#21487;&#20197;&#30001;d[i-1][j-1][0]<strong>&#20080;&#20837;&#19968;&#21482;&#32929;&#31080;</strong>&#36716;&#36807;&#26469;&#65292;&#24182;&#20943;&#21435;&#20080;&#20837;&#30340;&#20215;&#26684;&#12290;&#35201;&#21462;&#20004;&#31181;&#24773;&#20917;&#30340;&#26368;&#22823;&#20540;&#12290; &#27880;&#24847;&#26159;<strong>j-1</strong>&#12290;</p><pre class="wp-block-code"><code>d[i][j][1]=max(d[i-1][j][1],d[i-1][j-1][0] - prices[i])</code></pre><h3><span class="ez-toc-section" id="%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"></span>&#36793;&#30028;&#26465;&#20214;<span class="ez-toc-section-end"></span></h3><p>&#22312;&#29366;&#24577;&#30830;&#23450;&#21518;&#65292;&#36793;&#30028;&#26465;&#20214;&#38750;&#24120;&#37325;&#35201;&#12290;</p><p>&#24403;i=0&#26102;&#65292;</p><p>d[0][j][0]=max(d[-1][j][0],d[-1][j][1] + prices[0])</p><p>d[0][j][1]=max(d[-1][j][1],d[-1][j-1][0] - prices[0])</p><p>&#37027;&#20040;&#65292;<strong>&#20004;&#31181;&#36793;&#30028;&#26465;&#20214;</strong>&#65306;</p><p>d[-1][j][0] = 0&#12290;&#36824;&#27809;&#24320;&#22987;&#65292;&#21033;&#28070;&#20026;0.</p><p>d[-1][j-1][0] = 0. &#21033;&#28070;&#20026;0.</p><p>d[-1][j][1] = &#36127;&#26080;&#31351;&#12290;&#36824;&#26410;&#24320;&#22987;&#65292;&#19981;&#21487;&#33021;&#25345;&#26377;&#32929;&#31080;&#12290;&#29992;&#36127;&#26080;&#31351;&#34920;&#31034;&#19981;&#21487;&#33021;&#25345;&#26377;&#12290;</p><p>&#24403;k=0&#26102;&#65292;</p><p>d[i][0][0]=max(d[i-1][0][0],d[i-1][0][1] + prices[i])</p><p>d[i][0][1]=max(d[i-1][0][1],d[i-1][-1][0] - prices[i])</p><p>&#37027;&#20040;&#65292;<strong>&#20004;&#31181;&#36793;&#30028;&#26465;&#20214;</strong>&#65306;</p><p>d[i-1][0][0] = 0,  d[i-1][-1][0] = 0. &#27809;&#26377;&#20132;&#26131;,&#21033;&#28070;&#20026;0.</p><p>d[i-1][0][1]  = &#36127;&#26080;&#31351;,  d[i-1][0][1] = &#36127;&#26080;&#31351;. &#27809;&#26377;&#20132;&#26131;&#19981;&#21487;&#33021;,&#25317;&#26377;&#32929;&#31080;. &#29992;&#36127;&#26080;&#31351;&#34920;&#31034;&#19981;&#21487;&#33021;&#25317;&#26377;.</p><p><strong>&#26368;&#22823;&#21033;&#28070;</strong>&#26159;:&#24456;&#22909;&#29702;&#35299;,&#26174;&#28982;&#19981;&#33021;&#20877;&#25345;&#26377;&#32929;&#31080;,&#26174;&#28982;&#35201;&#29992;&#23436;&#22825;&#25968;&#21644;&#20132;&#26131;&#27425;&#25968;.</p><p>d[&#26368;&#21518;1&#22825;][k][0].</p><p>&#37027;&#20040;,&#23545;&#20110;&#26412;&#39064;<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV</a>,<strong>&#23436;&#25972;&#30340;&#36882;&#25512;&#26041;&#31243;</strong>&#20026;.</p><pre class="wp-block-code"><code>&#24403;i == 0&#26102;,
+d[i][j][0]=max(d[i-1][j][0],d[i-1][j][1] + prices[i]) = 0
+d[i][j][1]=max(d[i-1][j][1],d[i-1][j-1][0] - prices[i]) = -prices[i]
+&#24403;i == 1&#26102;,
+d[i][j][0]=max(d[i-1][j][0],d[i-1][j][1] + prices[i])
+d[i][j][1]=max(d[i-1][j][1],d[i-1][j-1][0] - prices[i])</code></pre><p>&#36825;&#37324;&#65292;&#35201;&#34917;&#20805;&#20004;&#20010;&#29305;&#27530;&#24773;&#20917;&#12290;</p><p>&#31532;1&#20010;&#65292;k&#24456;&#22823;&#30340;&#24773;&#20917;&#12290;&#30001;&#20110;&#20080;&#21334;1&#27425;&#35201;&#20004;&#22825;&#65292;k&#27425;&#35201;2k&#22825;&#12290;&#22240;&#27492;&#65292;&#24403;&#22825;&#25968;len &lt; 2k&#26102;&#65292;&#20877;&#22810;&#30340;k&#37117;&#26080;&#24847;&#20041;&#12290;&#25152;&#20197;&#65292;&#23545;k&#25130;&#26029;&#65292;k=min(k,len/2)&#12290;</p><p>&#23436;&#25972;&#20195;&#30721;&#20026;:</p><pre class="wp-block-code"><code>    int maxProfit(int k, vector&lt;int&gt;&amp; prices) {
+        int ans=INT_MIN;
+        const int len = prices.size();
+        if(len == 0) return 0;
+        k = min(k,len/2);
+        vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; d(len,vector&lt;vector&lt;int&gt;&gt;(k+1,vector&lt;int&gt;(2,0)));
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            for(int n=0;n&lt;=k;++n){//&#20132;&#26131;&#20102;n&#27425;
+                if(i == 0){
+                    d[i][n][0] = 0;
+                    d[i][n][1] = -prices[i];
+                }else{
+                    d[i][n][0] = max(d[i-1][n][0],d[i-1][n][1] + prices[i]);
+                    d[i][n][1] = max(d[i-1][n][1],d[i-1][n-1][0] - prices[i]);
+                }
+            }
+        }
+        return d[len-1][k][0];
+    }</code></pre><p>&#31532;2&#20010;&#65292;&#22825;&#25968;len&#24456;&#22823;&#26102;&#65292;&#19977;&#32500;&#25968;&#32452;&#65292;&#36229;&#36807;&#20869;&#23384;&#38480;&#21046;&#12290;</p><p>&#20174;&#25968;&#32452;d&#30340;&#36882;&#25512;&#20851;&#31995;&#21487;&#30693;&#65292;&#22312;&#31532;i&#22825;&#65292;&#21482;&#38656;&#35201;&#21069;&#19968;&#22825;i-1&#30340;&#20540;&#21363;&#21487;&#12290;</p><p>&#22312;&#22825;&#25968;&#36825;&#19968;&#32500;&#24230;&#21482;&#38656;&#35201;&#20004;&#32500;&#65292;&#21363;:d[2][k+1][2]&#12290;</p><p>&#27492;&#26102;&#65292;&#24590;&#20040;&#20915;&#23450;&#31532;i&#22825;&#36873;&#25321;&#21738;&#19968;&#34892;&#20102;&#65311;</p><p>&#23545;i&#21462;&#27169;2&#30340;&#20313;&#25968;&#12290;</p><p>&#31532;i&#22825;&#65292;&#36873;&#25321;&#34892;&#65306;s = i &amp; 1&#12290;s&#30340;&#20540;&#35201;&#20040;&#26159;1&#65292;&#35201;&#20040;&#26159;0&#12290;</p><p>&#24403;s&#30830;&#23450;&#21518;&#65292;&#31532;i-1&#22825;&#23601;&#26159;&#21478;&#19968;&#34892;&#20102;&#12290;</p><p>&#37027;&#20040;&#65292;&#31532;i-1&#22825;&#65292;&#36873;&#25321;&#34892;&#65306;t = s ^ 1&#12290;</p><p>&#22240;&#27492;&#65292;&#23436;&#25972;&#30340;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>    int maxProfit(int k, vector&lt;int&gt;&amp; prices) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        k = min(k,len/2);
+        const int clen=2;
+        vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; d(clen,vector&lt;vector&lt;int&gt;&gt;(k+1,vector&lt;int&gt;(2,INT_MIN)));
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            for(int n=0;n&lt;=k;++n){//&#20132;&#26131;&#20102;n&#27425;
+                if(i == 0){
+                    d[i][n][0] = 0;
+                    d[i][n][1] = -prices[i];
+                }else{
+                    const int s = i &amp; 1;
+                    const int t = s ^ 1;
+                    
+                    if(n == 0){
+                        d[s][n][0] = 0;
+                        d[s][n][1] = -prices[i];
+                    }else{
+                    
+                        d[s][n][0] = max(d[t][n][0],d[t][n][1] + prices[i]);
+                        d[s][n][1] = max(d[t][n][1],d[t][n-1][0] - prices[i]);
+                    }
+                }
+            }
+        }
+        return d[(len - 1) &amp; 1][k][0];
+    }</code></pre><h3><span class="ez-toc-section" id="%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA_III%E7%9A%84%E8%A7%A3%E6%B3%95(k=2)"></span><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; III</a>&#30340;&#35299;&#27861;(k=2)<span class="ez-toc-section-end"></span></h3><p>&#36825;&#26174;&#28982;&#26159;k=2&#30340;&#24773;&#20917;&#12290;&#31435;&#21051;&#27714;&#35299;&#12290;</p><p>&#20294;&#26159;&#21487;&#20197;&#23558;&#36882;&#25512;&#26041;&#31243;&#23545;k&#23637;&#24320;&#12290;</p><p>&#23637;&#24320;&#30340;&#26680;&#24515;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            if(i == 0){
+                d[i][0][0] = 0;
+                d[i][0][1] = -prices[i];
+            }else{
+                d[i][0][0] = 0;
+                d[i][0][1] = - prices[i];
+            }
+
+            if(i == 0){
+                d[i][1][0] = 0;
+                d[i][1][1] = -prices[i];
+            }else{
+                d[i][1][0] = max(d[i-1][1][0],d[i-1][1][1] + prices[i]);
+                d[i][1][1] = max(d[i-1][1][1],- prices[i]);
+            }
+            
+            if(i == 0){
+                d[i][2][0] = 0;
+                d[i][2][1] = -prices[i];
+            }else{
+                d[i][2][0] = max(d[i-1][2][0],d[i-1][2][1] + prices[i]);
+                d[i][2][1] = max(d[i-1][2][1],d[i-1][1][0] - prices[i]);
+            }
+        }</code></pre><p>&#20294;&#26159;&#65292;&#21482;&#38656;&#35201;&#20004;&#34892;&#30340;&#24615;&#36136;&#19981;&#20250;&#21464;&#12290;&#21487;&#20197;&#23558;&#19978;&#38754;&#30340;d&#25968;&#32452;&#65292;&#29992;&#21464;&#37327;&#26367;&#25442;&#12290;</p><p>&#29992;di10&#26367;&#25442;d[i][1][0]&#21644;d[i-1][1][0]&#12290;</p><p>&#29992;di11&#26367;&#25442;d[i-1][1][1]&#12290;</p><p>&#29992;di20&#26367;&#25442;d[i][2][0]&#21644;d[i-1][2][0]&#12290;</p><p>&#29992;di21&#26367;&#25442;d[i-1][2][1]&#12290;</p><p>&#21478;&#22806;&#65292;&#36825;&#19968;&#27573;&#19981;&#24433;&#21709;&#36882;&#25512;&#21487;&#20197;&#21435;&#25481;&#12290;</p><pre class="wp-block-code"><code>            if(i == 0){
+                d[i][0][0] = 0;
+                d[i][0][1] = -prices[i];
+            }else{
+                d[i][0][0] = 0;
+                d[i][0][1] = - prices[i];
+            }</code></pre><p>&#26367;&#25442;&#21518;&#30340;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        int di10=0,di11=INT_MIN;
+        int di20=0,di21=INT_MIN;
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            di10 = max(di10,di11 + prices[i]);
+            di11 = max(di11,- prices[i]);
+            di20 = max(di20,di21 + prices[i]);
+            di21 = max(di21,di10 - prices[i]);
+        }
+        return di20;
+    }</code></pre><h3><span class="ez-toc-section" id="%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E7%9A%84%E8%A7%A3%E6%B3%95(k=1)"></span> <a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;</a>&#30340;&#35299;&#27861;(k=1)<span class="ez-toc-section-end"></span></h3><p>&#36825;&#26159;k=1&#30340;&#24773;&#20917;&#12290;&#23558;k&#20195;&#20837;&#26041;&#31243;&#24335;&#65292;&#24182;&#23637;&#24320;&#12290;</p><p>&#23637;&#24320;&#30340;&#26680;&#24515;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            if(i == 0){
+                d[i][0][0] = 0;
+                d[i][0][1] = -prices[i];
+            }else{
+                if(n == 0){
+                    d[i][0][0] = 0;
+                    d[i][0][1] = -prices[i];
+                }else{
+                
+                    d[i][0][0] = max(d[i-1][0][0],d[i-1][0][1] + prices[i]);
+                    d[i][0][1] = max(d[i-1][0][1],d[i-1][0-1][0] - prices[i]);
+                }
+            }
+
+            if(i == 0){
+                d[i][1][0] = 0;
+                d[i][1][1] = -prices[i];
+            }else{
+                if(n == 0){
+                    d[i][1][0] = 0;
+                    d[i][1][1] = -prices[i];
+                }else{
+                
+                    d[i][1][0] = max(d[i-1][1][0],d[i-1][1][1] + prices[i]);
+                    d[i][1][1] = max(d[i-1][1][1],d[i-1][1-1][0] - prices[i]);
+                }
+            }
+        }</code></pre><p>i=0&#21644;k=0&#30340;&#24773;&#20917;&#19981;&#24433;&#21709;&#36882;&#25512;&#65292;&#30452;&#25509;&#21435;&#25481;&#12290;</p><p>&#29992;di10&#20195;&#26367;d[i][1][0]&#21644;d[i-1][1][0]&#12290;</p><p>&#29992;d11&#20195;&#26367;d[i][1][1]&#21644;d[i-1][1][1]&#12290;</p><p>&#26367;&#25442;&#21518;&#30340;&#20195;&#30721;&#20026;&#65306;</p><pre class="wp-block-code"><code>    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        int di10 = 0,di11 = INT_MIN;
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            di10 = max(di10,di11 + prices[i]);
+            di11 = max(di11, - prices[i]);
+        }
+        return di10;         
+    }</code></pre><h3><span class="ez-toc-section" id="%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA_II%E7%9A%84%E8%A7%A3%E6%B3%95(k=%E6%97%A0%E7%A9%B7%E5%A4%A7%EF%BC%89"></span><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; II</a>&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;&#65289;<span class="ez-toc-section-end"></span></h3><p>&#39064;&#30446;&#20013;&#35201;&#27714;&#22810;&#27425;&#20080;&#21334;&#32929;&#31080;&#12290;&#36825;&#30456;&#24403;&#20110;k&#19981;&#36215;&#20316;&#29992;&#65292;</p><p>&#22312;&#36882;&#25512;&#26041;&#31243;&#20013;&#65292;&#21487;&#20197;&#23558;k&#36825;&#19968;&#32500;&#24230;&#21435;&#25481;&#12290;</p><pre class="wp-block-code"><code>        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            if(i == 0){
+                d[i][0] = 0;
+                d[i][1] = -prices[i];
+            }else{
+                d[i][0] = max(d[i-1][0],d[i-1][1] + prices[i]);
+                d[i][1] = max(d[i-1][1],d[i-1][0] - prices[i]);
+            }
+        }</code></pre><p>&#29992;di0&#26367;&#25442;d[i-1][0]&#65292;&#29992;di1&#26367;&#25442;d[i-1][1]&#12290;&#27880;&#24847; d[i-1][0] &#21644; d[i-1][1] &#22312;&#20004;&#20010;&#24335;&#23376;&#20013;&#26377;&#20132;&#21449;&#24341;&#29992;&#12290;</p><pre class="wp-block-code"><code>    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        int di0 = 0, di1 = INT_MIN;
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            int a = di0;
+            di0 = max(di0,di1 + prices[i]);
+            di1 = max(di1,a - prices[i]);
+        }
+        return di0;
+    }</code></pre><h3><span class="ez-toc-section" id="%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E5%90%AB%E6%89%8B%E7%BB%AD%E8%B4%B9%E7%9A%84%E8%A7%A3%E6%B3%95(k=%E6%97%A0%E7%A9%B7%E5%A4%A7+%E6%89%8B%E7%BB%AD%E8%B4%B9)"></span><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#21547;&#25163;&#32493;&#36153;</a>&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;+&#25163;&#32493;&#36153;)<span class="ez-toc-section-end"></span></h3><p>&#39064;&#30446;&#20013;&#20801;&#35768;&#26080;&#38480;&#27425;&#30340;&#23436;&#25972;&#20132;&#26131;&#12290;k&#20063;&#19981;&#20877;&#36215;&#20316;&#29992;&#12290;</p><p>&#20294;&#35201;&#25910;&#21462;&#25163;&#32493;&#36153;&#65292;&#36825;&#30456;&#24403;&#20110;&#22312;&#21334;&#20986;&#32929;&#31080;&#26102;&#65292;&#25187;&#38500;&#25163;&#32493;&#36153;&#12290;</p><p>&#22312;&#19978;&#38754;&#30340;&#35299;&#27861;&#20013;&#65292;&#25187;&#38500;&#36153;&#29992;&#21363;&#21487;&#12290;</p><pre class="wp-block-code"><code>    int maxProfit(vector&lt;int&gt;&amp; prices, int fee) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        const int clen=2;
+        vector&lt;vector&lt;int&gt;&gt; d(clen,vector&lt;int&gt;(2,INT_MIN));
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            if(i == 0){
+                d[i][0] = 0;
+                d[i][1] = -prices[i] - fee;
+            }else{
+                d[i][0] = max(d[i-1][0],d[i-1][1] + prices[i]);
+                d[i][1] = max(d[i-1][1],d[i-1][0] - prices[i] - fee);
+            }
+        }
+        return d[(len - 1) &amp; 1][0];        
+    }</code></pre><p>&#29992;di0&#26367;&#25442;d[i-1][0]&#65292;&#29992;di1&#26367;&#25442;d[i-1][1]&#12290;&#27880;&#24847; d[i-1][0] &#21644; d[i-1][1] &#22312;&#20004;&#20010;&#24335;&#23376;&#20013;&#26377;&#20132;&#21449;&#24341;&#29992;&#12290;</p><pre class="wp-block-code"><code>    int maxProfit(vector&lt;int&gt;&amp; prices, int fee) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        int di0 = 0, di1 = INT_MIN;
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            int a = di0;
+            di0 = max(di0,di1 + prices[i]);
+            di1 = max(di1,a - prices[i] - fee);
+        }
+        return di0;        
+    }</code></pre><h3><span class="ez-toc-section" id="%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F%E7%9A%84%E8%A7%A3%E6%B3%95(k=%E6%97%A0%E7%A9%B7%E5%A4%A7+1%E5%A4%A9%E5%86%B7%E5%86%BB%E6%9C%9F)"></span><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">&#26368;&#20339;&#20080;&#21334;&#32929;&#31080;&#26102;&#26426;&#21547;&#20919;&#20923;&#26399;</a>&#30340;&#35299;&#27861;(k=&#26080;&#31351;&#22823;+1&#22825;&#20919;&#20923;&#26399;)<span class="ez-toc-section-end"></span></h3><p>&#21248;&#36895;&#22810;&#27425;&#20132;&#26131;&#12290;&#20294;&#26159;&#21334;&#20986;&#21518;&#65292;&#33267;&#23569;&#38548;&#24320;1&#22825;&#21518;&#25165;&#33021;&#20877;&#20080;&#20837;&#32929;&#31080;&#12290;</p><p>&#36825;&#37324;&#65292;k&#20063;&#30456;&#24403;&#20110;&#26080;&#25928;&#12290;</p><p>&#35201;&#24378;&#35843;&#30340;&#26159;&#65292;&#36882;&#25512;&#26041;&#31243;&#65306;</p><pre class="wp-block-code"><code>            d[i][1] = max(d[i-1][1],d[i-2][0] - prices[i]);</code></pre><p>&#32780;&#19988;&#36793;&#30028;&#26465;&#20214;d[-2][0]&#20540;&#20026;0.</p><pre class="wp-block-code"><code>    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        const int len = prices.size();
+        if(len == 0) return 0;
+        const int clen=3;
+        vector&lt;vector&lt;int&gt;&gt; d(clen,vector&lt;int&gt;(2,INT_MIN));
+        for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+            if(i == 0){
+                d[i][0] = 0;
+                d[i][1] = -prices[i];
+            }else if(i == 1){
+                d[i][0] = max(d[i-1][0],d[i-1][1] + prices[i]);
+                //&#36825;&#20010;&#22320;&#26041;&#23588;&#20026;&#37325;&#35201;d[-2][0]&#30340;&#20540;&#20026;0
+                d[i][1] = max(d[i-1][1],-prices[i]);
+            }else{// &gt;= 2
+                const int s = i % clen;
+                const int t = (i - 1) % clen;
+                const int u = (i - 2) % clen;
+                d[s][0] = max(d[t][0],d[t][1] + prices[i]);
+                d[s][1] = max(d[t][1],d[u][0] - prices[i]);
+            }
+        }
+        return d[(len - 1) % 3][0];        
+    }</code></pre><p>&#32487;&#32493;&#23545;&#20195;&#30721;&#36827;&#34892;&#31616;&#21270;&#12290;</p><p>&#29992;di0&#26367;&#25442;d[i-1][0]&#65292;&#29992;di1&#26367;&#25442;d[i-1][1]&#12290;&#27880;&#24847; d[i-1][0] &#21644; d[i-1][1] &#22312;&#20004;&#20010;&#24335;&#23376;&#20013;&#26377;&#20132;&#21449;&#24341;&#29992;&#12290;  &#29992;di2&#20195;&#26367;d[i-2][0]&#65292;&#20854;&#20540;&#26159;&#26356;&#26032;&#21069;&#30340;di0&#12290;&#36825;&#22909;&#29702;&#35299;&#65292;&#22240;&#20026;&#21482;&#26377;&#19977;&#34892;&#12290;</p><pre class="wp-block-code"><code>int maxProfit(vector&lt;int&gt;&amp; prices) {
+    const int len = prices.size();
+    if(len == 0) return 0;
+    int di0 = 0, di1 = INT_MIN;
+    int di2 = 0;
+    for(int i=0;i&lt;len;++i){//&#31532;i&#22825;
+        int a = di0;
+        di0 = max(di0,di1 + prices[i]);
+        di1 = max(di1,di2 - prices[i]);
+        di2 = a;
+    }
+    return di0;
+}</code></pre><h3><span class="ez-toc-section" id="%E6%80%BB%E7%BB%93"></span>&#24635;&#32467;<span class="ez-toc-section-end"></span></h3><p>&#36825;&#20845;&#20010;&#38382;&#39064;&#21487;&#20197;&#20998;&#25104;&#20004;&#31867;&#65306;</p><p><strong>k&#26377;&#38480;&#65306;</strong></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;</a></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; III</a><br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV</a></p><p><strong>k&#26080;&#31351;&#22823;&#65306;</strong></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; II</a> <br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">&#26368;&#20339;&#20080;&#21334;&#32929;&#31080;&#26102;&#26426;&#21547;&#20919;&#20923;&#26399;</a></p><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">&#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426;&#21547;&#25163;&#32493;&#36153;</a></p><p></p><p>Hits: 7</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#respond">No comments yet</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/%e7%ae%97%e6%b3%95%e4%b8%8e%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84/">&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;</a></div> </div></div></div></article><div id="comments" class="comments-area"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F30%2Fleetcode188-iv-best-time-to-buy-and-sell-stock-iv%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/" rel="prev"><i class="fa fa-chevron-left"></i> leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/10/06/leetcode41-first-missing-positive/" rel="next">leetcode41 &#32570;&#22833;&#30340;&#31532;&#19968;&#20010;&#27491;&#25968; First Missing Positive <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" id="jetpack-carousel-js-extra">/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/www.showsql.com\/wp-admin\/admin-ajax.php","nonce":"99ca01de6c","display_exif":"1","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"1","require_name_email":"1","login_url":"http:\/\/www.showsql.com\/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F30%2Fleetcode188-iv-best-time-to-buy-and-sell-stock-iv%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<p id=\"jp-carousel-commenting-as\">You must be <a href=\"#\" class=\"jp-carousel-comment-login\">logged in<\/a> to post a comment.<\/p>"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js" id="jetpack-carousel-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js" id="jquery-smooth-scroll-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js" id="js-cookie-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js" id="jquery-sticky-kit-js"></script> <script type="text/javascript" id="ez-toc-js-js-extra">/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js" id="ez-toc-js-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'5390',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '5390' ]);</script> </body></html>

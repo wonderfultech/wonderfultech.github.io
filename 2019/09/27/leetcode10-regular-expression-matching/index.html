@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="&#31616;&#21270;&#30340;&#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197;&#12290;&#29992;&#22238;&#28335;&#21644;&#21160;&#24577;&#35268;&#21010;&#35299;&#20915;&#12290;"><meta name="keywords" content="&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#webpage","url":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/","inLanguage":"en-US","name":"leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#breadcrumblist"},"description":"&#31616;&#21270;&#30340;&#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197;&#12290;&#29992;&#22238;&#28335;&#21644;&#21160;&#24577;&#35268;&#21010;&#35299;&#20915;&#12290;","datePublished":"2019-09-27T11:09:18+08:00","dateModified":"2019-12-04T11:21:50+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#article","isPartOf":{"@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching","datePublished":"2019-09-27T11:09:18+08:00","dateModified":"2019-12-04T11:21:50+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Leetcode Algorithms, &#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/","url":"http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/","name":"leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/"><meta property="og:type" content="object"><meta property="og:title" content="leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching | Wonderful Tech"><meta property="og:description" content="&#31616;&#21270;&#30340;&#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197;&#12290;&#29992;&#22238;&#28335;&#21644;&#21160;&#24577;&#35268;&#21010;&#35299;&#20915;&#12290;"><meta property="og:url" content="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching | Wonderful Tech"><meta name="twitter:description" content="&#31616;&#21270;&#30340;&#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197;&#12290;&#29992;&#22238;&#28335;&#21644;&#21160;&#24577;&#35268;&#21010;&#35299;&#20915;&#12290;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching Comments Feed" href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/5245"><link rel="prev" title="leetcode224 &#22522;&#26412;&#35745;&#31639;&#22120; Basic Calculator" href="http://www.showsql.com/2019/09/26/leetcode224-basic-calculator/"><link rel="next" title="leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV" href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F27%2Fleetcode10-regular-expression-matching%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F27%2Fleetcode10-regular-expression-matching%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-5245 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/leetcode-algorithms/" rel="category tag">Leetcode Algorithms</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-5245" class="post-5245 post type-post status-publish format-standard hentry category-leetcode-algorithms tag-28"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/" rel="bookmark"><time class="entry-date published" datetime="2019-09-27T19:09:18+08:00">2019&#24180;9&#26376;27&#26085;</time><time class="updated" datetime="2019-12-04T19:21:50+08:00">2019&#24180;12&#26376;4&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/" title="leetcode10 &#27491;&#21017;&#34920;&#36798;&#24335;&#21305;&#37197; Regular Expression Matching"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><div id="ez-toc-container" class="ez-toc-v2_0_11 counter-hierarchy counter-decimal ez-toc-grey"><div class="ez-toc-title-container"><p class="ez-toc-title">Table of Contents</p> <span class="ez-toc-title-toggle"></span></div><nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#%E8%A7%A3%E6%B3%95%E4%B8%80_%E5%9B%9E%E6%BA%AF%E6%B3%95" title="&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;">&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-2" href="#%E7%AE%80%E5%8C%96" title="&#31616;&#21270;">&#31616;&#21270;</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-3" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" title="&#35299;&#27861;&#20108; &#21160;&#24577;&#35268;&#21010;">&#35299;&#27861;&#20108; &#21160;&#24577;&#35268;&#21010;</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-4" href="#%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%E9%80%92%E6%8E%A8" title="&#20174;&#21518;&#21521;&#21069;&#36882;&#25512;">&#20174;&#21518;&#21521;&#21069;&#36882;&#25512;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-5" href="#%E4%BB%8E%E5%89%8D%E5%BE%80%E5%90%8E%E9%80%92%E6%8E%A8" title="&#20174;&#21069;&#24448;&#21518;&#36882;&#25512;">&#20174;&#21069;&#24448;&#21518;&#36882;&#25512;</a></li></ul></li></ul></nav></div><h2><span class="ez-toc-section" id="%E8%A7%A3%E6%B3%95%E4%B8%80_%E5%9B%9E%E6%BA%AF%E6%B3%95"></span>&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;<span class="ez-toc-section-end"></span></h2><p>&#35774;s(i)&#34920;&#31034;&#20018;s&#20174;&#20301;&#32622;i&#24320;&#22987;&#30340;&#21518;&#32512;&#12290;p(j)&#21516;&#29702;&#12290;</p><p>&#30452;&#35266;&#30340;&#24605;&#36335;&#26159;&#23545;&#20018;s&#21644;p&#20998;&#24773;&#20917;&#35752;&#35770;&#12290;</p><p>1.&#24403;s&#20026;&#31354;&#20018;&#26102;&#65292;&#27492;&#26102;p&#20026;&#31354;&#20018;&#65292;&#21305;&#37197;&#25104;&#21151;&#12290;</p><p>&#22914;&#26524;p&#19981;&#20026;&#31354;&#26102;&#65292;</p><p>&#20363;&#22914;&#65306;s="",p="a"</p><p>&#21305;&#37197;&#22833;&#36133;&#12290;</p><p>&#20363;&#22914;&#65306;s="",p="a*"</p><p>&#21305;&#37197;&#25104;&#21151;&#12290;</p><p>&#20363;&#22914;&#65306;s="",p="a*c"</p><p>&#21305;&#37197;&#21448;&#22833;&#36133;&#12290;</p><p>&#35828;&#26126;&#65292;&#24403;p&#30340;&#31532;&#20108;&#20010;&#23383;&#31526;&#65292;&#21363;p[1]=='*'&#26102;&#65292;&#35201;&#36882;&#24402;&#21028;&#26029;s&#21644;p(2)&#12290;</p><p>2.&#24403;p&#20026;&#31354;&#26102;&#65292;&#27492;&#26102;s&#19981;&#20026;&#31354;&#65292;&#21305;&#37197;&#22833;&#36133;&#12290;</p><p>&#20363;&#22914;&#65306;s="a", p =""&#12290;</p><p>&#21305;&#37197;&#22833;&#36133;&#12290;</p><p>3.&#22914;&#26524;s&#21644;p&#30340;&#31532;&#19968;&#20010;&#23383;&#31526;&#21305;&#37197;&#26102;&#65292;&#21363;s[0] == p[0] &#25110; p[0] == '.'&#26102;&#65292;&#35201;&#23545;&#38500;&#31532;&#19968;&#20010;&#23383;&#31526;&#22806;&#30340;s(1)&#21644;p(1)&#36882;&#24402;&#21305;&#37197;&#12290;</p><p>&#20363;&#22914;&#65306;s="abc", p =".*d"</p><p>&#31532;&#19968;&#23383;&#31526;&#21305;&#37197;&#12290;&#25972;&#20307;&#32467;&#26524;&#36824;&#35201;&#32771;&#34385;"bc"&#21644;"*d"&#30340;&#21305;&#37197;&#24773;&#20917;&#12290;</p><p>4.&#24403;p[1] == '*'&#26102;&#65292;</p><p>&#22914;&#26524;*&#19982;&#20854;&#21069;&#19968;&#20010;&#23383;&#31526;&#21305;&#37197;s&#30340;0&#20010;&#23383;&#31526;&#26102;&#65292;&#30456;&#24403;&#20110;p&#23569;&#20102;&#36825;&#20004;&#20010;&#23383;&#31526;&#65292;&#35201;&#36882;&#24402;&#32771;&#34385;s&#21644;p(2)&#12290;</p><p>&#20363;&#22914;&#65306; s="abc", p =".*d"</p><p>".*"&#21305;&#37197;0&#20010;&#23383;&#31526;&#65292;&#35201;&#36882;&#24402;&#32771;&#34385;s="abc"&#21644;p(2)="d"&#12290;</p><p>&#22914;&#26524;*&#19982;&#20854;&#21069;&#19968;&#20010;&#23383;&#31526;&#21305;&#37197;s&#30340;k&#20010;&#23383;&#31526;&#26102;&#65292;&#30456;&#24403;&#20110;s&#23569;&#20102;&#36825;k&#20010;&#23383;&#31526;&#65292;&#32780;p&#23569;&#20102;&#36825;&#20004;&#20010;&#23383;&#31526;&#65292;&#35201;&#36882;&#24402;&#32771;&#34385;s(k)&#21644;p(2)&#12290;</p><p>&#20363;&#22914;&#65306; s="aaacdgg"&#65292;p="a*ceg"&#12290;</p><p>"a*"&#21487;&#20197;&#21305;&#37197;1&#20010;a&#65292;&#27492;&#26102;&#36882;&#24402;&#32771;&#34385;s="aacdgg"&#21644;p="ceg"&#12290;</p><p>"a*"&#21487;&#20197;&#21305;&#37197;2&#20010;a&#65292;&#27492;&#26102;&#36882;&#24402;&#32771;&#34385;s="acdgg"&#21644;p="ceg"&#12290;</p><p>"a*"&#21487;&#20197;&#21305;&#37197;3&#20010;a&#65292;&#27492;&#26102;&#36882;&#24402;&#32771;&#34385;s="cdgg"&#21644;p="ceg"&#12290;</p><p>5.&#20854;&#23427;&#24773;&#20917;&#65292;&#21305;&#37197;&#22833;&#36133;&#12290;</p><p>&#23436;&#25972;&#30340;&#24605;&#36335;&#65306;</p><pre class="wp-block-code"><code>dfs(s,p){
+    //&#24773;&#20917;1
+    if(s&#31354;&#20018;) &#36820;&#22238;&#65306;p&#31354;&#20018;&#19982;&#21542; &#25110;&#32773; p.length&gt;=2 &#19988; p[1] == '*' &#19988; dfs(s,p(2));
+    //&#24773;&#20917;2
+    if(p&#31354;&#20018;) &#36820;&#22238;&#65306;s&#31354;&#20018;&#19982;&#21542;&#65307;
+    //&#24773;&#20917;3
+    if(s[0] == p[0] &#25110; p[0] == '.') &#36882;&#24402;dfs(s(1),p(1));
+    //&#24773;&#20917;4
+    if(p.length&gt;=2 &#19988; p[1]=='*'){
+        //&#21305;&#37197;0&#20010;&#23383;&#31526;
+        &#36882;&#24402;dfs(s,p(2));
+        //&#21305;&#37197;c&#20010;&#23383;&#31526;
+        &#36882;&#24402;dfs(s(c),p(2));
+    }
+}</code></pre><p>&#23436;&#25972;&#30340;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>    bool isMatch(string s, string p) {
+        return dfs(s,p);
+    }
+    
+    bool dfs(string s,string p){
+        if(s.empty()) return p.empty() || p.size() &gt;= 2 &amp;&amp; p[1] == '*' &amp;&amp; dfs(s,p.substr(2));
+        if(p.empty()) return false;
+        if(s[0] == p[0] || p[0] == '.') {
+            bool r = dfs(s.substr(1),p.substr(1));
+            if(r) return true;
+        }
+        if(!(p.size() &gt;= 2 &amp;&amp; p[1] == '*')) return false;
+        bool r = dfs(s,p.substr(2));
+        if(r) return true;
+        for(int c=0;c&lt;s.size();++c){
+            if(s[c] == p[0] || p[0] == '.') {
+                bool r = dfs(s.substr(c+1),p.substr(2));
+                if(r) return true;
+            }else break;
+        }
+        
+        return false;
+    }</code></pre><h3><span class="ez-toc-section" id="%E7%AE%80%E5%8C%96"></span>&#31616;&#21270;<span class="ez-toc-section-end"></span></h3><p>&#22312;&#19978;&#38754;&#30340;&#35299;&#27861;&#20013;&#65292;p[1]=='*'&#20998;&#25955;&#22312;&#20004;&#22788;&#65292;&#32780;&#19988;*&#21305;&#37197;&#25152;&#36215;&#30340;&#20316;&#29992;&#38750;&#24120;&#37325;&#35201;&#12290;</p><p>&#23558;*&#21305;&#37197;&#30340;&#25972;&#21512;&#22312;&#19968;&#36215;&#12290;&#20854;&#23427;&#19981;&#21464;&#12290;</p><p>&#35843;&#25972;&#24605;&#36335;&#20026;&#65306;</p><pre class="wp-block-code"><code>dfs(s,p){
+    //&#24773;&#20917;1
+    if(s&#31354;&#20018; &#19988; p&#31354;&#20018;) &#36820;&#22238;&#25104;&#21151;;
+    //&#24773;&#20917;4
+    if(p.length&gt;=2 &#19988; p[1]=='*'){
+        //&#21305;&#37197;0&#20010;&#23383;&#31526;
+        &#36882;&#24402;dfs(s,p(2));
+        //&#21305;&#37197;c&#20010;&#23383;&#31526;
+        &#36882;&#24402;dfs(s(c),p(2));
+    }
+    //&#24773;&#20917;3
+    if(s[0] == p[0] &#25110; p[0] == '.') &#36882;&#24402;dfs(s(1),p(1));
+}</code></pre><p>&#20195;&#30721;&#20026;&#65306;</p><pre class="wp-block-code"><code>    bool isMatch(string s, string p) {
+        return dfs(s,p);
+    }
+    
+    bool dfs(string s,string p){
+        if(s.empty() &amp;&amp; p.empty()) return true;
+        if(p.size() &gt;= 2 &amp;&amp; p[1] == '*'){
+            bool r = dfs(s,p.substr(2));
+            if(r) return true;
+            for(int c=0;c&lt;s.size();++c){
+                if(s[c] == p[0] || p[0] == '.') {
+                    bool r = dfs(s.substr(c+1),p.substr(2));
+                    if(r) return true;
+                }else break;
+            }
+        }
+        if(s.size() &amp;&amp; p.size() &amp;&amp; (s[0] == p[0] || p[0] == '.')) {
+            bool r = dfs(s.substr(1),p.substr(1));
+            if(r) return true;
+        }        
+        return false;
+    }</code></pre><h2><span class="ez-toc-section" id="%E8%A7%A3%E6%B3%95%E4%BA%8C_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"></span>&#35299;&#27861;&#20108; &#21160;&#24577;&#35268;&#21010;<span class="ez-toc-section-end"></span></h2><p>&#35774;s(i)&#34920;&#31034;&#20018;s&#20174;&#20301;&#32622;i&#24320;&#22987;&#30340;&#21518;&#32512;&#12290;p(j)&#21516;&#29702;&#12290;</p><p>slen&#26159;&#20018;s&#30340;&#38271;&#24230;&#12290;plen&#26159;&#20018;p&#30340;&#38271;&#24230;&#12290;</p><p>&#34920;&#26684;d[i][j]&#34920;&#31034;s(i)&#21644;p(j)&#30340;&#21305;&#37197;&#24773;&#20917;&#12290;</p><p>&#22238;&#28335;&#27861;&#65292;&#23454;&#38469;&#26159;&#22312;&#36882;&#24402;&#20013;&#20808;&#21028;&#26029;&#21518;&#32512;&#26159;&#21542;&#21305;&#37197;&#12290;&#20877;&#24471;&#20986;&#24403;&#21069;&#20301;&#32622;&#26159;&#21542;&#21305;&#37197;&#12290;&#38543;&#30528;&#21518;&#32512;&#30340;&#22686;&#38271;&#65292;&#30452;&#21040;&#25972;&#20010;&#20018;&#37117;&#21305;&#37197;&#12290;</p><h3><span class="ez-toc-section" id="%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%E9%80%92%E6%8E%A8"></span>&#20174;&#21518;&#21521;&#21069;&#36882;&#25512;<span class="ez-toc-section-end"></span></h3><p>&#23558;&#21518;&#32512;&#20018;&#21305;&#37197;&#30340;&#24605;&#36335;&#65292;&#30001;&#36882;&#24402;&#26041;&#24335;&#21464;&#25104;&#36882;&#25512;&#26041;&#24335;&#12290;</p><p>&#24403;s(slen)&#19988;p(plen)&#26102;&#65292;&#20004;&#20010;&#37117;&#26159;&#31354;&#20018;&#65292;&#21305;&#37197;&#25104;&#21151;&#12290;d[slen][plen]=1&#12290;</p><p>&#24403;s(slen) ,p(j), j&lt; plen&#26102;&#65292;s&#21518;&#32512;&#26159;&#31354;&#20018;&#65292;&#20294;&#26159;p(j)&#19981;&#26159;&#31354;&#20018;&#12290;</p><p>&#27492;&#26102;&#65292;&#21482;&#26377;&#24403;p[j+1] == '*' &#24182;&#19988; s(slen)&#19982;p(j+2)&#21305;&#37197;&#26102;&#65292;&#25165;&#33021;&#21305;&#37197;&#25104;&#21151;&#12290;&#22909;&#22312;&#65292; s(slen)&#19982;p(j+2)&#21305;&#37197;&#24773;&#20917;&#24050;&#32463;&#30693;&#36947;&#12290;</p><p>&#21363;d[slen][j] = (p[j+1]=='*' &#19988; d[slen][j+2])&#12290;</p><p>&#24403;s(i),i&lt;slen,p(plen)&#26102;&#65292;p&#21518;&#32512;&#26159;&#31354;&#20018;&#65292;&#21305;&#37197;&#22833;&#36133;&#12290;d[i][plen]=0&#12290;</p><p>&#24403;s(i),i&lt;slen,p(j),j&lt;plen&#26102;&#65292;s&#21518;&#32512;&#21644;p&#21518;&#32512;&#37117;&#19981;&#26159;&#31354;&#20018;&#26102;&#12290;</p><p>&#20063;&#35201;&#20998;&#20960;&#31181;&#24773;&#20917;&#32771;&#34385;&#12290;</p><p>&#24403;s[i] == p[j] &#25110; p[j] == '.'&#26102;&#65292;&#35201;&#32771;&#34385; s(i+1)&#19982;p(j+1)&#30340;&#24773;&#20917;&#12290;</p><p>d[i][j] =  (s[i] == p[j] &#25110; p[j] == '.' ) &#19988; d[i+1][j+1]&#12290;</p><p>&#24403;p[j+1]=='*'&#26102;&#65292;&#35201;&#32771;&#34385;*&#19982;p[j]&#21305;&#37197;s(i)&#30340;0&#20010;&#23383;&#31526;&#30340;&#24773;&#20917;&#12290;</p><p>d[i][j] = d[i][j+2];</p><p>&#24403;p[j+1]=='*'&#26102;&#65292;&#35201;&#32771;&#34385;*&#19982;p[j]&#21305;&#37197;s(i)&#30340;c&#20010;&#23383;&#31526;&#30340;&#24773;&#20917;&#12290;</p><p>d[i][j] = (s[c] == p[j] || p[j]=='.') &#19988; d[c+1][j+2]&#12290;</p><p>&#21487;&#20197;&#30475;&#20986;&#24605;&#36335;&#19982;&#22238;&#28335;&#27861;&#23436;&#20840;&#30456;&#21516;&#12290;</p><p>&#22312;&#36716;&#25104;&#20195;&#30721;&#26102;&#65292;&#36824;&#35201;&#32771;&#34385;&#36793;&#30028;&#26465;&#20214;&#12290;</p><p>&#23436;&#25972;&#30340;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>    bool isMatch(string s, string p) {
+        const int slen = s.size();
+        const int plen = p.size();
+        vector&lt;vector&lt;int&gt;&gt; d(slen+1,vector&lt;int&gt;(plen+1,0));
+        for(int i=slen;i&gt;=0;--i){
+            for(int j=plen;j&gt;=0;--j){
+                if(i == slen &amp;&amp; j == plen){
+                    d[i][j] = 1;
+                }else if(i == slen &amp;&amp; j &lt; plen){
+                    d[i][j] = j+1 &lt; plen &amp;&amp; p[j+1] == '*' &amp;&amp; j+2 &lt;= plen &amp;&amp; d[i][j+2];
+                }else if(i &lt; slen &amp;&amp; j == plen){
+                    d[i][j] = 0;
+                }else{
+                    d[i][j] = (s[i] == p[j] || p[j] == '.') &amp;&amp; d[i+1][j+1];
+                    if(j + 1 &lt; plen &amp;&amp; p[j + 1] == '*' &amp;&amp; j + 2 &lt;= plen){
+                        d[i][j] = d[i][j] || d[i][j+2];
+                        for(int c = i;c &lt; slen &amp;&amp; (s[c] == p[j] || p[j] == '.'); ++c) {
+                              d[i][j] = d[i][j] || d[c+1][j+2];
+                        }
+                    }
+                }
+            }
+        }
+        return d[0][0];
+    }</code></pre><h3><span class="ez-toc-section" id="%E4%BB%8E%E5%89%8D%E5%BE%80%E5%90%8E%E9%80%92%E6%8E%A8"></span>&#20174;&#21069;&#24448;&#21518;&#36882;&#25512;<span class="ez-toc-section-end"></span></h3><p>&#35774;s(i)&#34920;&#31034;&#38271;&#24230;&#20026;i&#30340;&#21069;&#32512;&#20018;&#12290;p(i)&#21516;&#29702;&#12290;</p><p>s(i)&#26368;&#21518;&#19968;&#20010;&#20803;&#32032;&#26159;s[i-1]&#12290;&#21516;&#29702;p[j-1]&#12290;</p><p> &#34920;&#26684;d[i][j]&#34920;&#31034;s(i)&#21644;p(j)&#30340;&#21305;&#37197;&#24773;&#20917;&#12290;</p><p>&#20998;&#24773;&#20917;&#35752;&#35770;&#12290;</p><p>&#24403;s(0)&#65292;&#19982;p(0)&#26102;&#65292;&#20004;&#20010;&#31354;&#20018;&#12290;&#21305;&#37197;&#25104;&#21151;&#12290;d[0][0]=1&#12290;</p><p>&#24403;s(0),p(j),j&gt;0&#26102;&#65292;&#27492;&#26102;s(0)&#31354;&#20018;&#65292;p(j)&#38750;&#31354;&#12290;</p><p>&#21482;&#26377;&#24403;p[j-1] == '*'&#24182;&#19988;s(0)&#19982;p(j-2)&#21305;&#37197;&#26102;&#65292;&#25165;&#33021;&#21305;&#37197;&#25104;&#21151;&#12290;</p><p>d[0][j] = (p[j-1] == '*') &#19988; d[0][j-2]&#12290;</p><p>&#24403;s(i),i&gt;0,p(0)&#26102;&#65292;&#27492;&#26102;p(0)&#31354;&#20018;&#65292;s(i)&#38750;&#31354;&#12290;&#21305;&#37197;&#22833;&#36133;&#12290;</p><p>d[i][0]=0&#12290;</p><p>&#24403;s(i),i&gt;0,p(j),j&gt;0&#26102;&#65292;&#20998;&#24773;&#20917;&#35752;&#35770;&#12290;</p><p>&#24403;s[i-1] == p[j-1] &#25110; p[j-1] =='.'&#26102;&#65292;s(i-1)&#21644;p(j-1)&#21305;&#37197;&#19982;&#21542;&#65292;&#36215;&#20915;&#23450;&#20316;&#29992;&#12290;</p><p>d[i][j]= ( s[i-1] == p[j-1] &#25110; p[j-1] =='.' )  &#19988; d[i-1][j-1]&#12290;</p><p>&#24403;p[j-1]=='*'&#26102;&#65292;*&#19982;p[j-2]&#21516;s(i)&#21305;&#37197;0&#20010;&#23383;&#31526;&#30340;&#24773;&#20917;&#12290;&#27492;&#26102;*&#19982;&#20854;&#21069;&#19968;&#20010;&#23383;&#31526;&#30456;&#24403;&#20110;&#19981;&#23384;&#22312;&#12290;</p><p>d[i][j] = d[i][j-2]&#12290;</p><p>&#24403;p[j-1]=='*'&#26102;&#65292;*&#19982; p[j-2]&#21516; s(i)&#21305;&#37197;c&#20010;&#23383;&#31526;&#30340;&#24773;&#20917;&#12290;</p><p>d[i][j] = (s[i-c] == p[j-2] &#25110; p[j-2] == '.') &#19988;d[i-c][j-2]&#12290;</p><p>&#19968;&#23450;&#35201;&#27880;&#24847;&#65292;i-c&#22312;s[i-c]&#21644;&#22312;d[i-c][j-2]&#20013;&#30340;&#21306;&#21035;&#12290;</p><p>&#21069;&#32773;&#34920;&#31034;s&#20018;&#20013;i-c &#20301;&#32622; &#12290;&#21518;&#32512;&#34920;&#31034;&#21069;&#32512;&#20018;&#30340;&#38271;&#24230;&#20026;i-c&#12290;</p><p>&#27491;&#22240;&#20026;&#36825;&#19968;&#28857;&#65292;&#30456;&#27604;&#20110;&#20174;&#21518;&#24448;&#21069;&#25512;&#65292;&#23481;&#26131;&#20889;&#38169;&#12290;</p><p>&#26368;&#32456;&#32467;&#26524;&#26159;d[slen][plen]&#12290;</p><p>&#23436;&#25972;&#30340;&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>    bool isMatch(string s, string p) {
+        const int slen = s.size();
+        const int plen = p.size();
+        vector&lt;vector&lt;int&gt;&gt; d(slen+1,vector&lt;int&gt;(plen+1,0));
+        for(int i=0;i&lt;=slen;++i){
+            for(int j=0;j&lt;=plen;++j){
+                if(i == 0 &amp;&amp; j == 0){
+                    d[i][j] = 1;
+                }else if(i == 0 &amp;&amp; j &gt; 0){
+                    d[i][j] = j&gt;=2 &amp;&amp; (p[j-1] == '*') &amp;&amp; d[i][j-2];
+                }else if(i &gt;0 &amp;&amp; j == 0){
+                    d[i][j] = 0;
+                }else{
+                    d[i][j] = (s[i-1] == p[j-1] || p[j-1] =='.') &amp;&amp; d[i-1][j-1];
+                    if(p[j-1] == '*' &amp;&amp; j&gt;=2){
+                        d[i][j] = d[i][j] || d[i][j-2];
+                        for(int c=1;c &lt;= i &amp;&amp; (s[i - c] == p[j-2] || p[j-2] == '.');++c){
+                            d[i][j] = d[i][j] || d[i - c][j-2];
+                        }
+                    }
+                }
+            }
+        }
+        return d[slen][plen];
+    }</code></pre><p>Hits: 8</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#respond">No comments yet</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/%e7%ae%97%e6%b3%95%e4%b8%8e%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84/">&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;</a></div> </div></div></div></article><div id="comments" class="comments-area"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/09/27/leetcode10-regular-expression-matching/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F09%2F27%2Fleetcode10-regular-expression-matching%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/09/26/leetcode224-basic-calculator/" rel="prev"><i class="fa fa-chevron-left"></i> leetcode224 &#22522;&#26412;&#35745;&#31639;&#22120; Basic Calculator</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/09/30/leetcode188-iv-best-time-to-buy-and-sell-stock-iv/" rel="next">leetcode188 &#20080;&#21334;&#32929;&#31080;&#30340;&#26368;&#20339;&#26102;&#26426; IV Best Time to Buy and Sell Stock IV <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js" id="jquery-smooth-scroll-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js" id="js-cookie-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js" id="jquery-sticky-kit-js"></script> <script type="text/javascript" id="ez-toc-js-js-extra">/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js" id="ez-toc-js-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'5245',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '5245' ]);</script> </body></html>

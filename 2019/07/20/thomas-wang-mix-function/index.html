@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Thomas Wang'32 &amp; 64 bit mix function | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="Reversible and avalanche of Thomas Wang'32 &amp; 64 bit mix function and the reverse function of it will been discussed. Also, extended GCD algorithm works here."><meta name="keywords" content="thomas wang'32 &amp;amp; 64 bit mix function,reversible,avalanche,reverse function,gcd,thomas wang'32 &amp; 64 bit mix function,redis"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#webpage","url":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/","inLanguage":"en-US","name":"Thomas Wang'32 & 64 mix function","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#breadcrumblist"},"description":"Reversible and avalanche of Thomas Wang'32 & 64 bit mix function and the reverse function of it will been discussed. Also, extended GCD algorithm works here.","datePublished":"2019-07-20T09:48:20+08:00","dateModified":"2019-08-30T03:34:42+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#article","isPartOf":{"@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"Thomas Wang&#8217;32 &#038; 64 mix function","datePublished":"2019-07-20T09:48:20+08:00","dateModified":"2019-08-30T03:34:42+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Redis Data Structure, Redis"},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/","url":"http://www.showsql.com/2019/07/20/thomas-wang-mix-function/","name":"Thomas Wang'32 & 64 mix function"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/"><meta property="og:type" content="object"><meta property="og:title" content="Thomas Wang'32 &amp; 64 bit mix function | Wonderful Tech"><meta property="og:description" content="Reversible and avalanche of Thomas Wang'32 &amp; 64 bit mix function and the reverse function of it will been discussed. Also, extended GCD algorithm works here."><meta property="og:url" content="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Thomas Wang'32 &amp; 64 bit mix function | Wonderful Tech"><meta name="twitter:description" content="Reversible and avalanche of Thomas Wang'32 &amp; 64 bit mix function and the reverse function of it will been discussed. Also, extended GCD algorithm works here."><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Thomas Wang&rsquo;32 &amp; 64 mix function Comments Feed" href="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/722"><link rel="prev" title="Redis Dict &#23383;&#20856;" href="http://www.showsql.com/2019/07/20/redis-dict/"><link rel="next" title="Redis skiplist &#36339;&#36291;&#34920;" href="http://www.showsql.com/2019/07/21/redis-skiplist/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F20%2Fthomas-wang-mix-function%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F20%2Fthomas-wang-mix-function%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-722 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/redis-data-structure/" rel="category tag">Redis Data Structure</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-722" class="post-722 post type-post status-publish format-standard hentry category-redis-data-structure tag-redis"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">Thomas Wang&rsquo;32 &amp; 64 mix function</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/" rel="bookmark"><time class="entry-date published" datetime="2019-07-20T17:48:20+08:00">2019&#24180;7&#26376;20&#26085;</time><time class="updated" datetime="2019-08-30T11:34:42+08:00">2019&#24180;8&#26376;30&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/" title="Thomas Wang&rsquo;32 &amp; 64 mix function"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><p>In redis, Thomas Wang'32 bit mix function is used as a kind of hash function. Actually it is a mix function. It has only reversible operations in it. So, there is a one-to-one mapping between the input and the output. We will prove that later. Beside reversibility, the avalanche of it is unobvious. It not easy to verify that. Even, the author also did not provide a clear proof of the avalanche in original posts. <a href="http://web.archive.org/web/20071223173210/http:/www.concentric.net/~Ttwang/tech/inthash.htm">http://web.archive.org/web/20071223173210/http:/www.concentric.net/~Ttwang/tech/inthash.htm</a> <a href="http://web.archive.org/web/20060507103516/http:/www.cris.com/~Ttwang/tech/inthash.htm">http://web.archive.org/web/20060507103516/http:/www.cris.com/~Ttwang/tech/inthash.htm</a></p><p>So, we only talk about the reversiblity here. Also, we discuss 64bit version of mix function in the rest.</p><p>This is the code of Thomas Wang'32 bit mix function in redis.</p><pre class="wp-block-code"><code>unsigned int dictIntHashFunction(unsigned int key)
+{
+    key += ~(key &lt;&lt; 15);
+    key ^= (key &gt;&gt; 10);
+    key += (key &lt;&lt; 3);
+    key ^= (key &gt;&gt; 6);
+    key += ~(key &lt;&lt; 11);
+    key ^= (key &gt;&gt; 16);
+    return key;
+}</code></pre><p>The extended gcd algorithm lays an critical foundation in proving the resersibility.</p><p>It is well known that the basic gcd algorithm is Euclid's algorithm.</p><pre class="wp-block-code"><code>int gcd(int a,int b){
+	Return b==0 ? a : gcd(b,a%b);
+}</code></pre><p>We can change it a little bit to solve the problem like this.</p><p><strong>The Problem One:</strong> Find a integer pair (x,y) that satisfys the equation ax+by=gcd(a,b). Here a and b are also integers.</p><p>A extended gcd algorithm has been promoted here. Here, d is the gcd(a,b).</p><pre class="wp-block-code"><code>void gcd(int a,int b,int &amp; d,int &amp; x,int &amp; y){
+	if(!b) { d=a; x=1;y=0;}
+	else {
+		gcd(b,a%b,d,y,x);
+		y-=x*(a/b);
+	}
+}</code></pre><p>Let's go further a little bit. A conclusion can be made here.</p><p><strong>The Conclusion</strong>: a,b,c are integers. g=gcd(a,b). The equation ax+by=g has a solution (x0,y0). When c is the multiple of g, the equation ax+by=c has the solution (x0*c/g,y0*c/g). Or, if c is not the multiple of g, there is no integer solution.</p><p>Go ahead! Another important problem blocks the road.</p><p><strong>The Problem Two</strong>: a, b , n are positive integers. Find x that satisfy the equation ax = b (mod n) .</p><p>We get a equivalent expression of this problem. ax-b must be the positive multiple of n. That is ax-b=ny. Then, ax-ny=b is the final equal formula. This equation can be solved with the help of the extended gcd algorithm!</p><p>Make a equivalent modification on Thomas Wang'32 bit mix fuctions.</p><pre class="wp-block-code"><code>unsigned int dictIntHashFunction(unsigned int key)
+{
+/*
+    key += ~(key &lt;&lt; 15);
+    key ^= (key &gt;&gt; 10);
+    key += (key &lt;&lt; 3);
+    key ^= (key &gt;&gt; 6);
+    key += ~(key &lt;&lt; 11);
+    key ^= (key &gt;&gt; 16);
+    return key;
+*/
+    uint32_t k0 = key;
+    uint32_t k1 = k0 + ~(k0 &lt;&lt; 15);
+    uint32_t k2 = k1 ^  (k1 &gt;&gt; 10);
+    uint32_t k3 = k2 +  (k2 &lt;&lt;  3);
+    uint32_t k4 = k3 ^  (k3 &gt;&gt;  6);
+    uint32_t k5 = k4 + ~(k4 &lt;&lt; 11);
+    uint32_t k6 = k5 ^  (k5 &gt;&gt; 16);
+    return k6;
+}</code></pre><p>We will get reverse operation for every step in the code above. Let's do it!</p><table class="wp-block-table"><tbody><tr><td><strong>Reverse of Step:  k1 = k0 + ~(k0 &lt;&lt; 15); </strong></td><td><strong>Cause</strong></td></tr><tr><td>k1 = k0 + ~(k0 &lt;&lt; 15);</td><td></td></tr><tr><td>&lt;=&gt; k1=k0-(k0&lt;&lt;15)-1;</td><td> u+~u+1=0 =&gt; ~u=-u-1</td></tr><tr><td>&lt;=&gt;<br>k1=k0-(1&lt;&lt;15)<em>k0-1</em>;<br> &lt;=&gt; <br><em>k1=-((1&lt;&lt;15)-1)</em>k0-1;<br> &lt;=&gt; <br>k1=~(((1&lt;&lt;15)-1)<em>k0) </em>;<br> &lt;=&gt; <br><em>~k1=((1&lt;&lt;15)-1)</em>k0;</td><td></td></tr><tr><td>&lt;=&gt;<br>((1&lt;&lt;15)-1)*k0=~k1 (mod 2^32)<br>&lt;=&gt;<br>32767 * k0=~k1 (mod  4294967296 )</td><td> (1&lt;&lt;15)-1 = 32767<br> 2^32=4294967296</td></tr><tr><td>&lt;=&gt;<br> 32767 * X +  4294967296 Y=~k1</td><td>The Problem Two.</td></tr><tr><td>32767 * X = 1 (mod   4294967296 )<br>&lt;=&gt;<br>32767 * X +  4294967296 Y= 1<br>=&gt;<br>X=-1073774593 <br>= 3221192703 (mod  4294967296 )<br>Y=8192 <br></td><td> gcd( 32767, 4294967296)=1<br>So, for arbitrary k1, there are<br> integer solutions here.<br>With the help of extended gcd<br>algorithm, we get X and Y.<br> <br> <br></td></tr><tr><td> =&gt; k0= X* ~k1= 3221192703  * ~k1</td><td></td></tr></tbody></table><table class="wp-block-table"><tbody><tr><td><strong>Reverse of Step:   k2 = k1 ^&nbsp; (k1 &gt;&gt; 10); </strong></td><td><strong>Cause</strong></td></tr><tr><td>K1=k2^(k1&gt;&gt;10)</td><td> A=b^c =&gt; b=A^c</td></tr><tr><td>K1=k2^((k2^(k1&gt;&gt;10)&gt;&gt;10)</td><td>Put  K1=k2^(k1&gt;&gt;10)  into <br>last step.</td></tr><tr><td>K1=k2^((k2&gt;&gt;10)^(k1&gt;&gt;20)) <br>K1=k2^(k2&gt;&gt;10)^(k1&gt;&gt;20)</td><td>No carry will happen in XOR operation.<br>So, shift operation can happens before XOR <br>operation.</td></tr><tr><td>K1=k2^(k2&gt;&gt;10)^((k2^(k1&gt;&gt;10))&gt;&gt;20)</td><td>Put  K1=k2^(k1&gt;&gt;10)  into <br>last step.</td></tr><tr><td> K1=k2^(k2&gt;&gt;10)^(k2&gt;&gt;20)^(k1&gt;&gt;30)</td><td></td></tr><tr><td> K1=k2^(k2&gt;&gt;10)^(k2&gt;&gt;20)^(k2&gt;&gt;30)^(k1&gt;&gt;40) <br> K1=k2^(k2&gt;&gt;10)^(k2&gt;&gt;20)^(k2&gt;&gt;30)</td><td> Put  K1=k2^(k1&gt;&gt;10)  into <br>last step.  But, k1&gt;&gt;40 will overflow.</td></tr></tbody></table><table class="wp-block-table"><tbody><tr><td><strong>Reverse of Step:  k3 = k2 +&nbsp; (k2 &lt;&lt;&nbsp; 3) </strong></td><td><strong>Cause</strong></td></tr><tr><td> K3=k2+(1&lt;&lt;3)*k2<br> K3=(1+(1&lt;&lt;3))*k2</td><td></td></tr><tr><td>9*k2=k3 (mod  4294967296 )<br>9*X=1  (mod  4294967296 )</td><td></td></tr><tr><td>9*X+4294967296Y=1<br>X=954437177 <br>Y=-2</td><td></td></tr><tr><td>k2= 954437177 * k3</td><td></td></tr></tbody></table><table class="wp-block-table"><tbody><tr><td><strong>Reverse of Step: k4 = k3 ^&nbsp; (k3 &gt;&gt;&nbsp; 6); </strong></td><td><strong>Cause</strong></td></tr><tr><td>K3=k4^(k3&gt;&gt;6) <br>K3=k4^(k4&gt;&gt;6)^(k3&gt;&gt;12) <br>K3=k4^(k4&gt;&gt;6)^(k4&gt;&gt;12)^(k3&gt;&gt;18) <br>K3=k4^(k4&gt;&gt;6)^(k4&gt;&gt;12)^(k4&gt;&gt;18)^(k3&gt;&gt;24) <br>K3=k4^(k4&gt;&gt;6)^(k4&gt;&gt;12)^(k4&gt;&gt;18)^(k4&gt;&gt;24)^(k3&gt;&gt;30) <br>K3=k4^(k4&gt;&gt;6)^(k4&gt;&gt;12)^(k4&gt;&gt;18)^(k4&gt;&gt;24)^(k4&gt;&gt;30)^(k3&gt;&gt;36)</td><td> <br> <br> k3&gt;&gt;36 overflows.</td></tr><tr><td> K3=k4^(k4&gt;&gt;6)^(k4&gt;&gt;12)^(k4&gt;&gt;18)^(k4&gt;&gt;24)^(k4&gt;&gt;30)</td><td></td></tr></tbody></table><table class="wp-block-table"><tbody><tr><td><strong>Reverse of Step:  k5 = k4 + ~(k4 &lt;&lt; 11);</strong></td><td><strong>Cause</strong></td></tr><tr><td>K5=k4-(k4&lt;&lt;11)-1<br>K5=k4-(1&lt;&lt;11)*k4-1<br>K5=(1-(1&lt;&lt;11))*k4-1<br>K5=-((1&lt;&lt;11)-1)*k4-1<br>K5=~((1&lt;&lt;11)-1)*k4</td><td></td></tr><tr><td>2047*k4=~k5 (mod 4294967296) <br>2047*k4=1 (mod 4294967296)</td><td></td></tr><tr><td>2047*X +  4294967296 Y =1<br>X=-4196353 =  4290770943 (mod  4294967296)<br>Y=2</td><td></td></tr><tr><td>k4= 4290770943 * ~k5</td><td></td></tr></tbody></table><table class="wp-block-table"><tbody><tr><td><strong>Reverse of Step:  k6 = k5 ^&nbsp; (k5 &gt;&gt; 16); </strong></td><td><strong>Cause</strong></td></tr><tr><td> K5=k6^(k6&gt;&gt;16)</td><td></td></tr></tbody></table><p>After so many works, we get the reverse function of Thomas Wang'32 bit mix function.</p><pre class="wp-block-code"><code>unsigned int reverse_dictIntHashFunction(unsigned int key)
+{
+    uint32_t k6=key;
+    uint32_t k5=k6^(k6&gt;&gt;16);
+    uint32_t k4=4290770943 * ~k5;
+    uint32_t k3=k4^(k4&gt;&gt;6)^(k4&gt;&gt;12)^(k4&gt;&gt;18)^(k4&gt;&gt;24)^(k4&gt;&gt;30);
+    uint32_t k2=954437177 * k3;
+    uint32_t k1=k2^(k2&gt;&gt;10)^(k2&gt;&gt;20)^(k2&gt;&gt;30);
+    uint32_t k0=3221192703  * ~k1;
+    return k0;
+}</code></pre><p>Until now, we have verified reversibility of Thomas Wang'32 bit mix function and got the reverse function. In the same way, we also can get the reverse function of its 64bit version.</p><pre class="wp-block-code"><code>uint64_t thomasWang64MixFunction(uint64_t key)
+{
+  key = (~key) + (key &lt;&lt; 21); // key = (key &lt;&lt; 21) - key - 1;
+  key = key ^ (key &gt;&gt; 24);
+  key = (key + (key &lt;&lt; 3)) + (key &lt;&lt; 8); // key * 265
+  key = key ^ (key &gt;&gt; 14);
+  key = (key + (key &lt;&lt; 2)) + (key &lt;&lt; 4); // key * 21
+  key = key ^ (key &gt;&gt; 28);
+  key = key + (key &lt;&lt; 31);
+  return key;
+}</code></pre><pre class="wp-block-code"><code>uint64_t inverse_hash(uint64_t key) {
+	uint64_t k;
+	//reverse of key = key + (key &lt;&lt; 31)
+	k = key-(key&lt;&lt;31);
+	key = key-(k&lt;&lt;31);
+	//reverse of key = key ^ (key &gt;&gt; 28)
+	k = key^key&gt;&gt;28;
+	key = key^k&gt;&gt;28;
+	//reverse of key *= 21
+	key *= 14933078535860113213u;
+	//reverse of key = key ^ (key &gt;&gt; 14)
+	k = key^key&gt;&gt;14;
+	k = key^k&gt;&gt;14;
+	k = key^k&gt;&gt;14;
+	key = key^k&gt;&gt;14;
+	//reverse of key *= 265
+	key *= 15244667743933553977u;
+	//reverse of key = key ^ (key &gt;&gt; 24)
+	k = key^key&gt;&gt;24;
+	key = key^k&gt;&gt;24;
+	//reverse of key = (~key) + (key &lt;&lt; 21)
+	k = ~key;
+	k = ~(key-(k&lt;&lt;21));
+	k = ~(key-(k&lt;&lt;21));
+	key = ~(key-(k&lt;&lt;21));
+	return key;
+}</code></pre><p></p><p>Hits: 98</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#respond">No comments yet</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/redis/">Redis</a></div> </div></div></div></article><div id="comments" class="comments-area"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/07/20/thomas-wang-mix-function/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F07%2F20%2Fthomas-wang-mix-function%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/07/20/redis-dict/" rel="prev"><i class="fa fa-chevron-left"></i> Redis Dict &#23383;&#20856;</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/07/21/redis-skiplist/" rel="next">Redis skiplist &#36339;&#36291;&#34920; <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'722',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '722' ]);</script> </body></html>

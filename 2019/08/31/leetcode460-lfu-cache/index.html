@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>leetcode460 LFU&#32531;&#23384; LFU Cache | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="&#27169;&#25311;LFU&#32531;&#23384;&#12290;&#36824;&#35201;&#21435;O(1)&#22797;&#26434;&#24230;&#12290;"><meta name="keywords" content="&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#webpage","url":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/","inLanguage":"en-US","name":"leetcode460 LFU&#32531;&#23384; LFU Cache","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#breadcrumblist"},"description":"&#27169;&#25311;LFU&#32531;&#23384;&#12290;&#36824;&#35201;&#21435;O(1)&#22797;&#26434;&#24230;&#12290;","datePublished":"2019-08-31T04:17:59+08:00","dateModified":"2019-12-04T11:21:51+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#article","isPartOf":{"@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"leetcode460 LFU&#32531;&#23384; LFU Cache","datePublished":"2019-08-31T04:17:59+08:00","dateModified":"2019-12-04T11:21:51+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Leetcode Algorithms, &#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;","image":{"@type":"ImageObject","@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#primaryimage","url":"http://showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg"}},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/","url":"http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/","name":"leetcode460 LFU&#32531;&#23384; LFU Cache"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/"><meta property="og:type" content="object"><meta property="og:title" content="leetcode460 LFU&#32531;&#23384; LFU Cache | Wonderful Tech"><meta property="og:description" content="&#27169;&#25311;LFU&#32531;&#23384;&#12290;&#36824;&#35201;&#21435;O(1)&#22797;&#26434;&#24230;&#12290;"><meta property="og:url" content="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="leetcode460 LFU&#32531;&#23384; LFU Cache | Wonderful Tech"><meta name="twitter:description" content="&#27169;&#25311;LFU&#32531;&#23384;&#12290;&#36824;&#35201;&#21435;O(1)&#22797;&#26434;&#24230;&#12290;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; leetcode460 LFU&#32531;&#23384; LFU Cache Comments Feed" href="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/3706"><link rel="prev" title="leetcode135 &#20998;&#21457;&#31958;&#26524; Candy" href="http://www.showsql.com/2019/08/29/leetcode135-candy/"><link rel="next" title="leetcode1014 &#26368;&#20339;&#35266;&#20809;&#32452;&#21512; Best Sightseeing Pair" href="http://www.showsql.com/2019/09/01/leetcode1014-best-sightseeing-pair/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F31%2Fleetcode460-lfu-cache%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F31%2Fleetcode460-lfu-cache%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-3706 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/leetcode-algorithms/" rel="category tag">Leetcode Algorithms</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-3706" class="post-3706 post type-post status-publish format-standard hentry category-leetcode-algorithms tag-28"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">leetcode460 LFU&#32531;&#23384; LFU Cache</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/" rel="bookmark"><time class="entry-date published" datetime="2019-08-31T12:17:59+08:00">2019&#24180;8&#26376;31&#26085;</time><time class="updated" datetime="2019-12-04T19:21:51+08:00">2019&#24180;12&#26376;4&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/" title="leetcode460 LFU&#32531;&#23384; LFU Cache"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><p>LFU&#34920;&#31034;&#26368;&#19981;&#32463;&#24120;&#20351;&#29992;&#31639;&#27861;&#12290;&#27880;&#24847;&#19982;LRU&#26368;&#36817;&#26368;&#23569;&#20351;&#29992;&#31639;&#27861;&#65292;&#30456;&#21306;&#21035;&#12290;</p><p>&#36825;&#31181;&#21482;&#26377;put&#21644;get&#20004;&#20010;&#25805;&#20316;&#30340;&#25968;&#25454;&#32467;&#26500;&#19968;&#33324;&#37117;&#20250;&#29992;&#21040;&#21704;&#24076;&#34920;&#12290;&#24448;&#24448;&#20877;&#37197;&#21512;&#20854;&#23427;&#25968;&#25454;&#32467;&#26500;&#65292;&#36798;&#21040;&#35201;&#27714;&#30340;&#22797;&#26434;&#24230;&#12290;</p><h2>&#35299;&#27861;&#19968;</h2><p>&#29992;&#22270;&#23637;&#31034;&#35774;&#35745;</p><figure class="wp-block-image"><img width="967" height="737" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="http://showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg" alt="lfu data structure" class="wp-image-3712 lazyload" data-srcset="http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg 967w, http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-600x457.jpg 600w, http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-300x229.jpg 300w, http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-768x585.jpg 768w, http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-120x90.jpg 120w" sizes="(max-width: 967px) 100vw, 967px"><noscript><img data-attachment-id="3712" data-permalink="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/lfu-2-1/" data-orig-file="http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg" data-orig-size="967,737" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="lfu-2-1" data-image-description="" data-medium-file="http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-300x229.jpg" data-large-file="http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg" width="967" height="737" src="http://showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg" alt="lfu data structure" class="wp-image-3712 lazyload" srcset="http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1.jpg 967w,http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-600x457.jpg 600w,http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-300x229.jpg 300w,http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-768x585.jpg 768w,http://www.showsql.com/wp-content/uploads/2019/08/lfu-2-1-120x90.jpg 120w" sizes="(max-width: 967px) 100vw, 967px"></noscript><figcaption>LFU&#25968;&#25454;&#32467;&#26500;</figcaption></figure><p>index&#21704;&#24076;&#34920;&#65306;key -&gt; &#33410;&#28857;node&#12290;</p><p>cnt2key&#38142;&#34920;&#65306;&#27599;&#20010;&#33410;&#28857;&#65292;&#26377;&#39057;&#29575;&#20540;&#21644;&#21516;&#19968;&#39057;&#29575;&#30340;key&#38142;&#34920;&#12290;&#19988;key&#38142;&#34920;&#23558;<strong>&#26368;&#36817;&#26368;&#23569;&#29992;</strong>&#30340;&#20540;&#25490;&#22312;&#26411;&#23614;&#12290;&#33410;&#28857;&#20013;&#30340;&#39057;&#29575;&#20540;&#36882;&#22686;&#25490;&#24207;&#65292;&#20294;&#19981;&#19968;&#23450;&#26159;&#36830;&#32493;&#36882;&#22686;&#12290;</p><p>&#33410;&#28857;node&#65306;value&#65292;cnt&mdash;&mdash;&#39057;&#29575;&#65292;cnt_pos&mdash;&mdash;&#25351;&#21521;cnt2key&#38142;&#34920;&#20013;&#65292;&#20540;&#20026;cnt&#30340;&#33410;&#28857;&#12290;key_pos&mdash;&mdash;&#25351;&#21521;cnt&#30340;&#33410;&#28857;&#20013;key&#30340;&#20301;&#32622;&#12290;</p><p><strong>&#38590;&#28857;</strong>&#65292;key&#30340;cnt&#21152;1&#21518;&#65292;&#35201;&#23558;key&#20174;cnt&#30340;&#38142;&#34920;&#20013;&#31227;&#21160;&#21040;cnt+1&#30340;&#38142;&#34920;&#12290;cnt+1&#33410;&#28857;&#21487;&#33021;&#19981;&#23384;&#22312;&#12290;</p><p><strong>cnt&#26356;&#26032;&#30340;&#24605;&#36335;</strong>&#65306;</p><pre class="wp-block-code"><code>if(cnt2key&#27809;&#26377;cnt+1&#30340;&#33410;&#28857;){
+    &#22312;cnt&#33410;&#28857;&#21518;&#38754;&#65292;&#25554;&#20837;cnt+1&#30340;&#33410;&#28857;&#12290;
+}
+&#20174;cnt&#33410;&#28857;&#38142;&#34920;&#20013;&#21024;&#38500;key;
+if(cnt&#33410;&#28857;&#38142;&#34920;&#20026;&#31354;) &#23558;cnt&#33410;&#28857;&#20174;cnt2key&#20013;&#21024;&#38500;;
+&#23558;key&#21152;&#20837;cnt+1&#33410;&#28857;&#38142;&#34920;&#30340;&#22836;&#37096;;
+node nd=index[key];
+nd.cnt++;
+nd.cnt_pos = cnt+1&#30340;&#33410;&#28857;;
+nd.key_pos = cnt+1&#33410;&#28857;&#38142;&#34920;&#30340;&#22836;&#37096;;</code></pre><p>get&#20989;&#25968;&#21462;&#19968;&#20010;&#23384;&#22312;&#30340;key&#20197;&#21450;put&#20989;&#25968;&#26356;&#26032;&#19968;&#20010;&#23384;&#22312;&#30340;key&#30340;&#20540;&#30340;&#25805;&#20316;&#36923;&#36753;&#23601;&#22914;&#19978;&#38754;&#20102;&#12290;</p><p>put&#20989;&#25968;&#22312;&#25554;&#20837;&#26032;&#20540;&#26102;&#65292;&#20808;&#35201;&#21028;&#26029;&#26159;&#21542;&#26377;&#31354;&#38388;&#12290;</p><p><strong>&#24403;&#31354;&#38388;&#19981;&#22815;&#26102;&#65292;&#35201;&#21024;&#38500;&#19968;&#20010;&#39057;&#29575;&#20540;&#26368;&#23567;&#19988;&#26368;&#36817;&#26368;&#23569;&#20351;&#29992;&#30340;key&#12290;</strong></p><p><strong>&#21024;&#38500;key&#30340;&#24605;&#36335;</strong>&#65306;</p><pre class="wp-block-code"><code>cnt2key&#31532;&#19968;&#20010;&#33410;&#28857;A&#26159;&#39057;&#29575;&#20540;&#26368;&#23567;&#30340;&#33410;&#28857;;
+&#20174;&#33410;&#28857;A&#38142;&#34920;&#30340;&#23614;&#37096;&#21024;&#38500;&#19968;&#20010;key;
+if(&#33410;&#28857;A&#38142;&#34920;&#20026;&#31354;){
+    &#20174;cnt2key&#20013;&#21024;&#38500;&#33410;&#28857;A;
+}
+&#20174;index&#21704;&#24076;&#34920;&#20013;&#21024;&#38500;key;</code></pre><p>&#31354;&#38388;&#26377;&#20102;&#65292;&#23558;&#26032;key/value&#28155;&#21152;&#21040;index&#21704;&#24076;&#34920;&#12290;&#23558;key&#28155;&#21152;&#21040;&#39057;&#29575;&#20540;&#20026;1&#30340;&#38142;&#34920;&#20013;&#12290;</p><p><strong>&#28155;&#21152;&#26032;key&#30340;&#24605;&#36335;</strong>:</p><pre class="wp-block-code"><code>if(cnt2key&#27809;&#26377;&#39057;&#29575;&#20540;&#20026;1&#30340;&#33410;&#28857;){
+    &#22312;cnt2key&#39318;&#37096;&#28155;&#21152;&#39057;&#29575;&#20540;&#20026;1&#30340;&#33410;&#28857;;
+}
+&#23558;key&#28155;&#21152;&#21040;&#39057;&#29575;&#20540;&#20026;1&#30340;&#38142;&#34920;&#30340;&#39318;&#37096;;
+&#26032;&#33410;&#28857;node{key,value};
+node.cnt_pos = &#39057;&#29575;&#20540;&#20026;1&#30340;&#33410;&#28857;;
+node.key_pos = &#39057;&#29575;&#20540;&#20026;1&#30340;&#38142;&#34920;&#30340;&#39318;&#37096;;
+index[key] = node;</code></pre><p>&#37325;&#35201;&#36923;&#36753;&#23601;&#26159;&#21069;&#38754;&#19977;&#20010;&#12290;&#34917;&#20805;&#19978;&#20854;&#23427;&#37096;&#20998;&#21518;&#65292;&#25972;&#20307;&#36923;&#36753;&#12290;</p><pre class="wp-block-code"><code>get(key){
+   if(&#22914;&#26524;key&#19981;&#20877;index&#20013;) &#36820;&#22238;-1;
+   &#25191;&#34892;&#19978;&#36848;{cnt&#26356;&#26032;&#30340;&#24605;&#36335;};
+}
+
+put(key,value){
+    if(&#22914;&#26524;key&#24050;&#22312;index&#20013;){
+        &#26356;&#26032;key&#30340;&#20540;&#20026;value;
+        &#25191;&#34892;&#19978;&#36848;{cnt&#26356;&#26032;&#30340;&#24605;&#36335;};
+    }else{
+        if(&#23481;&#37327;&#19981;&#22815;) &#25191;&#34892;&#19978;&#36848;{&#21024;&#38500;key&#30340;&#24605;&#36335;};
+        &#25191;&#34892;&#19978;&#36848;{&#28155;&#21152;&#26032;key&#30340;&#24605;&#36335;};
+    }
+}</code></pre><p>get&#21644;put&#30340;&#20989;&#25968;&#22797;&#26434;&#24230;&#37117;&#20026;O(1)&#12290;</p><p>&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>class LFUCache {
+public:  
+    list&lt; pair&lt;int, list&lt;int&gt; &gt; &gt; cnt2key;
+    typedef list&lt; pair&lt;int, list&lt;int&gt; &gt; &gt;::iterator llit;
+    typedef list&lt;int&gt;::iterator lit;
+    
+    struct node{
+        int value;
+        int cnt;
+        lit key_pos;
+        llit cnt_pos;
+        node(int _cnt=0):cnt(_cnt){}
+    };    
+    unordered_map&lt;int,node&gt; index;
+    int cap;
+    LFUCache(int capacity) :cap(capacity) {
+        
+    }
+    
+    int get(int key) {
+        if(index.count(key)){
+            node &amp; n=index[key];
+            update(key,n);
+            return n.value;
+        }else return -1;
+    }
+    
+    void put(int key, int value) {
+        if(index.count(key)){
+            node &amp; n=index[key];
+            n.value = value;
+            update(key,n);
+        }else if(cap &gt; 0){
+            if(index.size()&gt;=cap){
+                llit it = cnt2key.begin();
+                int noneed_key = it-&gt;second.back();
+                it-&gt;second.pop_back();
+                if(it-&gt;second.empty()){
+                    cnt2key.erase(it);
+                }
+                index.erase(noneed_key);
+            }
+            llit it = cnt2key.begin();
+            if(it == cnt2key.end() || it-&gt;first != 1){
+                cnt2key.push_front(make_pair(1,list&lt;int&gt;()));
+                it = cnt2key.begin();
+            }
+            node nd;
+            nd.value = value;
+            nd.cnt = 1;
+            nd.cnt_pos = it;
+            it-&gt;second.push_front(key);
+            nd.key_pos = it-&gt;second.begin();
+            index[key]=nd;
+        }
+    }
+    void update(int key,node&amp; n){
+        n.cnt++;
+        llit next_cnt_pos = next(n.cnt_pos);
+        if(next_cnt_pos == cnt2key.end() || next_cnt_pos-&gt;first != n.cnt){
+            next_cnt_pos = cnt2key.insert(next_cnt_pos,make_pair(n.cnt,list&lt;int&gt;()));
+        }
+        n.cnt_pos-&gt;second.erase(n.key_pos);
+        if(n.cnt_pos-&gt;second.empty()){
+            cnt2key.erase(n.cnt_pos);
+        }
+        
+        n.cnt_pos = next_cnt_pos;
+        n.cnt_pos-&gt;second.push_front(key);
+        n.key_pos = n.cnt_pos-&gt;second.begin();
+    }
+};</code></pre><p>Hits: 24</p></div><div class="entry-footer"> <span class="comments-link"><a href="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#respond">No comments yet</a></span> <div class="tagcloud"> <a href="http://www.showsql.com/tag/%e7%ae%97%e6%b3%95%e4%b8%8e%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84/">&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;</a></div> </div></div></div></article><div id="comments" class="comments-area"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.showsql.com/2019/08/31/leetcode460-lfu-cache/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://www.showsql.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F31%2Fleetcode460-lfu-cache%2F">logged in</a> to post a comment.</p></div></div><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/08/29/leetcode135-candy/" rel="prev"><i class="fa fa-chevron-left"></i> leetcode135 &#20998;&#21457;&#31958;&#26524; Candy</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/09/01/leetcode1014-best-sightseeing-pair/" rel="next">leetcode1014 &#26368;&#20339;&#35266;&#20809;&#32452;&#21512; Best Sightseeing Pair <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" id="jetpack-carousel-js-extra">/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/www.showsql.com\/wp-admin\/admin-ajax.php","nonce":"99ca01de6c","display_exif":"1","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"1","require_name_email":"1","login_url":"http:\/\/www.showsql.com\/wp-login.php?redirect_to=http%3A%2F%2Fwww.showsql.com%2F2019%2F08%2F31%2Fleetcode460-lfu-cache%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<p id=\"jp-carousel-commenting-as\">You must be <a href=\"#\" class=\"jp-carousel-comment-login\">logged in<\/a> to post a comment.<\/p>"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js" id="jetpack-carousel-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'3706',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '3706' ]);</script> </body></html>

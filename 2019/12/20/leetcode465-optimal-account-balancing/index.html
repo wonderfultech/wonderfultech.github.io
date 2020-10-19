@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing | Wonderful Tech</title><link rel="stylesheet" id="siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82" href="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d335f82655802b7527f54b766150ce82.css" media="all">  <meta name="description" content="&#22238;&#28335;&#27861;&#27714;&#35299;"><meta name="keywords" content="&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"> <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://www.showsql.com/#organization","url":"http://www.showsql.com/","name":"Wonderful Tech","sameAs":[]},{"@type":"WebSite","@id":"http://www.showsql.com/#website","url":"http://www.showsql.com/","name":"Wonderful Tech","publisher":{"@id":"http://www.showsql.com/#organization"}},{"@type":"WebPage","@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/#webpage","url":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/","inLanguage":"en-US","name":"leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing","isPartOf":{"@id":"http://www.showsql.com/#website"},"breadcrumb":{"@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/#breadcrumblist"},"description":"&#22238;&#28335;&#27861;&#27714;&#35299;","datePublished":"2019-12-20T08:01:19+08:00","dateModified":"2019-12-20T08:01:26+08:00"},{"@type":"Article","@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/#article","isPartOf":{"@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/#webpage"},"author":{"@id":"http://www.showsql.com/author/jasonpeng/#author"},"headline":"leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing","datePublished":"2019-12-20T08:01:19+08:00","dateModified":"2019-12-20T08:01:26+08:00","commentCount":0,"mainEntityOfPage":{"@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/#webpage"},"publisher":{"@id":"http://www.showsql.com/#organization"},"articleSection":"Leetcode Algorithms, &#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;"},{"@type":"Person","@id":"http://www.showsql.com/author/jasonpeng/#author","name":"jasonpeng","sameAs":[],"image":{"@type":"ImageObject","@id":"http://www.showsql.com/#personlogo","url":"https://secure.gravatar.com/avatar/47413e6d1e027c20d1846cafe265c910?s=96&d=mm&r=g","width":96,"height":96,"caption":"jasonpeng"}},{"@type":"BreadcrumbList","@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"http://www.showsql.com/","url":"http://www.showsql.com/","name":"Wonderful Tech"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/","url":"http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/","name":"leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing"}}]}]}</script> <link rel="canonical" href="http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/"><meta property="og:type" content="activity"><meta property="og:title" content="leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing | Wonderful Tech"><meta property="og:description" content="&#22238;&#28335;&#27861;&#27714;&#35299;"><meta property="og:url" content="http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/"><meta property="og:site_name" content="Wonderful Tech"><meta property="og:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta property="og:image:secure_url" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing | Wonderful Tech"><meta name="twitter:description" content="&#22238;&#28335;&#27861;&#27714;&#35299;"><meta name="twitter:image" content="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"> <script type="text/javascript">window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-136778682-1', { 'cookieDomain': 'www.showsql.com','allowLinker': true } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'ec');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');</script> <script async src="https://www.google-analytics.com/analytics.js"></script> <script async src="http://www.showsql.com/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js?ver=3.7.0"></script> <link rel="dns-prefetch" href="//secure.gravatar.com"><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//widgets.wp.com"><link rel="dns-prefetch" href="//v0.wordpress.com"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Feed" href="http://www.showsql.com/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; Comments Feed" href="http://www.showsql.com/comments/feed/"><link rel="alternate" type="application/rss+xml" title="Wonderful Tech &raquo; leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing Comments Feed" href="http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/feed/"><style id="wp-block-library-inline-css" type="text/css">.has-text-align-justify{text-align:justify;}</style><style id="ez-toc-inline-css" type="text/css">div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}</style> <script type="text/javascript" src="http://www.showsql.com/wp-includes/js/jquery/jquery.js" id="jquery-core-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/modernizr.min.js" id="activello-modernizr-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/vendor/bootstrap.min.js" id="activello-bootstrapjs-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/themes/activello/assets/js/functions.min.js" id="activello-functions-js"></script> <link rel="alternate" type="application/json" href="http://www.showsql.com/wp-json/wp/v2/posts/13400"><link rel="prev" title="leetcode1147 &#27573;&#24335;&#22238;&#25991; Longest Chunked Palindrome Decomposition" href="http://www.showsql.com/2019/12/18/leetcode1147-longest-chunked-palindrome-decomposition/"><link rel="next" title="leetcode864 &#33719;&#21462;&#25152;&#26377;&#38053;&#21273;&#30340;&#26368;&#30701;&#36335;&#24452; Shortest Path to Get All Keys" href="http://www.showsql.com/2019/12/21/leetcode864-shortest-path-to-get-all-keys/"><link rel="alternate" type="application/json+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F12%2F20%2Fleetcode465-optimal-account-balancing%2F"><link rel="alternate" type="text/xml+oembed" href="http://www.showsql.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.showsql.com%2F2019%2F12%2F20%2Fleetcode465-optimal-account-balancing%2F&amp;format=xml">  <script>(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1749509,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');</script> <style type="text/css"></style><style type="text/css">#social li{
+			display: inline-block;
+		}
+		#social li,
+		#social ul {
+			border: 0!important;
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+		#social li a[href*="twitter.com"] .fa:before,
+		.fa-twitter:before {
+			content: "\f099"
+		}
+		#social li a[href*="facebook.com"] .fa:before,
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a"
+		}
+		#social li a[href*="github.com"] .fa:before,
+		.fa-github:before {
+			content: "\f09b"
+		}
+		#social li a[href*="/feed"] .fa:before,
+		.fa-rss:before {
+			content: "\f09e"
+		}
+		#social li a[href*="pinterest.com"] .fa:before,
+		.fa-pinterest:before {
+			content: "\f0d2"
+		}
+		#social li a[href*="plus.google.com"] .fa:before,
+		.fa-google-plus:before {
+			content: "\f0d5"
+		}
+		#social li a[href*="linkedin.com"] .fa:before,
+		.fa-linkedin:before {
+			content: "\f0e1"
+		}
+		#social li a[href*="youtube.com"] .fa:before,
+		.fa-youtube:before {
+			content: "\f167"
+		}
+		#social li a[href*="instagram.com"] .fa:before,
+		.fa-instagram:before {
+			content: "\f16d"
+		}
+		#social li a[href*="flickr.com"] .fa:before,
+		.fa-flickr:before {
+			content: "\f16e"
+		}
+		#social li a[href*="tumblr.com"] .fa:before,
+		.fa-tumblr:before {
+			content: "\f173"
+		}
+		#social li a[href*="dribbble.com"] .fa:before,
+		.fa-dribbble:before {
+			content: "\f17d"
+		}
+		#social li a[href*="skype.com"] .fa:before,
+		.fa-skype:before {
+			content: "\f17e"
+		}
+		#social li a[href*="foursquare.com"] .fa:before,
+		.fa-foursquare:before {
+			content: "\f180"
+		}
+		#social li a[href*="vimeo.com"] .fa:before,
+		.fa-vimeo-square:before {
+			content: "\f194"
+		}
+		#social li a[href*="weheartit.com"] .fa:before,
+		.fa-heart:before {
+			content: "\f004"
+		}
+		#social li a[href*="spotify.com"] .fa:before,
+		.fa-spotify:before {
+			content: "\f1bc"
+		}
+		#social li a[href*="soundcloud.com"] .fa:before,
+		.fa-soundcloud:before {
+			content: "\f1be"
+		}</style> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9250759221928812",
+    enable_page_level_ads: true
+  });</script> <meta name="google-site-verification" content="Bln4HxqGyd5QiEH0UZ2AUTCgVtQbPm5Qi3SNKN5RRWA"> <meta name="baidu-site-verification" content="YltbMCiLwm"> <meta name="baidu_union_verify" content="1e06c7fd30c304334a27c7203189e7f9">  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151398366-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151398366-1');</script>  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136778682-1"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136778682-1');</script>  <link rel="stylesheet" href="http://www.showsql.com/highlight/styles/xt256.css"> <script src="http://www.showsql.com/highlight/highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-32x32.jpg" sizes="32x32"><link rel="icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-192x192.jpg" sizes="192x192"><link rel="apple-touch-icon" href="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-180x180.jpg"><meta name="msapplication-TileImage" content="http://www.showsql.com/wp-content/uploads/2019/09/cropped-logo-1-270x270.jpg"><style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-C0CoqF2mQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787weuxJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lora/v15/0QI6MX1D_JOuGQbT0gvTJPa787z5vBJPkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Maven Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mavenpro/v20/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8cLx1nmjpw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gfD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKWyV9hlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v17/mem6YaGs126MiZpBA-UFUK0Xdcg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v17/memnYaGs126MiZpBA-UFUKXGUdhlIqY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50e.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhs.ttf) format('truetype');
+}
+</style></head><body class="post-template-default single single-post postid-13400 single-format-standard has-sidebar-right"> <script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script> <div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"> <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li id="menu-item-12216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12216"><a title="Algorithms" href="http://www.showsql.com/algorithms/">Algorithms </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-12217"><a title="Leetcode Algorithms" href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li></ul></li><li id="menu-item-12200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12200"><a title="Database" href="http://www.showsql.com/database/">Database </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12204" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12204"><a title="Database Basics" href="http://www.showsql.com/category/database-basics/">Database Basics</a></li><li id="menu-item-3130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3130"><a title="leetcode database problems and solutions" href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode database problems and solutions</a></li><li id="menu-item-12201" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12201"><a title="Leetcode SQL" href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li id="menu-item-12203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12203"><a title="Sqlzoo SQL" href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li id="menu-item-12202" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12202"><a title="Nowcoder SQL" href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li id="menu-item-14638" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14638"><a title="MySQL" href="http://www.showsql.com/category/mysql/">MySQL</a></li></ul></li><li id="menu-item-12222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12222"><a title="Hadoop" href="http://www.showsql.com/hadoop/">Hadoop </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12223"><a title="Mapreduce" href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li></ul></li><li id="menu-item-12227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12227"><a title="Redis" href="http://www.showsql.com/redis/">Redis </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12228"><a title="Redis Data Structure" href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li></ul></li><li id="menu-item-12234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-12234"><a title="Miscellaneous" href="http://www.showsql.com/miscellaneous/">Miscellaneous </a><span class="activello-dropdown"></span><ul role="menu" class=" dropdown-menu"><li id="menu-item-12235" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12235"><a title="Uncategorized" href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li id="menu-item-12236" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12236"><a title="Optimization" href="http://www.showsql.com/category/optimization/">Optimization</a></li><li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-688"><a title="Privacy policy" href="http://www.showsql.com/privacy-policy/">Privacy policy</a></li></ul></li></ul></div><div class="nav-search"><form action="http://www.showsql.com/" method="get"><input type="text" name="s" value="" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form></div></div></div></div></nav><div class="container"><div id="logo"> <span class="site-name"> <a class="navbar-brand" href="http://www.showsql.com/" title="Wonderful Tech" rel="home">Wonderful Tech</a> </span><div class="tagline">Learning Always</div></div><div id="line"></div></div></header><div id="content" class="site-content"><div class="top-section"></div><div class="container main-content-area"><div class="cat-title"><ul class="post-categories"><li><a href="http://www.showsql.com/category/leetcode-algorithms/" rel="category tag">Leetcode Algorithms</a></li></ul></div><div class="row"><div class="main-content-inner col-sm-12 col-md-8 "><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article id="post-13400" class="post-13400 post type-post status-publish format-standard hentry category-leetcode-algorithms tag-28"><div class="blog-item-wrap"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing</h1><div class="entry-meta"> <span class="posted-on">Posted on <a href="http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/" rel="bookmark"><time class="entry-date published" datetime="2019-12-20T16:01:19+08:00">2019&#24180;12&#26376;20&#26085;</time><time class="updated" datetime="2019-12-20T16:01:26+08:00">2019&#24180;12&#26376;20&#26085;</time></a></span>by <span class="author vcard"><a class="url fn n" href="http://www.showsql.com/author/jasonpeng/">jasonpeng</a></span></div></header> <a href="http://www.showsql.com/2019/12/20/leetcode465-optimal-account-balancing/" title="leetcode465 &#26368;&#20248;&#36134;&#21333;&#24179;&#34913; Optimal Account Balancing"> </a><div class="entry-content"><p> <a href="http://www.showsql.com/leetcode-database-problems-and-solutions/">leetcode &#25968;&#25454;&#24211;&#39064;&#30446;&#20840;&#37096;&#39064;&#35299;</a></p><div id="ez-toc-container" class="ez-toc-v2_0_11 counter-hierarchy counter-decimal ez-toc-grey"><div class="ez-toc-title-container"><p class="ez-toc-title">Table of Contents</p> <span class="ez-toc-title-toggle"></span></div><nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#%E8%A7%A3%E6%B3%95%E4%B8%80_%E5%9B%9E%E6%BA%AF%E6%B3%95" title="&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;">&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-2" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5" title="&#31532;&#19968;&#27493;">&#31532;&#19968;&#27493;</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-3" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5" title="&#31532;&#20108;&#27493;">&#31532;&#20108;&#27493;</a></li></ul></li></ul></nav></div><h2><span class="ez-toc-section" id="%E8%A7%A3%E6%B3%95%E4%B8%80_%E5%9B%9E%E6%BA%AF%E6%B3%95"></span>&#35299;&#27861;&#19968; &#22238;&#28335;&#27861;<span class="ez-toc-section-end"></span></h2><p>&#19968;&#24320;&#22987;&#25152;&#26377;&#20154;&#30340;&#38065;&#37117;&#26159;0.</p><p>&#19977;&#20803;&#32452; (x, y, z)&nbsp; &#34920;&#31034; x&#20511;&#32473;y&#20849;z&#20803;&#12290;</p><p>x&#20511;&#20986;z&#20803;&#65292;x&#30340;&#36134;&#25143;&#65292;&#20174;0&#21464;&#25104;-z&#20803;&#12290;</p><p>y&#20511;&#20837;z&#20803;&#65292;y&#30340;&#36134;&#25143;&#65292;&#20174;0&#21464;&#25104;z&#20803;&#12290;</p><h3><span class="ez-toc-section" id="%E7%AC%AC%E4%B8%80%E6%AD%A5"></span>&#31532;&#19968;&#27493;<span class="ez-toc-section-end"></span></h3><p>&#39318;&#20808;&#23545;&#36755;&#20837;&#39044;&#22788;&#29702;&#65292;&#35745;&#31639;&#20986;&#65292;&#26368;&#32456;&#27599;&#20010;&#20154;&#65292;&#36134;&#25143;&#20013;&#30340;&#20313;&#39069;&#12290; &#26174;&#28982;&#65292;&#20313;&#39069;&#31561;&#20110;0&#30340;&#23601;&#19981;&#29992;&#21442;&#19982;&#21518;&#24207;&#30340;&#36816;&#31639;&#20102;&#12290;&#26368;&#32456;&#30446;&#26631;&#65292;&#26159;&#23558;&#27491;&#20313;&#39069;&#65292;&#20998;&#37197;&#32473;&#36127; &#20313;&#39069; &#12290;&#35753;&#25152;&#26377;&#20154;&#30340; &#20313;&#39069; &#37117;&#21464;&#20026;0. &#26412;&#39064;&#35201;&#27714;&#30340;&#23601;&#26159;&#26368;&#23569;&#30340;&#20998;&#37197;&#27425;&#25968;&#12290;</p><p>&#20363;&#22914;&#65306;[[0,6,7],[0,7,7],[1,4,5],[1,5,4],[2,5,2],[3,7,1]]</p><p>&#39044;&#22788;&#29702;&#21518;&#65292;&#21464;&#20026;&#19979;&#38754;&#30340; &#20313;&#39069; &#12290;&#26684;&#24335;&#20026;&#65306;&#20154;&#65306; &#20313;&#39069; &#12290;</p><p> 3 : -1  2 : -2  6 : 7  0 : -14  7 : 8  1 : -9  4 : 5  5 : 6</p><p>&#23558; &#20313;&#39069; &#20998;&#25104;&#20004;&#32452;&#65292;&#27491; &#20313;&#39069; &#65306;7 8 5 6</p><p>&#36127; &#20313;&#39069; &#65306;-1 -2 -14 -9</p><p>&#30446;&#26631;&#23601;&#26159;&#23558;&#27491; &#20313;&#39069; &#20998;&#37197;&#21040;&#36127;  &#20313;&#39069; &#12290;&#28982;&#21518;&#35753;&#27491;&#65292;&#36127; &#20313;&#39069; &#37117;&#21464;&#20026;0.</p><p>&#19968;&#31181;&#20998;&#37197;&#26041;&#27861;&#26159;&#65292;&#23558;8 6 &#25340;&#36215;&#26469;&#20998;&#32473;-14&#65292;&#29992;&#20102;2&#27425;&#12290;</p><p>7&#20998;&#32473;-9&#65292;&#20313;-2&#65292;&#29992;&#20102;1&#27425;&#12290;</p><p>5&#20998;&#32473;-1 -2 -2&#65292;&#29992;&#20102;3&#27425;&#12290;&#33267;&#27492;&#65292;&#20849;&#29992;&#20102;6&#27425;&#65292;&#25152;&#26377;&#30340; &#20313;&#39069; &#37117;&#21464;&#20026;0.</p><p>&#29992;&#21704;&#24076;&#34920;&#35760;&#24405;&#27599;&#20010;&#20154;&#30340;&#20313;&#39069;&#65306;</p><pre class="wp-block-code"><code>hash&lt;&#20154;,&#20313;&#39069;&gt;={};
+for((x,y,z) in &#36755;&#20837;){
+    hash[x] -= z;
+    hash[y] += z;
+}</code></pre><h3><span class="ez-toc-section" id="%E7%AC%AC%E4%BA%8C%E6%AD%A5"></span>&#31532;&#20108;&#27493;<span class="ez-toc-section-end"></span></h3><p>&#26412;&#39064;&#29992;&#36138;&#24515;&#31639;&#27861;&#19981;&#33021;&#27714;&#20986;&#27599;&#31181;&#24773;&#20917;&#30340;&#26368;&#23569;&#20998;&#37197;&#27425;&#25968;&#12290;</p><p>&#20063;&#35797;&#36807;&#29992;&#32593;&#32476;&#27969;&#30340;&#24605;&#36335;&#20998;&#26512;&#38382;&#39064;&#65292;&#21457;&#29616;&#19981;&#23481;&#26131;&#25214;&#21040;&#20854;&#23545;&#24212;&#21040;&#32593;&#32476;&#27969;&#20013;&#30340;&#30830;&#20999;&#27169;&#22411;&#12290;</p><p>&#26368;&#32456;&#30830;&#23450;&#29992;&#26292;&#21147;&#27861;&#27714;&#35299;&#12290;</p><p>&#23545;&#27599;&#20010;&#27491; &#20313;&#39069; &#65292;&#23558;&#20854;&#20998;&#37197;&#21040;&#27599;&#20010;&#36127; &#20313;&#39069; &#12290;&#36825;&#26679;&#20250;&#23548;&#33268;&#27491; &#20313;&#39069; &#21644;&#36127; &#20313;&#39069; &#30340;&#21015;&#34920;&#21457;&#29983;&#21464;&#21270;&#12290;&#28982;&#21518;&#36882;&#24402;&#20998;&#37197;&#20462;&#25913;&#21518;&#30340;&#21015;&#34920;&#12290;&#24403;&#20004;&#20010;&#21015;&#34920;&#20013;&#30340; &#20313;&#39069; &#37117;&#26159;0&#26102;&#65292;&#23601;&#32467;&#26463;&#20102;&#12290;</p><p>&#25509;&#30528;&#19978;&#38754;&#30340;&#20363;&#23376;&#65292; &#27491; &#20313;&#39069; &#65306;7 8 5 6</p><p> &#36127; &#20313;&#39069; &#65306;-1 -2 -14 -9</p><p>7&#21487;&#20197;&#20998;&#37197;&#21040; -1 -2 -14 -9 &#20013;&#30340;&#20219;&#19968;&#20010;&#12290;</p><p>&#24403;7 &#20998;&#37197;&#21040; -1&#26102;&#65292; 7+&#65288;-1&#65289;=6&#65292;6&#20381;&#28982;&#20445;&#30041;&#22312; &#27491; &#20313;&#39069; &#21015;&#34920;&#20013;&#65292;&#27491; &#20313;&#39069;  &#21464;&#20026;&#65306;6 8 5 6</p><p>&#36127; &#20313;&#39069; &#21464;&#20026; &#65306;0 -2 -14 -9</p><p>&#22312;&#20462;&#25913;&#21518;&#30340;&#27491;&#36127;&#20313;&#39069;&#21015;&#34920;&#19978;&#65292;&#36882;&#24402;&#35745;&#31639;&#12290;</p><p>&#24403;7 &#20998;&#37197;&#21040; -14&#26102;&#65292; 7+&#65288;-14&#65289;=-7&#65292;-7&#20445;&#30041;&#22312; &#36127; &#20313;&#39069; &#21015;&#34920;&#20013;&#65292;&#27491; &#20313;&#39069;  &#21464;&#20026;&#65306;0 8 5 6</p><p>&#36127; &#20313;&#39069; &#21464;&#20026; &#65306;-1 -2 -7 -9</p><p>&#22312;&#20462;&#25913;&#21518;&#30340;&#27491;&#36127;&#20313;&#39069;&#21015;&#34920;&#19978;&#65292;&#36882;&#24402;&#35745;&#31639;&#12290;</p><pre class="wp-block-code"><code>pos;&#27491;&#20313;&#39069;&#21015;&#34920;
+neg;&#36127;&#20313;&#39069;&#21015;&#34920;
+s;&#27491;&#20313;&#39069;&#21015;&#34920;&#30340;&#20559;&#31227;&#65292;&#35201;&#20998;&#37197;&#31532;&#20960;&#20010;&#27491;&#20313;&#39069;
+z1;&#27491;&#20313;&#39069;&#21015;&#34920;&#20013;&#65292;0&#30340;&#20010;&#25968;
+z2;&#36127;&#20313;&#39069;&#21015;&#34920;&#20013;&#65292;0&#30340;&#20010;&#25968;
+c;&#27491;&#20313;&#39069;&#30340;&#20998;&#37197;&#27425;&#25968;
+ans=INT_MAX;&#26368;&#23569;&#30340;&#20998;&#37197;&#27425;&#25968;
+dfs(pos,neg,s,z1,z2,c){
+    if(z1 == pos.length &#19988; z2 == neg.length){&#27491;&#36127;&#20313;&#39069;&#21015;&#34920;&#20013;&#37117;&#26159;0&#65292;&#35828;&#26126;&#32467;&#26463;&#20102;
+        ans=min(ans,c);
+        &#36820;&#22238;;
+    }
+    if(z1 == pos.length &#25110; z2 == neg.length) &#27491;&#36127;&#20313;&#39069;&#21015;&#34920;&#20013;,&#26377;&#19968;&#20010;&#37117;&#26159;0&#65292;&#19981;&#29992;&#20877;&#20998;&#37197;&#65292;&#36820;&#22238;;
+    //&#23558;pos[i]&#20998;&#37197;&#32473;neg[j]
+    for(i in [s,pos.length-1]){
+        for(j in [0,neg.length-1]){
+            if(neg[j] == 0) pass&#25481;;
+            a=pos[i];
+            b=neg[j];
+            r=a+b;
+            if(r&gt;0){//pos[i]&#20998;&#37197;&#32473;neg[j]&#65292;pos[i]&#36824;&#26377;&#20313;&#39069;r&#65292;&#32487;&#32493;&#20445;&#30041;&#22312;pos[i].
+                pos[i]=r;
+                neg[j]=0;
+                dfs(pos,neg,i,z1,z2+1,c+1);//neg&#20013;0&#22686;&#21152;1&#20010;
+            }else if(r &lt; 0){//pos[i]&#20998;&#37197;&#32473;neg[j]&#65292;neg[j]&#36824;&#24046;&#20313;&#39069;r&#65292;&#32487;&#32493;&#20445;&#30041;&#22312;neg[j].
+                pos[i]=0;
+                neg[j]=r;
+                dfs(pos,neg,i+1,z1+1,z2,c+1);//pos&#20013;0&#22686;&#21152;1&#20010;
+            }else{//pos[i]&#20998;&#37197;&#32473;neg[j]&#65292;&#21018;&#22909;&#37197;&#24179;.
+                pos[i]=0;
+                neg[j]=0;
+                dfs(pos,neg,i+1,z1+1,z2+1,c+1);//pos&#20013;0&#22686;&#21152;1&#20010;,neg&#20013;0&#22686;&#21152;1&#20010;
+            }
+            //&#24674;&#22797;pos[i],neg[j]&#65292;&#20445;&#35777;&#19979;&#19968;&#36718;&#20998;&#37197;&#21069;&#65292;pos&#21644;neg&#24674;&#22797;&#21407;&#35980;
+            pos[i]=a;
+            neg[j]=b;
+        }
+    }
+}</code></pre><p>&#20195;&#30721;&#65306;</p><pre class="wp-block-code"><code>    int ans;
+    int minTransfers(vector&lt;vector&lt;int&gt;&gt;&amp; transactions) {
+        ans=INT_MAX;
+        unordered_map&lt;int,int&gt; hash;
+        for(int i=0;i&lt;transactions.size();++i){
+            vector&lt;int&gt;&amp; v=transactions[i];
+            hash[v[0]] -= v[2];
+            hash[v[1]] += v[2];
+        }
+        unordered_map&lt;int,int&gt;::iterator it;
+        int c1=0;
+        int c2=0;
+        vector&lt;int&gt; pos,neg;
+        for(it=hash.begin();it!=hash.end();++it){
+            if(it-&gt;second &gt; 0) ++c1,pos.push_back(it-&gt;second);
+            else if(it-&gt;second &lt; 0) ++c2,neg.push_back(it-&gt;second);
+        }
+        
+        dfs(pos,neg,0,0,0,0,0);
+
+        return ans;
+    }
+    
+    void dfs(vector&lt;int&gt;&amp; pos,vector&lt;int&gt;&amp; neg,
+             int s1,int s2,
+             int z1,int z2,int c){
+        if(z1 == pos.size() &amp;&amp; z2 == neg.size()){
+            ans=min(ans,c);
+            return ;
+        }
+        if(z1 == pos.size() || z2 == neg.size()) return;
+        for(int i=s1;i&lt;pos.size();++i){
+            for(int j=s2;j&lt;neg.size();++j){
+                if(neg[j] == 0) continue;
+                int a=pos[i];
+                int b=neg[j];
+                int r = a+b;
+                if(r&gt;0){
+                    pos[i]=r;
+                    neg[j]=0;
+                    dfs(pos,neg,i,0,z1,z2+1,c+1);
+                }else if(r&lt;0){
+                    pos[i]=0;
+                    neg[j]=r;
+                    dfs(pos,neg,i+1,0,z1+1,z2,c+1);
+                }else{
+                    pos[i]=0;
+                    neg[j]=0;
+                    dfs(pos,neg,i+1,0,z1+1,z2+1,c+1);
+                }
+                pos[i]=a;
+                neg[j]=b;
+            }
+        }
+    }</code></pre><p>Hits: 152</p></div><div class="entry-footer"> <div class="tagcloud"> <a href="http://www.showsql.com/tag/%e7%ae%97%e6%b3%95%e4%b8%8e%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84/">&#31639;&#27861;&#19982;&#25968;&#25454;&#32467;&#26500;</a></div> </div></div></div></article><nav class="navigation post-navigation" role="navigation"><h1 class="screen-reader-text">Post navigation</h1><div class="nav-links"><div class="nav-previous"><a href="http://www.showsql.com/2019/12/18/leetcode1147-longest-chunked-palindrome-decomposition/" rel="prev"><i class="fa fa-chevron-left"></i> leetcode1147 &#27573;&#24335;&#22238;&#25991; Longest Chunked Palindrome Decomposition</a></div><div class="nav-next"><a href="http://www.showsql.com/2019/12/21/leetcode864-shortest-path-to-get-all-keys/" rel="next">leetcode864 &#33719;&#21462;&#25152;&#26377;&#38053;&#21273;&#30340;&#26368;&#30701;&#36335;&#24452; Shortest Path to Get All Keys <i class="fa fa-chevron-right"></i></a></div></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="inner"><aside id="wgs_widget-2" class="widget widget_wgs_widget"><h3 class="widget-title">Search</h3><div class="wgs_wrapper"><div class="gcse-searchbox-only" data-resultsurl="http://www.showsql.com/search_gcse/"></div></div></aside><aside id="rss-2" class="widget widget_rss"><h3 class="widget-title"><a class="rsswidget" href="http://www.showsql.com/feed/"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.showsql.com/wp-includes/images/rss.png" alt="RSS"></a> <a class="rsswidget" href="http://www.showsql.com/">LATEST UPDATES</a></h3><ul><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a></li><li><a class="rsswidget" href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a></li></ul></aside><aside id="activello_recent_posts-3" class="widget activello-recent-posts"><h3 class="widget-title">Recent Posts</h3> <div class="recent-posts-wrapper"> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool-structure/">MySQL 8.0 Buffer pool &#32467;&#26500;</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/06/07/mysql-8-0-buffer-pool/">MySQL 8.0 Buffer pool</a> <span class="date">- 07 Jun , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution-2/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-best-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode6-z-zigzag-conversion-official-solution/">leetcode6  Z &#23383;&#24418;&#21464;&#25442; ZigZag Conversion &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-3/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/14/leetcode5-longest-palindromic-substring-best-solution-2/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 14 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-best-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/13/leetcode5-longest-palindromic-substring-official-solution/">leetcode5 &#26368;&#38271;&#22238;&#25991;&#23376;&#20018; Longest Palindromic Substring &#23448;&#26041;&#39064;&#35299;</a> <span class="date">- 13 Mar , 2020</span></div></div> <div class="post"> <div class="post-image "> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/"></a></div>  <div class="post-content"> <a href="http://www.showsql.com/2020/03/12/leetcode4-median-of-two-sorted-arrays-best-solution-3/">leetcode4 &#23547;&#25214;&#20004;&#20010;&#26377;&#24207;&#25968;&#32452;&#30340;&#20013;&#20301;&#25968; Median of Two Sorted Arrays &#31934;&#36873;&#39064;&#35299;</a> <span class="date">- 12 Mar , 2020</span></div></div></div> </aside><aside id="activello-cats-3" class="widget activello-cats"><h3 class="widget-title">Categories</h3><div class="cats-widget"><ul><li class="cat-item cat-item-27"><a href="http://www.showsql.com/category/leetcode-algorithms/">Leetcode Algorithms</a></li><li class="cat-item cat-item-65"><a href="http://www.showsql.com/category/leetcode-sql/">Leetcode SQL</a></li><li class="cat-item cat-item-34"><a href="http://www.showsql.com/category/mapreduce/">Mapreduce</a></li><li class="cat-item cat-item-32"><a href="http://www.showsql.com/category/redis-data-structure/">Redis Data Structure</a></li><li class="cat-item cat-item-39"><a href="http://www.showsql.com/category/nowcoder-sql/">Nowcoder SQL</a></li><li class="cat-item cat-item-30"><a href="http://www.showsql.com/category/sqlzoo-sql/">Sqlzoo SQL</a></li><li class="cat-item cat-item-1"><a href="http://www.showsql.com/category/uncategorized/">Uncategorized</a></li><li class="cat-item cat-item-67"><a href="http://www.showsql.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-2"><a href="http://www.showsql.com/category/optimization/">Optimization</a></li><li class="cat-item cat-item-40"><a href="http://www.showsql.com/category/database-basics/">Database Basics</a></li></ul></div></aside></div></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><div class="copyright col-md-12"> Activello						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a></div></div></div> <button class="scroll-to-top"><i class="fa fa-angle-up"></i></button></footer></div> <script type="text/javascript">jQuery( document ).ready( function( $ ){
+				if ( $( window ).width() >= 767 ){
+					$( '.navbar-nav > li.menu-item > a' ).click( function(){
+						if( $( this ).attr('target') !== '_blank' ){
+							window.location = $( this ).attr( 'href' );
+						}else{
+							var win = window.open($( this ).attr( 'href' ), '_blank');
+							win.focus();
+						}
+					});
+				}
+			});</script> <script type="text/javascript" id="google_cse_v2-js-extra">/* <![CDATA[ */
+var scriptParams = {"google_search_engine_id":"006324015570373898241:lm5orusphck"};
+/* ]]> */</script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/google_cse_v2.min.js" id="google_cse_v2-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/sg-cachepress/assets/js/lazysizes.min.js" id="siteground-optimizer-lazy-sizes-js-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/activello-skip-link-focus-fix.min.js" id="activello-skip-link-focus-fix-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/postmessage.min.js" id="postmessage-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/plugins/jetpack/_inc/build/jquery.jetpack-resize.min.js" id="jetpack_resize-js"></script> <script defer type="text/javascript" src="http://www.showsql.com/wp-content/uploads/siteground-optimizer-assets/jetpack_likes_queuehandler.min.js" id="jetpack_likes_queuehandler-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js" id="jquery-smooth-scroll-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js" id="js-cookie-js"></script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js" id="jquery-sticky-kit-js"></script> <script type="text/javascript" id="ez-toc-js-js-extra">/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30"};
+/* ]]> */</script> <script type="text/javascript" src="http://www.showsql.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js" id="ez-toc-js-js"></script> <script type="text/javascript" src="https://stats.wp.com/e-202043.js" async="async" defer></script> <script type="text/javascript">_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9.1',blog:'168814421',post:'13400',tz:'8',srv:'www.showsql.com'} ]);
+	_stq.push([ 'clickTrackerInit', '168814421', '13400' ]);</script> </body></html>
